@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <form name=mainForm>
+    <h4 class="card-header">HealthyPi v4</h4>
+    <div align="center">
+      <img src="logo.png" alt="Protocentral" width="100" height="100">
+    </div>
+
+    <div class="card">
+        <h3>Heart Rate<br><span id="display_heartrate"></span></h3><br>
+    </div>
+
+    <div class="card">
+        <h3>Respiration Rate<br><span id="display_respirationrate"></span></h3><br>
+    </div>
+
+    <div class="card">
+        <h3>SpO2<br><span id="display_spo2"></span></h3><br>
+    </div>
+
+    <div class="card">
+       <h3>Temperature<br><span id="display_temperature"></span></h3><br>
+    </div>
+
+    <input type=submit onclick="window.open('/OTA_login');" class=btn value="OTA Update"><br>
+    <input type=submit onclick="window.open('/network_change');" class=btn value="Change Wi-Fi network"><br>
+  </form>
+</body>
+
+<script>
+setInterval(function()
+ {
+   var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function()
+     {
+      if (this.readyState == 4 && this.status == 200)
+      {
+        window.b = this.responseText.split(',').map(function(item)
+        {
+          return parseInt(item, 10);
+        });
+        document.getElementById("display_heartrate").innerHTML = window.b[0];
+        document.getElementById("display_respirationrate").innerHTML = window.b[1];
+        document.getElementById("display_spo2").innerHTML = window.b[2];
+        document.getElementById("display_temperature").innerHTML = window.b[3]/100;
+      }
+   };
+  xhttp.open("GET", "/readtemperature", true);
+   xhttp.send();
+},1000 );
+</script>
+
+</html>

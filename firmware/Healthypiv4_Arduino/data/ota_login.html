@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+		
+</body>
+
+<form name=loginForm>
+
+<h1>Healthypi v4 OTA Login</h1>
+
+<input name=userid placeholder='User ID'><br>
+
+<br><input name=pwd placeholder=Password type=Password><br>
+
+<br><input type=submit onclick=check(this.form) class=btn value=Login><br></form>
+
+<script>
+
+function check(form) 
+{  
+	
+    if(form.userid.value=='admin' && form.pwd.value=='admin')
+	{
+		window.open('/serverIndex')
+	}
+	
+	else
+	{
+		alert('Error Password or Username')
+	}
+
+}
+</script> 
+
+</html>
+

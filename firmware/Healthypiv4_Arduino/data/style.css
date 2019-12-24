@@ -1,0 +1,43 @@
+<style>
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h4 {
+  font-weight: 600;
+  text-align: center;
+  font-size:25px;
+}
+
+#file-input,input
+{
+	width:75%;
+	height:40px;
+	border-radius:4px;
+	margin:10px auto;
+	font-size:20px
+}
+
+form{background:#fff;max-width:500px;margin:75px auto;padding:30px;border-radius:5px;text-align:center}
+
+.btn {background:#B22222;color:#fff;cursor:pointer}
+
+input{background:#f1f1f1;border:20;padding:0 15px}
+a{background:#f1f1f1;border:20;padding:0 15px}
+
+body{background:#FFFFFF;font-family:sans-serif;font-size:14px;color:#777}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  text-align: center;
+  background-color: #165369;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+</style>
