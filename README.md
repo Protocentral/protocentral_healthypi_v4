@@ -3,7 +3,7 @@
 HealthyPi 4 sets a new standard in mobility, wireless and wearable capabilities. It acts as data acquisition system enabling a continuous real time monitoring of human physiological data, which improves user's medical care within his/her environment and also medical research possibilities. It is comfortable to wear and does not restrict the user's freedom of movement and acts as a battery powered standalone device.
 
 
-![](assets/getting-started-0eeeba2d.jpg)
+![](docs/images/getting-started-0eeeba2d.jpg)
 
 
 HealthyPi v4 measures the following parameters in real-time and with high accuracy:
@@ -44,19 +44,19 @@ Pulse oximetry front end: TI AFE4400 pulse oximetry front end with integrated LE
 
 #### * Wearable mode
 
-![](assets/index-bd6b6286.jpg)
+![](docs/images/index-bd6b6286.jpg)
 
 The device communicates to android app via BLE. The real time vital signs (heart rate, respiration rate, spo2 and body temperature) along with device battery level can be monitored  from the Android mobile application. Additionally, you can also view live streaming of ECG. Added on-board power source (Battery) enhances the device to be used in a complete wearable platform.
 
 #### * Standalone webserver mode (IOT)
 
-![](assets/index-355384cd.png)
+![](docs/images/index-355384cd.png)
 
 Unlocking the possibilities of HealthyPi v4 as IOT, data can be displayed on the PC screen using a TCP communication. Connecting your smart devices with the “Healthypi ” soft-ap can stream vital signs through webserver. The HealthyPi v4 webserver page displays live monitoring of physiological data. Additionally with added on OTA updates feature, you can easily update the firmware in minutes.
 
 #### * v3 mode (HealthyPi v3 compatible)
 
-![](assets/index-7f598c55.png)
+![](docs/images/index-7f598c55.png)
 
 Using the Raspberry Pi as its computing and display platform, The HealthyPi v4 add-on HAT turns the Raspberry Pi into a vital sign monitoring system.On successful interfacing of GUI with HealthyPi v4, ECG, respiration, spo2  waveforms and  its values along with temperature can be  streamed live through Raspberry Pi display or Computer monitor depending on the users choice. The user can also record the data for research and analysis.
 
