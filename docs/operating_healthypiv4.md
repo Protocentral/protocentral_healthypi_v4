@@ -11,7 +11,7 @@ weight: 2
 #### Connecting the ECG/Respiration Electrodes
 
 A 3-electrode cable along with a standard stereo jack is provided along with the shield to connect the electrodes to the  board.
-The other side of the electrode connector would connect to snap-on electrodes attached to the body. For testing purposes, you can use an ECG simulator to provide inputs to the board.
+The other side of the electrode connector would connect to Snap-on electrodes attached to the body. For testing purposes, you can use an ECG simulator to provide inputs to the board.
 
 ![Open the terminal](images/hpi4-connect-ecg.jpg)
 
@@ -26,7 +26,7 @@ Place the electrodes on the body in these positions to get the best signal. Howe
 
 [Pulse oximetry](https://en.wikipedia.org/wiki/Pulse_oximetry) is an optical method of non-invasively measuring the oxygen content in the blood. This is achieved with the help of a finger-clip probe that contains some LEDs on one side of the clip and a photo-detector on the other side.
 
-The LEDs emit light in the red and IR wavelengths. Some of these are absorbed by the blood and the rest is transmitted through to the other side of  the finger, which is is picked up by the photo-detector. The Pulse Oximetry front-end measures this variance in the transmitted light intensity to display the [Photoplethysmogram (PPG)](https://en.wikipedia.org/wiki/Photoplethysmogram) signal. SpO2 is a computed value derived from the Red and IR PPG signal.
+The LEDs emit light in the red and IR wavelengths. Some of these are absorbed by the blood and the rest is transmitted through to the other side of  the finger, which is picked up by the photo-detector. The Pulse Oximetry front-end measures this variance in the transmitted light intensity to display the [Photoplethysmogram (PPG)](https://en.wikipedia.org/wiki/Photoplethysmogram) signal. SpO2 is a computed value derived from the Red and IR PPG signal.
 
 To start measuring, simply plug-in the provided SpO2 finger-clip probe to the DB9 connector on the HealthyPi v4 board. If the probe is properly plugged in, you should see a Red glow inside the probe.
 
@@ -38,7 +38,7 @@ A digital human body temperature sensor based on the MAX30205 from Maxim Integra
 
 ![Temperature sensor](images/hpi3-temperature.jpg)
 
-No more colour coding confusion, Just Plug the qwiic based temperature sensor directly to read data.Refer the connection shown in the following picture.
+No more colour coding confusion, Just Plug the qwiic based temperature sensor directly to read data. Refer the connection shown in the following picture.
 
 [Photo of temperature sensor connector with color codes]
 
@@ -46,7 +46,7 @@ No more colour coding confusion, Just Plug the qwiic based temperature sensor di
 
 #### Explore with two modes
 
-Now switching between two different modes in the HealthyPi v4 is  made simple. You have to just slide the mode selection switch to experience the features hidden under the two modes, the default mode will be HPi3 mode and another is the wearable mode.Check out the below video for mode selection tutorial.
+Now switching between two different modes in the HealthyPi v4 is  made simple. You have to just slide the mode selection switch to experience the features hidden under the two modes, the default mode will be HPi3 mode and another is the wearable mode. Check out the below video for mode selection tutorial.
 
 #### Choice for connectivity
 
@@ -56,10 +56,17 @@ In the wearable mode the HealthyPi v4 acts as wireless, you can choose the defau
 
 #### Plugging Battery
 
-Powering the device with a LiPo rechargeable battery improves its portability. HealthyPi v4 can be used as a standalone device, without external interfaces or power.The battery can be directly connected to HealthyPi v4 through the onboard 2-pin JST-PH connector.Check out the image below connecting the battery with HealthyPi v4.
+Powering the device with a Li-Po rechargeable battery improves its portability. HealthyPi v4 can be used as a standalone device, without external interfaces or power. The battery can be directly connected to HealthyPi v4 through the onboard 2-pin JST-PH connector. Check out the image below connecting the battery with HealthyPi v4.
 
 #### Using a USB Port
 
-You can plug cables into a USB port in HealthyPi v4 at any time regardless of whether the device is powered on or off.The USB port can be used for powering the device, uploading the code and charging the battery.Check out the image below showing the USB connection.
+You can plug cables into a USB port in HealthyPi v4 at any time regardless of whether the device is powered on or off. The USB port can be used for powering the device, uploading the code and charging the battery. Check out the image below showing the USB connection.
 
 ### On-board Indication
+
+Start Indication     : yellow led stays for 2.5sec
+V3 mode              : blue led glows from low to high and vice versa in pwm
+Ble Indication       : yellow led blinks until connected
+Webserver Indication : yellow led glows from low to high and vice versa in pwm
+softAp Indication    : blue led blinks 6 times.
+OTA Upload Indication: both LEDs will blinks
