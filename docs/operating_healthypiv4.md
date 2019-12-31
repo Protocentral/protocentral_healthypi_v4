@@ -64,9 +64,41 @@ You can plug cables into a USB port in HealthyPi v4 at any time regardless of wh
 
 ### On-board Indication
 
-Start Indication     : yellow led stays for 2.5sec
-V3 mode              : blue led glows from low to high and vice versa in pwm
-Ble Indication       : yellow led blinks until connected
-Webserver Indication : yellow led glows from low to high and vice versa in pwm
-softAp Indication    : blue led blinks 6 times.
-OTA Upload Indication: both LEDs will blinks
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-s268{text-align:left}
+.tg .tg-nk0m{font-size:16px;font-family:Tahoma, Geneva, sans-serif !important;;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+
+  <tr>
+    <td class="tg-baqh">Start Indication</td>
+    <td class="tg-baqh">yellow led stays for 2.5sec</td>
+
+  </tr>
+  <tr>
+    <td class="tg-baqh">V3 mode </td>
+    <td class="tg-baqh">blue led glows from low to high and vice versa in pwm</td>
+
+  </tr>
+  <tr>
+    <td class="tg-baqh">Ble Indication</td>
+    <td class="tg-baqh">yellow led blinks until connected</td>
+
+  </tr>
+  <tr>
+    <td class="tg-baqh">Webserver Indication</td>
+    <td class="tg-baqh">yellow led glows from low to high and vice versa in pwm</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">softAp Indication</td>
+    <td class="tg-baqh">blue led blinks 6 times</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">OTA Upload Indication</td>
+    <td class="tg-baqh">both LEDs will blinks</td>
+  </tr>
+</table>
