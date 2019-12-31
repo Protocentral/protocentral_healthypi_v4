@@ -984,17 +984,6 @@ void handle_ble_stack()
     }
 
   }
-  /*else  if(strValue == "0ecg")
-  {
-    
-    if(ecg_buf_ready)
-    {
-      ecg_buf_ready = false;
-      datastream_Characteristic->setValue(ecg_data_buff, 18);    
-      datastream_Characteristic->notify();
-    }
-
-  }*/
  
   //send notifications if connected to a client
   if(global_HeartRate_prev != global_HeartRate)
