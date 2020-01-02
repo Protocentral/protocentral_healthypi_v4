@@ -1,1 +1,11 @@
-theme: jekyll-theme-minimal
+title: ProtoCentral Sensything
+
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: chromatical/jekyll-materialdocs
+
+mdl_colors: deep_purple-indigo # a supported Material Design Lite color scheme
+logo: images/sensything_logo.png
+copyright: CC_BY_SA # will override the copyright notice (default is site title)
+search: true # enabled by default, set to false to disable site search
