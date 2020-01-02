@@ -1,4 +1,4 @@
-title: ProtoCentral Sensything
+title: ProtoCentral HealthyPi v4
 
 plugins:
   - jekyll-remote-theme
@@ -6,6 +6,5 @@ plugins:
 remote_theme: chromatical/jekyll-materialdocs
 
 mdl_colors: deep_purple-indigo # a supported Material Design Lite color scheme
-logo: images/sensything_logo.png
 copyright: CC_BY_SA # will override the copyright notice (default is site title)
 search: true # enabled by default, set to false to disable site search
