@@ -27,11 +27,15 @@ As you learn and explore our device, you may encounter some hiccups along the wa
   </tr>
   <tr>
     <td class="tg-0pky"></td>
-    <td class="tg-0pky">- Try changing the USB cable</td>
+    <td class="tg-0pky">- Try changing the USB cable.</td>
   </tr>
   <tr>
     <td class="tg-0pky"></td>
-    <td class="tg-0pky">- Look for RED LED glowing for power indication </td>
+    <td class="tg-0pky">- Look for RED LED glowing for power indication.</td>
+  </tr>
+  <tr>
+   <td class="tq-0pky"></td>
+   <td class="tq-0pky">-Try installing the USB Drivers required.</td>
   </tr>
   <tr>
     <td class="tg-0pky">* If there is an uploading problem?</td>
@@ -116,5 +120,33 @@ As you learn and explore our device, you may encounter some hiccups along the wa
     <tr>
       <td class="tg-0pky"></td>
       <td class="tg-0pky">-Try uploading once again.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* What if webpage is not loaded when used mdns (healthypi.local)?</td>
+      <td class="tg-0pky">-Try loading once again or else use the IP address http://192.168.4.1.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* what should i do if there is a brownout reset?</td>
+      <td class="tq-0pky">-Check if the power supply is faulty.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Make sure that the power supply is sufficient during chip operation, connect the battery to the board.
+    </tr>
+    <tr>
+      <td class="tq-0pky">* Getting error, No such file or directory. </td>
+      <td class="tq-0pky">-Check whether you have selected the board as Esp32 Dev Module.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Make sure that the .h and .cpp files are included.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* What if i get Sketch too big, Error compiling for board ESP32 Dev Module?</td>
+      <td class="tq-0pky">-Check Partition Scheme option in Tools. Select Minimal SPIFFS(1.9MB APP with OTA/190KB SPIFFS).</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* What if OTA update freezes?</td>
+      <td class="tq-0pky">-Click on the OTA Update button again it continues updating from where it stops. </td>
     </tr>
 </table>
