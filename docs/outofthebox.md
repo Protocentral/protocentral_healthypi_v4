@@ -25,19 +25,19 @@ One unique feature that stands out with the HealthyPi v4 is its “out of the bo
   </tr>
   <tr>
     <td class="tg-0pky">HealthyPi v4 main board</td>
-    <td class="tg-0pky"><img src="/images/index-a8d6b52f.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/index-a8d6b52f.JPG" width="150" height="70"/></td>
   </tr>
   <tr>
     <td class="tg-0pky">1000mAH, 3.7V Li-Po Battery</td>
-    <td class="tg-0pky"><img src="/images/battery.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/battery.JPG" width="150" height="70"/></td>
   </tr>
   <tr>
     <td class="tg-0pky">Sensor Cable- Electrode pads(3 connectors)</td>
-    <td class="tg-0pky"><img src="/images/sensor_cable_ecg.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/sensor_cable_ecg.JPG" width="150" height="70"/></td>
   </tr>
   <tr>
     <td class="tg-0pky">Finger-clip SpO2 probe</td>
-    <td class="tg-0pky"><img src="/images/spo2_probe.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/spo2_probe.JPG" width="150" height="70"/></td>
   </tr>
   <tr>
     <td class="tg-0pky">Qwiic based temperature Sensor with Cable</td>
@@ -45,11 +45,11 @@ One unique feature that stands out with the HealthyPi v4 is its “out of the bo
   </tr>
   <tr>
     <td class="tg-0pky">micro_usb_cable</td>
-    <td class="tg-0pky"><img src="/images/micro_usb_cable.JPEG" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/micro_usb_cable.JPEG" width="150" height="70"/></td>
   </tr>
   <tr>
     <td class="tg-0pky">20 no's single-use ECG electrodes</td>
-    <td class="tg-0pky"><img src="/images/ecg_electrodes.GIF" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/ecg_electrodes.GIF" width="150" height="70"/></td>
   </tr>
 </table>
 
@@ -64,7 +64,7 @@ This kit contains everything in HAT Kit, and also includes:
   </tr>
   <tr>
     <td class="tg-0pky">Raspberry Pi 3 Model B+ computer</td>
-    <td class="tg-0pky"><img src="/images/raspberry-pi3-b-plus.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/raspberry-pi3-b-plus.JPG" width="150" height="70"/></td>
   </tr>
   <tr>
     <td class="tg-0pky">16GB microSD Card</td>
@@ -72,7 +72,7 @@ This kit contains everything in HAT Kit, and also includes:
   </tr>
   <tr>
     <td class="tg-0pky">SmartiPi case with 7" display</td>
-    <td class="tg-0pky"><img src="/images/smartipi.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky"><img src="./images/smartipi.JPG" width="150" height="70"/></td>
   </tr>
   <tr>
     <td class="tg-0pky">Medical-grade power supply</td>
