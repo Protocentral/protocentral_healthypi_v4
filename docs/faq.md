@@ -54,11 +54,11 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* For how long the data can be recorded?</td>
-    <td class="tq-0pky">-As long as the battery is there it will record the data.</td>
+    <td class="tq-0pky">-It will record the data till the battery drains.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* What are the specifications of ESP32?</td>
-    <td class-"tq-0pky">-You can refer the [datasheet](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf).</td>
+    <td class-"tq-0pky">-For ESP32 details Please refer the [datasheet](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf).</td>
   </tr>
     <tr>
     <td class="tq-0pky">* Will the board already have firmware uploaded to it?</td>
@@ -86,7 +86,7 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* Can the board works without a battery?</td>
-    <td class="tq-0pky">-Yes, it can work without a battery but you need to connect the high quality USB cable which is capable of delivering the required current.</td>
+    <td class="tq-0pky">-Yes, it can work without a battery but it need to be connect with the high quality USB cable which is capable of delivering the required current. In case the current delivered is not sufficient the board will restart so, it is recommended to use the board with battery.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* What are the username and password for OTA login?</td>
@@ -98,7 +98,7 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* What is the baud rate used for serial communication?</td>
-    <td class="tq-0pky">-It is 115200.</td>
+    <td class="tq-0pky">-The baud rate used for serial communication is 115200.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* How to install processing?</td>
@@ -112,4 +112,56 @@ weight:  # smaller weights rise to the top of the menu
     <td class="tq-0pky">* Which version of esp32 used in Arduino IDE?</td>
     <td class="tq-0pky">-The version of esp32 used is 1.0.4.</td>
   </tr>
-</table>
+  <tr>
+    <td class="tq-0pky">* Can it be used for machine learning?</td>
+    <td class="tq-0pky">-Yes, it can be used for machine learning.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Is the GUI windows specific?</td>
+    <td class="tq-0pky">-No, the GUI is not operating system specific.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Can the recorded data be transmitted over long distances using BLE and webserver?</td>
+    <td class="tq-0pky">-The recorded data will be stored in the mobile as a csv file. The user can transmit the file using mobiles Bluetooth or other communication option present in the phone.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Is Healthypi v4 compatible with all Raspberian versions?</td>
+    <td class="tq-0pky">-The testing of Healthypi v4 has been done with Raspberry pi 4.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Does the ECG quality depend on the position of sensor patch?</td>
+    <td class="tq-0pky">-Yes.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Does it give accurate results with the person whose ECG is being recorded shows movement?</td>
+    <td class="tq-0pky">-Slight variation can be observed in the ECG output if there is any movement while recording.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Is the healthypi mobile application free of cost?</td>
+    <td class="tq-0pky">-Yes, it is a free application.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Is the healthypi mobile application available in playstore?</td>
+    <td class="tq-0pky">-Yes, it is available in playstore.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Are there any provisions to add other sensors?</td>
+    <td class="tq-0pky">-The user can add a sensor with I2C communication protocol.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Is the firmware for healthypi open source?</td>
+    <td class="tq-0pky">-Yes, the firmware for healthypi V4 is open source.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Where can I get the firmware for healthypi v4?</td>
+    <td class="tq-0pky">-The firmware is available in the GitHub repository[].</td>
+  </tr>
+ <tr>
+    <td class="tq-0pky">* Can healthypi be used to detect various heart conditions like Afib, Tachycardia and so on?</td>
+    <td class="tq-0pky">-Arrhythmia conditions like Tachycardia and Bradycardia are detected based on Heart Rate and Healthypi v4 displays Heart Rate, the user can modify the firmware to detect these conditions.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Which pins of ESP32 are used for the ADS1292r?</td>
+    <td class="tq-0pky">-Data pin, chip select pin, start pin and the pwdn pin are connected to pins 26, 13, 14 and 27 of ESP32 respectively. For further details refer to the schematic in the GitHub respository[].</td>
+  </tr>
+  </table>

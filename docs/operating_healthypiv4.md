@@ -82,7 +82,10 @@ You can plug cables into a USB port in HealthyPi v4 at any time regardless of wh
   <tr>
     <td class="tg-baqh">V3 mode </td>
     <td class="tg-baqh">blue led glows from low to high and vice versa in pwm</td>
-
+  </tr>
+  <tr>
+    <td class="tg-baqh">Restart Indication </td>
+    <td class="tg-baqh">yellow led stays for 2.5sec</td>
   </tr>
   <tr>
     <td class="tg-baqh">Ble Indication</td>
@@ -98,7 +101,7 @@ You can plug cables into a USB port in HealthyPi v4 at any time regardless of wh
     <td class="tg-baqh">blue led blinks 6 times</td>
   </tr>
   <tr>
-    <td class="tg-baqh">OTA Upload Indication</td>
+    <td class="tg-baqh">OTA Upload Complete Indication</td>
     <td class="tg-baqh">both LEDs will blinks</td>
   </tr>
 </table>
