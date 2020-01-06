@@ -86,7 +86,7 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* Can the board works without a battery?</td>
-    <td class="tq-0pky">-Yes, it can work without a battery but it need to be connect with the high quality USB cable which is capable of delivering the required current. In case the current delivered is not sufficient the board will restart so, it is recommended to use the board with battery.</td>
+    <td class="tq-0pky">- No, some of the peripherals in the board may or may not power up  when used other power sources like USB cable. So, it is recommended to use the board with a battery.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* What are the username and password for OTA login?</td>

@@ -149,4 +149,60 @@ As you learn and explore our device, you may encounter some hiccups along the wa
       <td class="tq-0pky">* What if OTA update freezes?</td>
       <td class="tq-0pky">-Click on the OTA Update button again it continues updating from where it stops. </td>
     </tr>
-</table>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-check the network connection.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* What if the UI opens, the screen is blank and no plotting?</td>
+      <td class="tq-0pky">-Check the Healthy Pi board connection. If the firmware is outdated or corrupted, reload it.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Healthy Pi board communicates with Raspberry Pi OSM serial interface, ensure the serial lines are free.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* What if the signal quality is bad or the vitals are incorrect?</td>
+      <td class="tq-0pky">-Remove the AC adapter from the laptop, as it adds to the noise.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Check the Sensor connections.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-The sensors need to be securely attached to the body.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* Failed to connect to ESP32: Timed out waiting for packet header?</td>
+      <td class="tq-0pky">-Check whether the power switch is turned on.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Check the selected COM port and board in the board manager are given correct.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Try uploading once again.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* What if i did not find esp32 board package in board manager?</td>
+      <td class="tq-0pky">-Make sure the [url](https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json) is added in File->preferences, Additional board manager urls. Close the Arduino IDE and open it again.</td>
+    </tr>  
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Check for the latest version of Arduino IDE.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* Device is keep on restarting.</td>
+      <td class="tq-0pky">-It may be due to the current delivered is insufficient, check whether the battery is connected.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky">* Aborted, when updating file in webserver.</td>
+      <td class="tq-0pky">-Check the network connection.</td>
+    </tr>
+    <tr>
+      <td class="tq-0pky"></td>
+      <td class="tq-0pky">-Upload the firmware again and make sure the connection should be good enough while updating the file.</td>
+    </tr>
+  </table>
