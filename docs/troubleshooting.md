@@ -22,7 +22,7 @@ As you learn and explore our device, you may encounter some hiccups along the wa
     <th class="tg-ui9f"><span style="font-weight: bold">Solution</span></th>
   </tr>
   <tr>
-    <td class="tg-0pky">* If the port is not found?</td>
+    <td class="tg-0pky">* Is the COM PORT not detected?</td>
     <td class="tg-0pky">- You can unplug the USB cable and plug it again.</td>
   </tr>
   <tr>
@@ -38,12 +38,12 @@ As you learn and explore our device, you may encounter some hiccups along the wa
    <td class="tq-0pky">-Try installing the USB Drivers required.</td>
   </tr>
   <tr>
-    <td class="tg-0pky">* If there is an uploading problem?</td>
+    <td class="tg-0pky">* If there are issues while uploading firmware to the board?</td>
     <td class="tg-0pky">- Check whether the power switch is turned ON.</td>
   </tr>
   <tr>
     <td class="tg-0pky"></td>
-    <td class="tg-0pky">- Select the COM port and board in the board manager.</td>
+    <td class="tg-0pky">- Select the correct COM port and correct board.</td>
   </tr>
   <tr>
     <td class="tg-0pky"></td>
@@ -52,26 +52,6 @@ As you learn and explore our device, you may encounter some hiccups along the wa
   <tr>
     <td class="tg-0pky"></td>
     <td class="tg-0pky">- Download and upload the latest firmware from Github.</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">*  </td>
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">-&gt; </td>
-    <td class="tg-0pky">- Download and upload the latest firmware from Github,</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">-&gt; </td>
-    <td class="tg-0pky">- </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">-&gt; </td>
-    <td class="tg-0pky">- </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">-&gt; </td>
-    <td class="tg-0pky">- </td>
   </tr>
   <tr>
     <td class="tg-0pky">* What if BLE device is not found?</td>
@@ -94,24 +74,28 @@ As you learn and explore our device, you may encounter some hiccups along the wa
     <td class="tg-0pky">-Look for yellow led blinking for ble advertising indication.</td>
   </tr>
   <tr>
-    <td class="tg-0pky">* What if Web page is not loaded?</td>
+    <td class="tg-0pky">* Is the Web page is not loading?</td>
     <td class="tg-0pky">-Check whether spiffs is uploaded.</td>
   </tr>
   <tr>
     <td class="tg-0pky"></td>
-    <td class="tg-0pky">-See the data folder contains all the required files.</td>
+    <td class="tg-0pky">-Ensure that the data folder contains all the required files.</td>
   </tr>
   <tr>
     <td class="tg-0pky"></td>
-    <td class="tg-0pky">-Check whether you have connected to Healthypi_v4,if you are in softAp mode.</td>
+    <td class="tg-0pky">-Ensure that the data folder is in the same folder as the .ino file.</td>
   </tr>
   <tr>
     <td class="tg-0pky"></td>
-    <td class="tg-0pky">-Connect to the network which is added for changing network credentials.</td>
+    <td class="tg-0pky">-Check whether the system is connected to Healthypi_v4, if the board is in softAP mode.</td>
   </tr>
   <tr>
-    <td class="tg-0pky">* Want to switch from Webserver mode to v3 or ble what if slide switch is already in respective position?</td>
-    <td class="tg-0pky">-restart the device, it will go to the default mode based on slide switch position.</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">-Check whether the system is connected to the same WiFi network as the one that was added using ‘Network Credentials’ webpage.</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">* Want to switch from Webserver mode to V3 or BLE but slide switch is already in the respective position?</td>
+    <td class="tg-0pky">-Restart the device, it begins to function in  the default mode based on slide switch position.</td>
     </tr>
     <tr>
       <td class="tg-0pky">* What if SPIFFS is not uploading?</td>
@@ -122,11 +106,11 @@ As you learn and explore our device, you may encounter some hiccups along the wa
       <td class="tg-0pky">-Try uploading once again.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* What if webpage is not loaded when used mdns (healthypi.local)?</td>
-      <td class="tg-0pky">-Try loading once again or else use the IP address http://192.168.4.1.</td>
+      <td class="tq-0pky">* What if webpage is not loaded while using MDNS (healthypi.local)?</td>
+      <td class="tg-0pky">-Try connecting using MDNS once again or else use the IP address http://192.168.4.1.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* what should i do if there is a brownout reset?</td>
+      <td class="tq-0pky">* What need to be done incase of a brownout reset?</td>
       <td class="tq-0pky">-Check if the power supply is faulty.</td>
     </tr>
     <tr>
@@ -134,15 +118,15 @@ As you learn and explore our device, you may encounter some hiccups along the wa
       <td class="tq-0pky">-Make sure that the power supply is sufficient during chip operation, connect the battery to the board.
     </tr>
     <tr>
-      <td class="tq-0pky">* Getting error, No such file or directory. </td>
-      <td class="tq-0pky">-Check whether you have selected the board as Esp32 Dev Module.</td>
+      <td class="tq-0pky">* Getting error, "No such file or directory". </td>
+      <td class="tq-0pky">-Check in the Tools option, that the board is selected as Esp32 Dev Module.</td>
     </tr>
     <tr>
       <td class="tq-0pky"></td>
-      <td class="tq-0pky">-Make sure that the .h and .cpp files are included.</td>
+      <td class="tq-0pky">-Make sure that the library  files are included.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* What if i get Sketch too big, Error compiling for board ESP32 Dev Module?</td>
+      <td class="tq-0pky">* Getting the error, “Sketch too big, Error compiling for board ESP32 Dev Module”.</td>
       <td class="tq-0pky">-Check Partition Scheme option in Tools. Select Minimal SPIFFS(1.9MB APP with OTA/190KB SPIFFS).</td>
     </tr>
     <tr>
@@ -154,7 +138,7 @@ As you learn and explore our device, you may encounter some hiccups along the wa
       <td class="tq-0pky">-check the network connection.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* What if the UI opens, the screen is blank and no plotting?</td>
+      <td class="tq-0pky">* What if on opening the GUI, the screen is blank and no waveform is plotted?</td>
       <td class="tq-0pky">-Check the Healthy Pi board connection. If the firmware is outdated or corrupted, reload it.</td>
     </tr>
     <tr>
@@ -174,31 +158,31 @@ As you learn and explore our device, you may encounter some hiccups along the wa
       <td class="tq-0pky">-The sensors need to be securely attached to the body.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* Failed to connect to ESP32: Timed out waiting for packet header?</td>
+      <td class="tq-0pky">* Getting the error, “Failed to connect to ESP32: Timed out waiting for packet header".</td>
       <td class="tq-0pky">-Check whether the power switch is turned on.</td>
     </tr>
     <tr>
       <td class="tq-0pky"></td>
-      <td class="tq-0pky">-Check the selected COM port and board in the board manager are given correct.</td>
+      <td class="tq-0pky">-Ensure the correct COM port and board is selected.</td>
     </tr>
     <tr>
       <td class="tq-0pky"></td>
-      <td class="tq-0pky">-Try uploading once again.</td>
+      <td class="tq-0pky">-Try uploading the firmware once again.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* What if i did not find esp32 board package in board manager?</td>
-      <td class="tq-0pky">-Make sure the [url](https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json) is added in File->preferences, Additional board manager urls. Close the Arduino IDE and open it again.</td>
+      <td class="tq-0pky">* Not able to find ESP32 board package in board manager?</td>
+      <td class="tq-0pky">-Make sure the [url](https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json) is added in File->preferences, Additional board manager urls. Restart  Arduino IDE.</td>
     </tr>  
     <tr>
       <td class="tq-0pky"></td>
       <td class="tq-0pky">-Check for the latest version of Arduino IDE.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* Device is keep on restarting.</td>
-      <td class="tq-0pky">-It may be due to the current delivered is insufficient, check whether the battery is connected.</td>
+      <td class="tq-0pky">* Is the board restarting regularly?</td>
+      <td class="tq-0pky">-It may be due to the current delivered being insufficient, check whether the battery is connected.</td>
     </tr>
     <tr>
-      <td class="tq-0pky">* Aborted, when updating file in webserver.</td>
+      <td class="tq-0pky">* Is the file updation aborted, when updating file in webserver?</td>
       <td class="tq-0pky">-Check the network connection.</td>
     </tr>
     <tr>

@@ -2,7 +2,7 @@
 menu: FAQ
 weight:  # smaller weights rise to the top of the menu
 ---
-### Frequently asked questions
+### Frequently asked questionsMMMMMM
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -34,11 +34,11 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tg-0pky">* What is the power source?</td>
-    <td class="tg-0pky">-There is a Lipo battery (3.7V, 1000 mAH) as power source. This would be applicable to those who ordered the basic kits.</td>
+    <td class="tg-0pky">-There is a Lipo battery (3.7V, 1000 mAH) as a power source which is provided along with the Healthypi v4 board.</td>
   </tr>
   <tr>
-    <td class="tg-0pky">* How do I charge the battery?</td>
-    <td class="tg-0pky">-There is an On-board USB battery charger, plug in the battery to the board and then connect the USB cable.</td>
+    <td class="tg-0pky">* Is the battery rechargeable?</td>
+    <td class="tg-0pky">-Yes, the battery is rechargeable. There is an On-board USB battery charger, plug in the battery to the board and then connect the USB cable.</td>
   </tr>
   <tr>
     <td class="tg-0pky">* What is the supply voltage?</td>
@@ -54,7 +54,7 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* For how long the data can be recorded?</td>
-    <td class="tq-0pky">-It will record the data till the battery drains.</td>
+    <td class="tq-0pky">-Data can be recorded till the battery drains.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* What are the specifications of ESP32?</td>
@@ -67,15 +67,9 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
     <tr>
     <td class="tq-0pky">* How to install esp32 in Arduino IDE?</td>
-    <td class="tq-0pky">-In Arduino IDE, Tools->Board->Board manager, search for esp32 by Espressif Systems and install.</td>
+    <td class="tq-0pky">-In Arduino IDE, Tools->Board->Board manager, search for esp32 by Espressif Systems, select version no as 1.0.4 and install.</td>
   </tr>
-  </tr>
-    <tr>
-    <td class="tq-0pky">* Can the password and username for OTA be changed?</td>
-    <td class="tq-0pky">-No, the present firmware had no option to change the username and password.</td>
-  </tr>
-  </tr>
-    <tr>
+  <tr>
     <td class="tq-0pky">* What if we add SSID and Password multiple times?</td>
     <td class="tq-0pky">-The previous SSID and Password are replaced with the new SSID and Password.</td>
   </tr>
@@ -86,7 +80,7 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* Can the board works without a battery?</td>
-    <td class="tq-0pky">- No, some of the peripherals in the board may or may not power up  when used other power sources like USB cable. So, it is recommended to use the board with a battery.</td>
+    <td class="tq-0pky">- No, some of the peripherals in the board may or may not power up  when the board is powered up using other power sources like USB cable, power bank and so on. So, it is recommended to use the board with the Lipo battery provided along with the board.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* What are the username and password for OTA login?</td>
@@ -106,7 +100,7 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* If the WiFi does not connect, what needs to be done next?</td>
-    <td class="tq-0pky">-It will go to the softAp mode, connect to the host network Healthypi_v4.</td>
+    <td class="tq-0pky">- If the board does not connect to the required WiFi network, the board restarts and operates as a softAP.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* Which version of esp32 used in Arduino IDE?</td>
@@ -130,7 +124,7 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* Does the ECG quality depend on the position of sensor patch?</td>
-    <td class="tq-0pky">-Yes.</td>
+    <td class="tq-0pky">-Yes, the ECG quality does depend on the position of sensor patch.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* Does it give accurate results with the person whose ECG is being recorded shows movement?</td>
@@ -141,12 +135,8 @@ weight:  # smaller weights rise to the top of the menu
     <td class="tq-0pky">-Yes, it is a free application.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Is the healthypi mobile application available in playstore?</td>
-    <td class="tq-0pky">-Yes, it is available in playstore.</td>
-  </tr>
-  <tr>
     <td class="tq-0pky">* Are there any provisions to add other sensors?</td>
-    <td class="tq-0pky">-The user can add a sensor with I2C communication protocol.</td>
+    <td class="tq-0pky">-The user can add an additional sensor with I2C communication protocol.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* Is the firmware for healthypi open source?</td>
@@ -162,6 +152,18 @@ weight:  # smaller weights rise to the top of the menu
   </tr>
   <tr>
     <td class="tq-0pky">* Which pins of ESP32 are used for the ADS1292r?</td>
-    <td class="tq-0pky">-Data pin, chip select pin, start pin and the pwdn pin are connected to pins 26, 13, 14 and 27 of ESP32 respectively. For further details refer to the schematic in the GitHub respository[].</td>
+    <td class="tq-0pky">-Data pin, chip select pin, start pin and the pwdn pin of ADS1292r are connected to pins 26, 13, 14 and 27 of ESP32 respectively. For further details refer to the schematic in the GitHub repository[].</td>
   </tr>
-  </table>
+  <tr>
+    <td class="tq-0pky">* How many users can connect to the ESP32 soft AP mode at a time?</td>
+    <td class="tq-0pky">-Currently, a maximum of four users can be connected to a ESP32 softAP.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* I need more sensor patches. Can you provide it?</td>
+    <td class="tq-0pky">-No, we do not sell sensor patches.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* For real life applications, how accurate is the result?</td>
+    <td class="tq-0pky">-MAX30205 has an accuracy of 1oC, ADS1292r provides an accuracy of ±2% while AFE4490 provides an accuracy of ±5%.</td>
+  </tr>
+</table>
