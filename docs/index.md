@@ -55,7 +55,7 @@ The device communicates to android app via BLE. The real time vital signs (heart
 
 #### * Standalone webserver mode (IOT)
 
-![](assets/index-355384cd.png)
+![](assets/index-42061701.PNG)
 
 Unlocking the possibilities of HealthyPi v4 as IOT, data can be displayed on the PC screen using a TCP communication. Connecting your smart devices with the “Healthypi ” soft-ap can stream vital signs through webserver. The HealthyPi v4 webserver page displays live monitoring of physiological data. Additionally with added on OTA updates feature, you can easily update the firmware in minutes.
 

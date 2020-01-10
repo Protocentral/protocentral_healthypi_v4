@@ -25,12 +25,14 @@ OTA update feature in HealthyPi v4 is a more efficient and effective way to remo
 
 **4.** In order to shift to the STA mode where the user can connect the Healthypi v4 to a private network, repeat the above step and click on the Change WiFi Network button on the dashboard, it redirects to the webpage for entering Network Credentials. The device restarts and automatically connects to the user's desired network and displays the IP address of the private network in the Serial monitor.
 
-![](assets/4-web-server-f964c31c.PNG)
+![](assets/4-web-server-a35d8734.PNG)
 
 **5.** On the right hand corner of the web server dashboard, an OTA button is present. On clicking the button, an OTA login page appears for OTA credentials.
 
-![](assets/4-web-server-a35d8734.PNG)
+![](assets/4-web-server-f964c31c.PNG)
 
 **6.** Once logged-in, the user will be able to select the available binary files that can be used for software update of the  device.
+
+![](assets/HealthyPiv4_webserver-26e02b01.PNG)
 
 **7.** On rebooting the HealthyPi v4, the board functions as per the latest binary file / software.

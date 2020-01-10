@@ -3,6 +3,61 @@ menu: Advanced HealthyPiv4
 weight: 4
 ---
 
+### Advanced HealthyPi v4
+
+This section is for those who want to do a manual installation of HealthyPi, those who want to modify with the code and generally play with the hardware.
+
+For the simple way to setup HealthyPi on Raspberry Pi,
+The following are the steps involved to get Raspberry Pi ready for a wireless remote patient monitor.
+
+#### Step 1 : Install and Update the OS
+
+**->** Install the [Raspbian Buster with desktop and recommended software](https://www.raspberrypi.org/downloads/raspbian/) OS in Raspberry Pi.The image file can be downloaded from the [Raspberry Pi’s official website.](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+
+**->** Once the installation finishes, update the system with the following command in the Terminal:
+
+
+
+```c
+
+sudo apt-get update
+sudo apt-get upgrade
+
+```
+#### Step 2 : Setting it Up
+
+
+
+**->** Run the following command for setting up
+
+```c
+
+sudo nano /bootconfig.tx
+
+```
+**->** Add this line to the end of the file
+```c
+
+dtoverlay=pi3-disable-bt
+
+```
+#### Step 3 : Disable Serial command line console
+
+**->** To disable the Serial Console edit the file using the below command
+```c
+sudo nano /boot/cmdline.txt
+```
+**->** Remove the word phase “console=serial0,115200” or “console=ttyAMA0,115200”.
+
+**->** Save the file and close
+
+#### Step 4 : Reboot your Raspberry Pi
+
+**->** Now your Pi is ready to integrate with ProtoCentral’s Healthy Pi Hat.
+
+
+
+
 ### HealthyPi GUI based on Processing
 
 The HealthyPi visualization software  has been developed using the [Processing](https://processing.org/).
@@ -43,5 +98,7 @@ e. Finally, copy the “controlP5 & G4P” folders from HealthyPi/Processing/lib
 **3.** Now, connect your raspberry pi to the internet with the same network as your laptop is connected.
 
 **4.** Select “Tools” menu and choose “Upload to Pi” option from the list.
+
+![](assets/advanced-healthypiv4-305b4164.png)
 
 **5.** If any error occured in uploading the code, check for the internet connection and repeat the process.

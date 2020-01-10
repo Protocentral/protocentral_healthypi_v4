@@ -7,8 +7,7 @@ weight: 1 # smaller weights rise to the top of the menu
 
 Reliable health monitoring has traditionally required that we tether ourselves to machines capable of recording our vital signs around the clock. Outside of a clinical setting, however, this is rarely practical. We developed HealthyPi v4 in part to address this challenge. Building upon its predecessor, HealthyPi v4 is a fully open source, standalone vital signs monitor with wireless and wearable capabilities.
 
-
-<iframe width="640" height="360" src="https://vimeo.com/374411409" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+<iframe src="https://player.vimeo.com/video/374411409" width="640" height="361" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 
 ## Feature Highlights
@@ -27,13 +26,17 @@ Using HealthyPi v4 as open-source mature development platform you can recreate b
 #### Explore the ideas
 
 **1.How do you imagine the monitoring system of the future?**
+
 Using HealthyPi v4 vital signs monitoring system as source. If you really give it a try - you will make your application live with HealthyPi.
 
 **2.Can you respond to this year's PhysioNet challenge with your HealthyPi v4?**
+
  One way might be to try Early Prediction of Sepsis using vital signs measured by the HealthyPi v4.
 
 
 ### Experience the transition in modes
+
+
 
 Using On-board sliding swith, you can choose the modes for streaming live physiological data. Introducing the two modes in Healthypi v4 default HPi3 mode using the Raspberry Pi as its computing and display platform, the HealthyPi add-on HAT turns the Raspberry Pi into a vital sign monitoring system. Another is the Wearable mode where your device acts as wireless, low power, standalone, battery powered to stream data through ble and web server as wireless remote monitoring system.
 

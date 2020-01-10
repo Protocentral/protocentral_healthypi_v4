@@ -16,7 +16,7 @@ The [HealthyPi v4 Complete Kit](https://www.crowdsupply.com/protocentral/healthy
 
 The SmartiPi Touch Display that comes included with the HealthyPi v4 Complete kit is already partly assembled. Now it's time for you to take up the task by assembling the display enclosure and the display stand for the provided [SmartiPi Touch Case](https://smarticase.com/collections/all/products/smartipi-touch). Check out the below video for instructions on how to assemble the kit.
 
-<iframe src="**assemble the kit**" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/374411409" width="640" height="361" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 
 ### Using HealthyPi v4 on Raspberry Pi
@@ -50,7 +50,6 @@ After the script reboots your Raspberry Pi, you should be able to see the GUI di
 
 The HealthyPi board now streams the same data on the on-board USB port. This allows you to get the same data that goes to the Raspberry Pi, now on your desktop PC as well.
 
-<iframe src="https://player.vimeo.com/video/225754981" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 *Java 8 is required on all platforms for running the processing-based GUI application. You can download Java for your platform from the following link.*
 
@@ -58,7 +57,7 @@ The HealthyPi board now streams the same data on the on-board USB port. This all
 
 ### Installing drivers (only for Windows)
 
-HealthyPi uses the same drivers as an Arduino Zero. Once plugged in to the USB port, the device would be recognized as an "Unknown Device". You can locate the device is the Windows Device Manager and manually install the drivers provided in the "drivers" folder in the Windows Executable ZIP archive provided.
+HealthyPi v4 uses the same drivers as an ESP32. Once plugged in to the USB port, the device would be recognized as an "Unknown Device". You can locate the device is the Windows Device Manager and manually install the drivers provided in the "drivers" folder in the Windows Executable ZIP archive provided.
 
 MacOS and Linux do not need any drivers to be installed.
 
@@ -66,7 +65,7 @@ MacOS and Linux do not need any drivers to be installed.
 
 Download the zip file containing the executable files from the following links for 32-bit/64-bit Windows. If you do not know if you have a 64-bit or 32-bit computer, try with the 32-bit version.
 
-[Download the latest release here](https://github.com/Protocentral/protocentral-healthypi-v3/releases/latest)
+[Download the latest release here]()
 
 Simply download the appropriate file for your operating system, unzip the contents and run the executable program contained in it. On desktop operating systems, you will have to choose the correct port name assigned to the HealthyPi by USB. Simply select the port from the dropdown on the top and port should be opened.
 
