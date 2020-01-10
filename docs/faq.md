@@ -2,7 +2,7 @@
 menu: FAQ
 weight:  # smaller weights rise to the top of the menu
 ---
-### Frequently asked questionsMMMMMM
+### Frequently asked questions
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
