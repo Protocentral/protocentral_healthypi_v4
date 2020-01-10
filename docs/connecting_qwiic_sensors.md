@@ -1,5 +1,5 @@
 ---
-menu: Connecting-qwiic-sensors
+menu: Connecting Qwiic Sensors
 weight: 2
 ---
 

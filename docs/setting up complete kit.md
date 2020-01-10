@@ -1,14 +1,14 @@
 ---
-menu: Setting Up HealthyPi Complete Kit
+menu: Setting Up HealthyPi the Complete Kit
 parent: getting-started.md
 weight: 1
 ---
 
-## Setting Up HealthyPi Complete Kit
+## Setting Up the HealthyPi v4 Complete Kit
 
 The [HealthyPi v4 Complete Kit](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged#healthypi-v4-complete-kit) has all you need to quickly put together a standalone vital monitor. With the latest Raspberry Pi4 added with kit and microSD storage comes up with the HealthyPi v4 software pre-loaded and configured. Just Plug-in to stream live vital signs.
 
-### Simple Task in Complete Kit
+### Everything is in the box
 
 The SmartiPi Touch Display that comes included with the HealthyPi v4 Complete kit is already partly assembled. Now it's time for you to take up the task by assembling the display enclosure and the display stand for the provided [SmartiPi Touch Case](https://smarticase.com/collections/all/products/smartipi-touch). Check out the below video for instructions on how to assemble the kit.
 

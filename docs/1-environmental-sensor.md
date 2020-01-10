@@ -1,6 +1,6 @@
 ---
 menu: Health vs. Environment
-parent: Connecting-qwiic-sensors
+parent: connecting_qwiic_sensors
 weight: 0
 ---
 ### Health vs. Environment

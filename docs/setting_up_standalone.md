@@ -8,13 +8,7 @@ weight: 0
 
 Building upon its predecessor, HealthyPi v4 is enhanced to bring flexibility for end user's. Powered with popular esp32-wroom32 opens up the wireless and wearable capabilities. Now it's portable and standalone with in-built rechargeable battery.It can be used as HAT on raspberry or as a wearable platform.
 
-### Unboxing the Remote Patient-Monitor
-
-Unfolding is also a journey of discovery because until you open, you never know what is hidden inside, and you can be surprised by what you received - expect the unexpected! HealthyPi v4  will enable you to achieve its maximum potential. Ideas with HealthyPiv4 is key - once you have that, you are unstoppable.
-
-<iframe src="https://player.vimeo.com/video/383283671" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-#### HealthyPi v4 HAT Kit Contains:
+### What's in the box?
 
 **1.** HealthyPi v4 main board
 
@@ -30,9 +24,9 @@ Unfolding is also a journey of discovery because until you open, you never know 
 
 **7.** Disposable ECG electrodes(20 nos)</td>
 
-#### HealthyPi v4 Complete Kit Contains:
+### HealthyPi v4 Complete Kit Contains:
 
-This kit contains everything in HAT Kit, and also includes:
+This kit contains everything in HAT Kit, and *additionally* includes:
 
 **1.** Raspberry Pi 4 Model B computer</td>
 

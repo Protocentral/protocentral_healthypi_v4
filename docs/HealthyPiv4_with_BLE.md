@@ -1,5 +1,5 @@
 ---
-menu: HealthyPi with BLE
+menu: HealthyPi with Bluetooth LE
 parent: getting-started.md
 weight: 3
 ---
