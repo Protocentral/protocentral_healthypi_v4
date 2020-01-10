@@ -6,37 +6,39 @@ weight: 0
 
 ## Setting Up HealthyPi Standalone
 
-Building upon its predecessor, HealthyPi v4 is enhanced to bring flexibility for end user's. Powered with popular esp32-wroom32 opens up the wireless and wearable capabilities. Now it's portable and standalone with in-built rechargeable battery.It can be used as HAT on raspberry or as a wearable platform.
+![](images/standalone.jpg)
+
+Building upon its predecessor, HealthyPi v4 brings more flexibility to the user. Powered by the popular ESP32, it opens up wireless and wearable capabilities. Now it's portable and standalone with in-built rechargeable battery. It can still be used as a HAT for Raspberry Pi or as a standalone wearable platform.
 
 ### What's in the box?
 
 **1.** HealthyPi v4 main board
 
-**2.** 1000mAH, 3.7V Li-Po Battery with JST</td>
+**2.** 1000mAH, 3.7V Li-Po Battery with JST
 
-**3.** Sensor Cable- Electrode pads(3 connectors)</td>
+**3.** Sensor Cable- Electrode pads(3 connectors)
 
-**4.** Finger-clip SpO2 probe</td>
+**4.** Finger-clip SpO2 probe
 
-**5.** Qwiic based temperature Sensor with Cable</td>
+**5.** Qwiic based temperature Sensor with Cable
 
-**6.** Micro USB Cable</td>
+**6.** Micro USB Cable
 
-**7.** Disposable ECG electrodes(20 nos)</td>
+**7.** Disposable ECG electrodes(20 nos)
 
 ### HealthyPi v4 Complete Kit Contains:
 
 This kit contains everything in HAT Kit, and *additionally* includes:
 
-**1.** Raspberry Pi 4 Model B computer</td>
+**1.** Raspberry Pi 4 Model B computer
 
-**2.** Official 7" Raspberry Pi touchscreen LCD display</td>
+**2.** Official 7" Raspberry Pi touchscreen LCD display
 
-**3.** SmartiPi Touch-2 Enclosure</td>
+**3.** SmartiPi Touch-2 Enclosure
 
-**4.** 16GB microSD Card</td>
+**4.** 16GB microSD Card
 
-**5.** Medical-grade power supply</td>
+**5.** Medical-grade power supply
 
 ### Battery powered
 

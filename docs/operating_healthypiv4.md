@@ -15,7 +15,6 @@ weight: 2
 A 3-electrode cable along with a standard stereo jack is provided along with the shield to connect the electrodes to the  board.
 The other side of the electrode connector would connect to Snap-on electrodes attached to the body. For testing purposes, you can use an ECG simulator to provide inputs to the board.
 
-
 **Important Warning:**
 When connecting the electrodes to the body, it is safer to disconnect the mains power source to the Arduino. For example, if  you are using the Arduino along with a laptop, disconnecting the battery charger from the laptop would be a safe option.
 

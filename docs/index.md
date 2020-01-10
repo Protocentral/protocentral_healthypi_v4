@@ -5,24 +5,22 @@ weight: 0 # smaller weights rise to the top of the menu
 
 ## Welcome to HealthyPi v4
 
-HealthyPi 4 sets a new standard in mobility, wireless and wearable capabilities. It acts as data acquisition system enabling a continuous real time monitoring of human physiological data, which improves user's medical care within his/her environment and also medical research possibilities. It is comfortable to wear and does not restrict the user's freedom of movement and acts as a battery powered standalone device.
-
+HealthyPi 4 sets a new standard in open source health solutions with mobility, wireless and wearable capabilities. It enables the continuous real-time monitoring of human physiological data, which provides a snapshot of the user's medical condition within his/her environment and also medical research possibilities. It is comfortable to wear and does not restrict the user's freedom of movement and can also act as a battery powered standalone device.
 
 ![](assets/index-95ce6c8a.jpg)
 
-
 HealthyPi v4 measures the following parameters in real-time and with high accuracy:
 
-  *   Electrocardiogram (ECG) data, heart rate, and heart-rate variability
-  *    Respiration based on an impedance pneumograph
-  *    Pulse oximetry (SPO₂)
-  *    Body temperature
+* Electrocardiogram (ECG) data, heart rate, and heart-rate variability
+* Respiration based on Impedance Pneumography
+* Pulse oximetry (SPO₂)
+* Body temperature
 
 HealthyPi 4 is affordable and accessible and the open source aspect means that it’s easy to expand on.
-You can now hire HealthyPi v4 from [Crowd Supply](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged)
+You can now purchase a HealthyPi v4 from [Crowd Supply](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged)
 
-### HIGHLIGHTS
-**Microcontroller and wireless connectivity:**  ESP32, in WROOM32 module format, with a Dual-core Xtensa 32-bit CPU, 4 MB of on-board flash, Wi-Fi, and support for BLE
+### Features
+**Microcontroller and wireless connectivity:**  ESP32, in WROOM32 module format, with Dual-core Xtensa 32-bit CPU, 4 MB of on-board flash, Wi-Fi, and support for BLE
 
 **Wireless interface:**  Wi-Fi and Access Point (AP) modes, a 2.4 GHz radio with an on-board PCB antenna that is compatible with Bluetooth 4.2 and BLE
 
@@ -36,7 +34,7 @@ Pulse oximetry front end: TI AFE4400 pulse oximetry front end with integrated LE
 
 **Form factor:** Raspberry Pi HAT form factor (65 mm X 56 mm)
 
-### PORTS & INTERFACES:
+### Ports and interfaces:
 
 * **On / Off Switch :** Powering the HealthyPi v4
 * **USB-CDC :** On-board USB-TO-UART converter
