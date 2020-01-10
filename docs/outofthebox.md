@@ -1,11 +1,14 @@
 ---
 menu: Out of the box
 parent: getting-started.md
-weight:
+weight: 0
 ---
-### HealthyPi v4 - "Out of the box"
+### Unboxing the Remote Patient-Monitor
 
-One unique feature that stands out with the HealthyPi v4 is its “out of the box” approach. You may wonder what is so unique about it. Where else can you find a board that you can immediately use once you unbox it. The board is “READY TO USE”.
+Unfolding is also a journey of discovery because until you open, you never know what is hidden inside, and you can be surprised by what you received - expect the unexpected! HealthyPi v4  will enable you to achieve its maximum potential. Ideas with HealthyPiv4 is key - once you have that, you are unstoppable.
+
+<iframe src="https://player.vimeo.com/video/383283671" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
 
 #### What's in the box?
 <style type="text/css">
@@ -18,38 +21,38 @@ One unique feature that stands out with the HealthyPi v4 is its “out of the bo
 
 ##### HealthyPi v4 HAT Kit Contains:
 
+
+
 <table class="tg">
   <tr>
-    <th class="tg-ui9f"><span style="font-weight: bold">List</span></th>
-    <th class="tg-ui9f"><span style="font-weight: bold">Images</span></th>
+    <th class="tg-ui9f"><span style="font-weight: bold">LIST</span></th>
+
   </tr>
   <tr>
-    <td class="tg-0pky">HealthyPi v4 main board</td>
-    <td class="tg-0pky"><img src="./images/index-a8d6b52f.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky">1. HealthyPi v4 main board</td>
+
   </tr>
   <tr>
-    <td class="tg-0pky">1000mAH, 3.7V Li-Po Battery</td>
-    <td class="tg-0pky"><img src="./images/battery.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky">2. 1000mAH, 3.7V Li-Po Battery with JST</td>
+
   </tr>
   <tr>
-    <td class="tg-0pky">Sensor Cable- Electrode pads(3 connectors)</td>
-    <td class="tg-0pky"><img src="./images/sensor_cable_ecg.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky">3. Sensor Cable- Electrode pads(3 connectors)</td>
+
   </tr>
   <tr>
-    <td class="tg-0pky">Finger-clip SpO2 probe</td>
-    <td class="tg-0pky"><img src="./images/spo2_probe.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky">4. Finger-clip SpO2 probe</td>
+
   </tr>
   <tr>
-    <td class="tg-0pky">Qwiic based temperature Sensor with Cable</td>
-    <td class="tg-0pky"> </td>
+    <td class="tg-0pky">5. Qwiic based temperature Sensor with Cable</td>
   </tr>
   <tr>
-    <td class="tg-0pky">micro_usb_cable</td>
-    <td class="tg-0pky"><img src="./images/micro_usb_cable.JPEG" width="150" height="70"/></td>
+    <td class="tg-0pky">6. Micro USB Cable</td>
+
   </tr>
   <tr>
-    <td class="tg-0pky">20 no's single-use ECG electrodes</td>
-    <td class="tg-0pky"><img src="./images/ecg_electrodes.GIF" width="150" height="70"/></td>
+    <td class="tg-0pky">7. Disposable ECG electrodes(20 nos)</td>
   </tr>
 </table>
 
@@ -59,36 +62,44 @@ This kit contains everything in HAT Kit, and also includes:
 
 <table class="tg">
   <tr>
-    <th class="tg-ui9f"><span style="font-weight: bold">List</span></th>
-    <th class="tg-ui9f"><span style="font-weight: bold">Images</span></th>
+    <th class="tg-ui9f"><span style="font-weight: bold">LIST</span></th>
+
   </tr>
   <tr>
-    <td class="tg-0pky">Raspberry Pi 3 Model B+ computer</td>
-    <td class="tg-0pky"><img src="./images/raspberry-pi3-b-plus.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky">1. Raspberry Pi 4 Model B computer</td>
   </tr>
   <tr>
-    <td class="tg-0pky">16GB microSD Card</td>
-    <td class="tg-0pky"></td>
+    <td class="tg-0pky">2. Official 7" Raspberry Pi touchscreen LCD display</td>
   </tr>
   <tr>
-    <td class="tg-0pky">SmartiPi case with 7" display</td>
-    <td class="tg-0pky"><img src="./images/smartipi.JPG" width="150" height="70"/></td>
+    <td class="tg-0pky">3. SmartiPi Touch-2 Enclosure</td>
   </tr>
   <tr>
-    <td class="tg-0pky">Medical-grade power supply</td>
-    <td class="tg-0pky"></td>
+    <td class="tg-0pky">4. 16GB microSD Card</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5. Medical-grade power supply</td>
   </tr>
   </table>
 
 #### Making the connections
 
-Connect the battery to the HealthyPi v4 board.
-Connect the ecg sensor cable, spO2 probe, qwiic based temperature sensor.
+**1.** Connect the battery with the JST connector in the HealthyPi v4 board.
 
-HealthyPi v4 maintains full compatibility with HealthyPi v3 through its continuous mode, which streams real-time data to a Processing-based application that is compatible with Raspberry Pi devices and desktop platforms (including Mac, Windows, and Linux).
+**2.** Connect the Three-electrode ecg sensor cable, spO2 probe, qwiic based temperature sensor[Operating HealthyPi v4] .
+
+**3.** Mount the HealthyPi v4 directly using the 40 pin headers with raspberryPi 4.
+
+**4.** HealthyPi v4 maintains full compatibility with HealthyPi v3 through its continuous mode, which streams real-time data to a Processing-based application that is compatible with Raspberry Pi devices and desktop platforms (including Mac, Windows, and Linux).
+
+<iframe src="https://player.vimeo.com/video/383275651" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 ##### BLE:
-Download the HealthyPi v4 application for Android and connect through BLE.
+**1.** Download the HealthyPi v4 application for Android available on Google Play Store.
+
+**2.** Connect the HealthyPi v4 device with mobile application through BLE.
 
 ##### Webserver:
-Push the button, it will enter Wi-Fi Access Point (AP) mode. Connect to the network Healthypi_v4 and type http://healthypi.local in the address bar of your browser.
+**1.** Click on the present on-board push button,to switch from ble mode and it will enter Wi-Fi Access Point (AP) mode.
+
+**2.** Connect to the network Healthypi_v4 and type http://healthypi.local in the address bar of your browser.

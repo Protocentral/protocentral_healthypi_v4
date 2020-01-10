@@ -25,7 +25,7 @@ If you have a Raspberry Pi setup already available, just follow the following st
 
 The following video shows you how to connect the HealthyPi v4 as **"HAT"** to a Raspberry Pi.
 
-<iframe src="*HPi4 hat Rpi4*" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/383968135" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 After completing the steps shown in the video, open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
 

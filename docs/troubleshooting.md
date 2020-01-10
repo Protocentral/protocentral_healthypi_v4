@@ -1,6 +1,6 @@
 ---
 menu: Troubleshooting
-weight: 5 # smaller weights rise to the top of the menu
+weight: 6 
 ---
 
 ### Troubleshooting

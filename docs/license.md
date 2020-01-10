@@ -1,6 +1,6 @@
 ---
 menu: Licensing Information
-weight: 6 # smaller weights rise to the top of the menu
+weight: 7 
 ---
 
 ## License Information

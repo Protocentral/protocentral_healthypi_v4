@@ -15,4 +15,5 @@ With On-board 2x Qwiic slots makes sensor plugins much easier, you can keep goin
 
 The video below shows how easy it is to connect Sparkfun's Qwiic microOLED display to render HealthyPi v4 output.
 
-<iframe src="https://player.vimeo.com/video/366476679" width="640" height="360" frameborder="0" llowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+
+<iframe src="https://player.vimeo.com/video/366476679" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
