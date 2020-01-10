@@ -1,10 +1,10 @@
 ---
-menu: Operating HealthyPi v4
+menu: Getting Started
 parent: getting-started.md
 weight: 2
 ---
 
-## Operating HealthyPi v4
+## Getting Started
 
 ### Connecting sensors
 
@@ -20,8 +20,6 @@ The other side of the electrode connector would connect to Snap-on electrodes at
 When connecting the electrodes to the body, it is safer to disconnect the mains power source to the Arduino. For example, if  you are using the Arduino along with a laptop, disconnecting the battery charger from the laptop would be a safe option.
 
 Place the electrodes on the body in these positions to get the best signal. However, placing it in other positions on the chest would work as well with differing ECG signal patterns. For getting respiration using the [Impedance Pneumography](http://www.ti.com/lit/an/sbaa181/sbaa181.pdf), it's best to wear them on the chest as given in the figure below to get the best signal.
-
-![Wearing the Electrode](images/connecting electrodes.png)
 
 #### Connecting the Pulse Oximetry Probe
 
@@ -40,11 +38,7 @@ To start measuring, simply plug-in the provided SpO2 finger-clip probe to the DB
 
 A digital human body temperature sensor based on the MAX30205 from Maxim Integrated is provided. This sensor provides direct, calibrated temperature values over a digital I2C interface. The sensor comes as qwiic based connectors making the interface even more simpler than before and a cable for maximum flexibility.
 
-![Temperature sensor](images/hpi3-temperature.jpg)
-
 No more colour coding confusion, Just Plug the qwiic based temperature sensor directly to read data. Refer the connection shown in the following picture.
-
-[Photo of temperature sensor connector with color codes]
 
 ### Selecting modes
 

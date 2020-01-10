@@ -1,10 +1,10 @@
 ---
-menu: Using with ESP IDF
+menu: Programming with ESP IDF
 parent: getting-started.md
-weight: 4
+weight: 6
 ---
 
-### Using with ESP IDF
+### Programming with ESP IDF
 
 ![ESPidf](images/ESPidf.JPG)
 

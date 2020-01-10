@@ -1,22 +1,18 @@
 ---
-menu: Setting Up HealthyPi v4
+menu: Setting Up HealthyPi Complete Kit
 parent: getting-started.md
 weight: 1
 ---
 
-## Setting Up HealthyPi v4
-
-Building upon its predecessor, HealthyPi v4 is enhanced to bring flexibility for end user's. Powered with popular esp32-wroom32 opens up the wireless and wearable capabilities. Now it's portable and standalone with in-built rechargeable battery.It can be used as HAT on raspberry or as a wearable platform.
-
-### Setting Up HealthyPi v4 Complete Kit
+## Setting Up HealthyPi Complete Kit
 
 The [HealthyPi v4 Complete Kit](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged#healthypi-v4-complete-kit) has all you need to quickly put together a standalone vital monitor. With the latest Raspberry Pi4 added with kit and microSD storage comes up with the HealthyPi v4 software pre-loaded and configured. Just Plug-in to stream live vital signs.
 
-#### Simple Task in Complete Kit
+### Simple Task in Complete Kit
 
 The SmartiPi Touch Display that comes included with the HealthyPi v4 Complete kit is already partly assembled. Now it's time for you to take up the task by assembling the display enclosure and the display stand for the provided [SmartiPi Touch Case](https://smarticase.com/collections/all/products/smartipi-touch). Check out the below video for instructions on how to assemble the kit.
 
-<iframe src="https://player.vimeo.com/video/374411409" width="640" height="361" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/383998058" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 
 ### Using HealthyPi v4 on Raspberry Pi
@@ -29,8 +25,6 @@ The following video shows you how to connect the HealthyPi v4 as **"HAT"** to a 
 
 After completing the steps shown in the video, open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
 
-![Open the terminal](images/terminal.jpg)
-
 In the terminal window, type the following commands.
 
 ```bash
@@ -41,12 +35,11 @@ Making the process even more simpler, this command will download and install all
 
 After the script reboots your Raspberry Pi, you should be able to see the GUI display the sensor outputs in real-time on the screen.
 
-![GUI in Processing](images/hpi3-screen.jpg)
 
 **This completes the install!**
 
 
-## Getting started with the HealthyPi GUI on Windows, MacOS and Linux
+### Getting started with the HealthyPi GUI on Windows, MacOS and Linux
 
 The HealthyPi board now streams the same data on the on-board USB port. This allows you to get the same data that goes to the Raspberry Pi, now on your desktop PC as well.
 

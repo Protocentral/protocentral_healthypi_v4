@@ -1,8 +1,8 @@
 ---
 menu: FAQ
-weight: 5
+weight: 4
 ---
-### Frequently asked questionsMMMMMM
+### Frequently asked questions
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}

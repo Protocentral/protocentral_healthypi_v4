@@ -1,13 +1,13 @@
 ---
-menu: Using with Arduino
+menu: Programming with Arduino
 parent: getting-started.md
-weight: 3
+weight: 5
 ---
 
-### Using with Arduino
+### Programming with Arduino
 
 
-![](assets/HealthyPiv4-arduino-c94f141d.png)
+![](assets/HealthyPiv4-arduino-006f78bc.png)
 
 #### Setting up Arduino for ESP32
 
@@ -22,7 +22,7 @@ The Arduino Software (IDE) allows you to write programs and upload them to your 
 
 Next, you will need to connect the HealthyPi v4 board to a system. This is done via a USB connection. When the HealthyPi v4 is connected, the operating system should recognize the board as a generic COM port. The easiest way to do this is to type **Device manager** into Windows Search and select Device Manager when it shows.
 
-![device manager](images/device manager.jpeg)
+
 
 In the Device Manager window, look for a device under Ports (COM & LPT) and chances are the Arduino will be the only device on the list.
 
@@ -34,11 +34,7 @@ Now we have determined the COM port of the HealthyPiv4, its time to load the Ard
 
 You can start by loading the IDE. When it is loaded, navigate to **Tools > Board > Esp32 dev module**.
 
-![Board_manager](Board_manager.png)
-
 Next, you must tell the IDE which COM port the HealthyPi v4 is on. To do this, navigate to **Tools > Port > COMXX**. Obviously, if your HealthyPi v4 is on a different port, select that port instead.
-
-![port_selecting](port_selecting.png)
 
 **Step 4: Uploading code to HealthyPi v4**
 

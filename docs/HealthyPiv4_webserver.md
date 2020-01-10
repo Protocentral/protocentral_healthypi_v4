@@ -1,13 +1,18 @@
 ---
-menu: HealthyPiv4 as a Web server
+menu: HealthyPi as Web server
 parent: getting-started.md
-weight: 6
+weight: 4
 ---
-### HealthyPi v4 as a Web server
+### HealthyPi as Web server
 
-![](assets/4-web-server-42061701.PNG)
+![](assets/HealthyPiv4_webserver-8b6cd96f.png)
 
 Using HealthyPi v4 as web server, you can stream live data over the Internet. With multiple operating modes present on-board, a push-button directs to the web server mode with the default HealthyPi Wi-Fi Access Point (AP). You can connect your smart devices to the “Healthypi ” Wi-Fi network. Point your web browser to the “healthypi.local” site. The Healthypi web server page displays the live vital signs.
+
+#### Starting with Webserver
+**1.** Click on the on-board push button,to switch from ble mode and it will enter Wi-Fi Access Point (AP) mode.
+
+**2.** Connect to the network Healthypi_v4 and type http://healthypi.local in the address bar of your browser.
 
 ### Updating Firmware
 
@@ -25,14 +30,14 @@ OTA update feature in HealthyPi v4 is a more efficient and effective way to remo
 
 **4.** In order to shift to the STA mode where the user can connect the Healthypi v4 to a private network, repeat the above step and click on the Change WiFi Network button on the dashboard, it redirects to the webpage for entering Network Credentials. The device restarts and automatically connects to the user's desired network and displays the IP address of the private network in the Serial monitor.
 
-![](assets/4-web-server-a35d8734.PNG)
+![](assets/HealthyPiv4_webserver-19ef69dc.png)
 
 **5.** On the right hand corner of the web server dashboard, an OTA button is present. On clicking the button, an OTA login page appears for OTA credentials.
 
-![](assets/4-web-server-f964c31c.PNG)
+![](assets/HealthyPiv4_webserver-4caff77f.png)
 
 **6.** Once logged-in, the user will be able to select the available binary files that can be used for software update of the  device.
 
-![](assets/HealthyPiv4_webserver-26e02b01.PNG)
+![](assets/HealthyPiv4_webserver-5a01409b.png)
 
 **7.** On rebooting the HealthyPi v4, the board functions as per the latest binary file / software.

@@ -1,9 +1,9 @@
 ---
-menu: Advanced HealthyPiv4
-weight: 4
+menu: Advanced HealthyPi
+weight: 3
 ---
 
-### Advanced HealthyPi v4
+### Advanced HealthyPi
 
 This section is for those who want to do a manual installation of HealthyPi, those who want to modify with the code and generally play with the hardware.
 
@@ -16,8 +16,6 @@ The following are the steps involved to get Raspberry Pi ready for a wireless re
 
 **->** Once the installation finishes, update the system with the following command in the Terminal:
 
-
-
 ```c
 
 sudo apt-get update
@@ -26,13 +24,11 @@ sudo apt-get upgrade
 ```
 #### Step 2 : Setting it Up
 
-
-
 **->** Run the following command for setting up
 
 ```c
 
-sudo nano /bootconfig.tx
+sudo nano /boot/config.tx
 
 ```
 **->** Add this line to the end of the file
@@ -41,22 +37,17 @@ sudo nano /bootconfig.tx
 dtoverlay=pi3-disable-bt
 
 ```
-#### Step 3 : Disable Serial command line console
+#### Step 3 : Launching the HealthyPi application
 
-**->** To disable the Serial Console edit the file using the below command
-```c
-sudo nano /boot/cmdline.txt
+**->** open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
+
+In the terminal window, type the following commands.
+
+```bash
+
+ curl -sS http://pi.protocentral.com/hpi3.sh | sudo bash
+
 ```
-**->** Remove the word phase “console=serial0,115200” or “console=ttyAMA0,115200”.
-
-**->** Save the file and close
-
-#### Step 4 : Reboot your Raspberry Pi
-
-**->** Now your Pi is ready to integrate with ProtoCentral’s Healthy Pi Hat.
-
-
-
 
 ### HealthyPi GUI based on Processing
 

@@ -1,6 +1,6 @@
 ---
 menu: Troubleshooting
-weight: 6 
+weight: 5
 ---
 
 ### Troubleshooting

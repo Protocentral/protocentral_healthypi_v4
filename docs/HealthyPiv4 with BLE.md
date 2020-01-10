@@ -1,9 +1,9 @@
 ---
-menu: HealthyPiv4 with BLE
+menu: HealthyPi with BLE
 parent: getting-started.md
-weight: 5
+weight: 3
 ---
-### HealthyPiv4 with BLE
+### HealthyPi with BLE
 
 HealthyPi v4 is powered by the ESP32 SoC module, which supports pairing with smartphones through BLE. BLE is widely used in wearable devices because its low power requirements allow it to function for a long time without charging. HealthyPi v4 also supports pairing with other IoT devices for use in mesh networks. BLE 4.2 adds improved security capabilities.
 
@@ -45,8 +45,6 @@ Data measured by Healthy Pi v4 is accessible through standard BLE services for H
   </tr>
 </table>
 
-
-
 #### Introducing the HealthyPi app
 
 Monitoring the human physiological data associated with day-to-day activities becomes much simpler with the HealthyPi app, which is available in app stores, for both Android and iOS devices.
@@ -55,8 +53,12 @@ The HealthyPi app is used to communicate directly with HealthyPi v4 hardware, th
 
 ![](assets/getting-started-838c51c1.jpg)  ![](assets/getting-started-c53d806e.jpg)  
 
-
-
 HealthyPi v4 is a powerful tool, and the HealthyPi app opens up new possibilities for using it to monitor vital signs outside of traditional settings. Among other features, it is capable of displaying respiration and ECG data. A simulation of the latter function is shown below:
 
 ![](assets/getting-started-be3ebfc4.jpg)
+
+#### Getting HealthyPi app
+
+**1.** Download the HealthyPi v4 application for Android available on Google Play Store.
+
+**2.** Connect the HealthyPi v4 device with mobile application through BLE.
