@@ -1,6 +1,6 @@
 ---
 menu: Health vs. Environment
-parent: connecting_qwiic_sensors
+parent: connecting_qwiic_sensors.md
 weight: 0
 ---
 ### Health vs. Environment
@@ -34,7 +34,7 @@ mySensor.readFloatAltitudeFeet();
 ```
 
 
-[Download the Environmental Combo Sensor Code](https://github.com/Protocentral)
+[Download the Environmental Combo Sensor Code](https://github.com/Protocentral/protocentral_healthypi_v4/tree/master/firmware)
 
 #### * Pin mapping and connection instructions:
 

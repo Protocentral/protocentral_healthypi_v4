@@ -6,7 +6,7 @@ weight: 0
 
 ## Setting Up HealthyPi Standalone
 
-![](images/standalone.jpg)
+![wearable mode](images/wearable_mode.jpg)
 
 Building upon its predecessor, HealthyPi v4 brings more flexibility to the user. Powered by the popular ESP32, it opens up wireless and wearable capabilities. Now it's portable and standalone with in-built rechargeable battery. It can still be used as a HAT for Raspberry Pi or as a standalone wearable platform.
 
