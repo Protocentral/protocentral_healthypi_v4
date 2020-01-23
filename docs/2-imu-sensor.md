@@ -1,6 +1,6 @@
 ---
-menu: Activity vs. Vital signs
-parent: connecting_qwiic_sensors.md
+menu: Health vs. Environment
+parent: Connecting-qwiic-sensors
 weight: 1
 ---
 ### Activity vs. Vital signs
@@ -39,7 +39,7 @@ Serial.println(zAcceleration);
 ```
 
 
-[Download the MMA8452Q Sensor Code](https://github.com/Protocentral/protocentral_healthypi_v4/tree/master/firmware)
+[Download the MMA8452Q Sensor Code](https://github.com/Protocentral)
 
 #### * Pin mapping and connection instructions:
 

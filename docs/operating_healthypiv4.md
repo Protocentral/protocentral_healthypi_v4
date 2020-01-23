@@ -10,7 +10,7 @@ weight: 2
 
 #### Connecting the ECG/Respiration Electrodes
 
-![ECG electrodes](images/ECG_electrodes_conn.jpg)
+![](assets/operating_healthypiv4-b51ed87e.jpg)
 
 A 3-electrode cable along with a standard stereo jack is provided along with the shield to connect the electrodes to the  board.
 The other side of the electrode connector would connect to Snap-on electrodes attached to the body. For testing purposes, you can use an ECG simulator to provide inputs to the board.
@@ -22,7 +22,7 @@ Place the electrodes on the body in these positions to get the best signal. Howe
 
 #### Connecting the Pulse Oximetry Probe
 
-![spo2 probe](images/spo2_probe_conn.jpg)
+![](assets/operating_healthypiv4-cffbe7bc.jpg)
 
 [Pulse oximetry](https://en.wikipedia.org/wiki/Pulse_oximetry) is an optical method of non-invasively measuring the oxygen content in the blood. This is achieved with the help of a finger-clip probe that contains some LEDs on one side of the clip and a photo-detector on the other side.
 
@@ -33,7 +33,7 @@ To start measuring, simply plug-in the provided SpO2 finger-clip probe to the DB
 
 #### Connecting the temperature sensor
 
-![qwiic temp sensor](images/qwiic_temp_sensor_conn.jpg)
+![](assets/operating_healthypiv4-bdc5512a.jpg)
 
 A digital human body temperature sensor based on the MAX30205 from Maxim Integrated is provided. This sensor provides direct, calibrated temperature values over a digital I2C interface. The sensor comes as qwiic based connectors making the interface even more simpler than before and a cable for maximum flexibility.
 
@@ -53,7 +53,7 @@ In the wearable mode the HealthyPi v4 acts as wireless, you can choose the defau
 
 #### Plugging Battery
 
-![Battery](images/battery_conn.jpg)
+![](assets/operating_healthypiv4-f2837b5f.jpg)
 
 Powering the device with a Li-Po rechargeable battery improves its portability. HealthyPi v4 can be used as a standalone device, without external interfaces or power. The battery can be directly connected to HealthyPi v4 through the onboard 2-pin JST-PH connector. Check out the image below connecting the battery with HealthyPi v4.
 
@@ -73,39 +73,34 @@ You can plug cables into a USB port in HealthyPi v4 at any time regardless of wh
 </style>
 <table class="tg">
 
-<tr>
-  <th class="tg-ui9f"><span style="font-weight: bold">HealthyPi</span></th>
-  <th class="tg-ui9f"><span style="font-weight: bold">Indication - LED</span></th>
-</tr>
-
   <tr>
-    <td class="tg-baqh">Power ON</td>
-    <td class="tg-baqh">Yellow LED glows for 2.5sec</td>
+    <td class="tg-baqh">Start Indication</td>
+    <td class="tg-baqh">yellow led stays for 2.5sec</td>
 
   </tr>
   <tr>
-    <td class="tg-baqh">V3 Mode </td>
-    <td class="tg-baqh">Blue LED glows from low to high and high to low</td>
+    <td class="tg-baqh">V3 mode </td>
+    <td class="tg-baqh">blue led glows from low to high and vice versa in pwm</td>
   </tr>
   <tr>
-    <td class="tg-baqh">Device Restart</td>
-    <td class="tg-baqh">Yellow LED glows for 2.5sec</td>
+    <td class="tg-baqh">Restart Indication </td>
+    <td class="tg-baqh">yellow led stays for 2.5sec</td>
   </tr>
   <tr>
-    <td class="tg-baqh">Ble Mode</td>
-    <td class="tg-baqh">Yellow LED blinks until connected</td>
+    <td class="tg-baqh">Ble Indication</td>
+    <td class="tg-baqh">yellow led blinks until connected</td>
 
   </tr>
   <tr>
-    <td class="tg-baqh">Webserver mode</td>
-    <td class="tg-baqh">Yellow LED glows from low to high and high to low</td>
+    <td class="tg-baqh">Webserver Indication</td>
+    <td class="tg-baqh">yellow led glows from low to high and vice versa in pwm</td>
   </tr>
   <tr>
-    <td class="tg-baqh">Soft-ap</td>
-    <td class="tg-baqh">Blue LED blinks 6 times</td>
+    <td class="tg-baqh">softAp Indication</td>
+    <td class="tg-baqh">blue led blinks 6 times</td>
   </tr>
   <tr>
     <td class="tg-baqh">OTA Upload Complete Indication</td>
-    <td class="tg-baqh">Both(Yellow and Blue) LEDs blinks together</td>
+    <td class="tg-baqh">both LEDs will blinks</td>
   </tr>
 </table>

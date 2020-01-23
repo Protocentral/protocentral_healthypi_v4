@@ -21,13 +21,13 @@ weight: 4
     <td class="tg-0pky">-ESP32, in WROOM32 module format, with a Dual-core Xtensa 32-bit CPU, 4 MB of on-board flash.</td>
   </tr>
   <tr>
-    <td class="tg-0pky">* How can I identify device communication with BLE ?</td>
-    <td class="tg-0pky">-Once connected through the BLE, the Yellow LED will stop blinking.                                                                                                                                       
-
-
-   -When it is disconnected then the Yellow LED starts blinking.</td>
+    <td class="tg-0pky">* How can I determine the BLE communication?</td>
+    <td class="tg-0pky">-Once connected through the BLE, the yellow led will stops blinking.</td>
   </tr>
-
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">-When it is disconnected then the yellow led starts blinking.</td>
+  </tr>
   <tr>
     <td class="tg-0pky">* What is the range of wireless frequency?</td>
     <td class="tg-0pky">-There is a 2.4 GHz radio with an on-board PCB antenna that is compatible with Bluetooth 4.2 and BLE.</td>
@@ -45,12 +45,12 @@ weight: 4
     <td class="tg-0pky">-It is 3.3V.</td>
   </tr>
   <tr>
-    <td class="tg-0pky">* Which file should be selected while OTA update ?</td>
+    <td class="tg-0pky">* Which file has to choose while ota update?</td>
     <td class="tg-0pky">-Binary file.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* How to upload SPIFFS?</td>
-    <td class="tg-0pky">-Download ESP32FS, unzip the folder in Arduino IDE tools folder and  open the Arduino IDE. You will find an option for ESP sketch data upload in tools.</td>
+    <td class="tg-0pky">-Download ESP32FS,unzip the folder in Arduino IDE tools folder and  open the Arduino IDE u will find an option like ESP sketch data upload in tools.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* For how long the data can be recorded?</td>
@@ -58,89 +58,93 @@ weight: 4
   </tr>
   <tr>
     <td class="tq-0pky">* What are the specifications of ESP32?</td>
-    <td class-"tq-0pky">-Check ESP32 datasheet</td>
+    <td class-"tq-0pky">-For ESP32 details Please refer the [datasheet](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf).</td>
   </tr>
     <tr>
-    <td class="tq-0pky">* Does the board have firmware uploaded? </td>
-    <td class="tq-0pky">-Yes, the firmware has been uploaded. The board is ready to use.</td>
+    <td class="tq-0pky">* Will the board already have firmware uploaded to it?</td>
+    <td class="tq-0pky">-Yes, the firmware is uploaded. The board is ready to use.</td>
   </tr>
   </tr>
     <tr>
-    <td class="tq-0pky">* How to install ESP32 Board Support in Arduino IDE?</td>
-    <td class="tq-0pky">-In Arduino IDE, Tools->Board->Board manager, search for ESP32 by Espressif Systems, select version no as 1.0.4 and install.</td>
+    <td class="tq-0pky">* How to install esp32 in Arduino IDE?</td>
+    <td class="tq-0pky">-In Arduino IDE, Tools->Board->Board manager, search for esp32 by Espressif Systems, select version no as 1.0.4 and install.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* What if you add SSID and Password multiple times? </td>
-    <td class="tq-0pky">-The SSID and Password entered before are replaced by the new SSID and Password.</td>
+    <td class="tq-0pky">* What if we add SSID and Password multiple times?</td>
+    <td class="tq-0pky">-The previous SSID and Password are replaced with the new SSID and Password.</td>
   </tr>
   </tr>
     <tr>
-    <td class="tq-0pky">* What communication protocols are the sensors working in Healthypi ? </td>
-    <td class="tq-0pky">-ADS1292R and AFE4490 works with SPI communication, MAX30205 work with I2C communication.</td>
+    <td class="tq-0pky">* On what communication protocols the Sensors works in healthypi ?</td>
+    <td class="tq-0pky">-ADS1292R and AFE4490 works with SPI protocol, MAX30205 work with I2c protocol.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Does the board work without a battery ?</td>
-    <td class="tq-0pky">-No, some of the peripherals in the board may or may not power up  when the board is powered up using other power sources like USB cable, power bank and so on. So, it is recommended to use the board with the Lipo battery provided along with the board.</td>
+    <td class="tq-0pky">* Can the board works without a battery?</td>
+    <td class="tq-0pky">- No, some of the peripherals in the board may or may not power up  when the board is powered up using other power sources like USB cable, power bank and so on. So, it is recommended to use the board with the Lipo battery provided along with the board.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* What are the username and password for OTA login?</td>
-    <td class="tq-0pky">-The username is "admin" and password is also "admin".</td>
+    <td class="tq-0pky">-The username is admin and password is also admin.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* What if the changed WIFI credential is incorrect? </td>
-    <td class="tq-0pky">-It'll check the network for 60 seconds, if it's not found, it'll go to Soft-Ap mode with Blue LED blinking 6 times.</td>
+    <td class="tq-0pky">* What if the changed WIFI credentials are incorrect?</td>
+    <td class="tq-0pky">-It will check for that network for 60 seconds, if it is not there it will go to softAp mode with blue led blinking 6times indication.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* What is the baud rate used for serial communication ?</td>
+    <td class="tq-0pky">* What is the baud rate used for serial communication?</td>
     <td class="tq-0pky">-The baud rate used for serial communication is 115200.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* How to install processing ?</td>
-    <td class="tq-0pky">-You can install the processing from https:/processing.org / download/.  Select your operating system and download it.  Finish the setup and install it.</td>
+    <td class="tq-0pky">* How to install processing?</td>
+    <td class="tq-0pky">-Use this link [install processing](https://processing.org/download/). Select the OS and download it. Finish the setup and install.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* If WiFi is not connecting, what needs to be done next ?</td>
-    <td class="tq-0pky">- If the board does not connect to the required WiFi network, the board restarts and operates with SoftAP.</td>
+    <td class="tq-0pky">* If the WiFi does not connect, what needs to be done next?</td>
+    <td class="tq-0pky">- If the board does not connect to the required WiFi network, the board restarts and operates as a softAP.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Which version of the ESP32 library is used in the Arduino IDE ?</td>
+    <td class="tq-0pky">* Which version of esp32 used in Arduino IDE?</td>
     <td class="tq-0pky">-The version of esp32 used is 1.0.4.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Can this be used for machine learning ?</td>
+    <td class="tq-0pky">* Can it be used for machine learning?</td>
     <td class="tq-0pky">-Yes, it can be used for machine learning.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Can the recorded data be transmitted over long distances via BLE and the web server ?</td>
-    <td class="tq-0pky">-The recorded data will be stored as a csv format in a mobile. The user can transfer the file using Bluetooth or other communication available on the phone.</td>
+    <td class="tq-0pky">* Is the GUI windows specific?</td>
+    <td class="tq-0pky">-No, the GUI is not operating system specific.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Is Healthypi v4 compatible with all versions of Raspberry Pi ?</td>
-    <td class="tq-0pky">-Healthypi v4 testing was performed with Raspberry Pi 4.</td>
+    <td class="tq-0pky">* Can the recorded data be transmitted over long distances using BLE and webserver?</td>
+    <td class="tq-0pky">-The recorded data will be stored in the mobile as a csv file. The user can transmit the file using mobiles Bluetooth or other communication option present in the phone.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Does the quality of the ECG depend on the position of the sensor patch ?</td>
-    <td class="tq-0pky">-Yes, the quality of the ECG depends on the position of the sensor patch.</td>
+    <td class="tq-0pky">* Is Healthypi v4 compatible with all Raspberian versions?</td>
+    <td class="tq-0pky">-The testing of Healthypi v4 has been done with Raspberry pi 4.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Does this give accurate results while recording when there is any movement ?</td>
+    <td class="tq-0pky">* Does the ECG quality depend on the position of sensor patch?</td>
+    <td class="tq-0pky">-Yes, the ECG quality does depend on the position of sensor patch.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* Does it give accurate results with the person whose ECG is being recorded shows movement?</td>
     <td class="tq-0pky">-Slight variation can be observed in the ECG output if there is any movement while recording.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Is the Healthypi v4  mobile application free of cost? </td>
-    <td class="tq-0pky">-Yes, it is a available open.</td>
+    <td class="tq-0pky">* Is the healthypi mobile application free of cost?</td>
+    <td class="tq-0pky">-Yes, it is a free application.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* Are there any provisions to add other sensors?</td>
     <td class="tq-0pky">-The user can add an additional sensor with I2C communication protocol.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* Is Firmware Open Source for Healthy Pi ?</td>
-    <td class="tq-0pky">-Yes, the HealthyPi v4 firmware is open source.</td>
+    <td class="tq-0pky">* Is the firmware for healthypi open source?</td>
+    <td class="tq-0pky">-Yes, the firmware for healthypi V4 is open source.</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* How do I get Healthypi v4 firmware ?</td>
-    <td class="tq-0pky">-The firmware is available in the ProtoCentral HealthyPi v4 GitHub repository.</td>
+    <td class="tq-0pky">* Where can I get the firmware for healthypi v4?</td>
+    <td class="tq-0pky">-The firmware is available in the GitHub repository[].</td>
   </tr>
  <tr>
     <td class="tq-0pky">* Can healthypi be used to detect various heart conditions like Afib, Tachycardia and so on?</td>
@@ -148,11 +152,15 @@ weight: 4
   </tr>
   <tr>
     <td class="tq-0pky">* Which pins of ESP32 are used for the ADS1292r?</td>
-    <td class="tq-0pky">-Data pin, Chip select pin, Start pin and the pwdn pin of ADS1292r are connected to pins 26, 13, 14 and 27 of ESP32 respectively. For further details refer to the schematic in the GitHub repository.</td>
+    <td class="tq-0pky">-Data pin, chip select pin, start pin and the pwdn pin of ADS1292r are connected to pins 26, 13, 14 and 27 of ESP32 respectively. For further details refer to the schematic in the GitHub repository[].</td>
   </tr>
   <tr>
-    <td class="tq-0pky">* How many users can connect to the ESP32 Soft AP mode at a time?</td>
-    <td class="tq-0pky">-Currently, a maximum of four users can be connected to a ESP32 SoftAP.</td>
+    <td class="tq-0pky">* How many users can connect to the ESP32 soft AP mode at a time?</td>
+    <td class="tq-0pky">-Currently, a maximum of four users can be connected to a ESP32 softAP.</td>
+  </tr>
+  <tr>
+    <td class="tq-0pky">* I need more sensor patches. Can you provide it?</td>
+    <td class="tq-0pky">-No, we do not sell sensor patches.</td>
   </tr>
   <tr>
     <td class="tq-0pky">* For real life applications, how accurate is the result?</td>

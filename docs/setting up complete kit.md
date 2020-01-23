@@ -56,9 +56,9 @@ MacOS and Linux do not need any drivers to be installed.
 
 ### Processing GUI Installation
 
-Download the zip file from [Processing.org](https://processing.org/download/?processing) containing the executable files from the following links for 32-bit/64-bit Windows. If you do not know if you have a 64-bit or 32-bit computer, try with the 32-bit version.
+Download the zip file containing the executable files from the following links for 32-bit/64-bit Windows. If you do not know if you have a 64-bit or 32-bit computer, try with the 32-bit version.
 
-[Refer for Detailed instruction to Download Processing](http://healthypi4.protocentral.com/advanced-healthypiv4.html)
+[Download the latest release here]()
 
 Simply download the appropriate file for your operating system, unzip the contents and run the executable program contained in it. On desktop operating systems, you will have to choose the correct port name assigned to the HealthyPi by USB. Simply select the port from the dropdown on the top and port should be opened.
 
