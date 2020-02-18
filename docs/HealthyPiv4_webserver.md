@@ -5,14 +5,29 @@ weight: 4
 ---
 ### HealthyPi as Web server
 
-![](assets/HealthyPiv4_webserver-8b6cd96f.png)
+![](images/dashboard_webserver.png)
 
 Using HealthyPi v4 as web server, you can stream live data over the Internet. With multiple operating modes present on-board, a push-button directs to the web server mode with the default HealthyPi Wi-Fi Access Point (AP). You can connect your smart devices to the “Healthypi ” Wi-Fi network. Point your web browser to the “healthypi.local” site. The Healthypi web server page displays the live vital signs.
 
 #### Starting with Webserver
-**1.** Click on the on-board push button,to switch from ble mode and it will enter Wi-Fi Access Point (AP) mode.
 
-**2.** Connect to the network Healthypi_v4 and type http://healthypi.local in the address bar of your browser.
+**1.** Click on the on-board push button, to switch from BLE mode or V3 mode to Webserver mode.
+
+**2.** The board will restart with Yellow LED stays for 2.5Sec and glows from low to high and from high to low as an indication for Webserver mode and then enter Wi-Fi Access Point (AP) mode where the BLUE LED blinks 6 times. WI-FI Access Point means that you can connect to the ESP32 via any PC or smartphone with Wi-Fi capabilities without having to connect to your router.
+
+**3.** Connect to your PC or smart device to the Healthypi_v4  wifi network and type http://healthypi.local  in the address bar of your browser, This will re-direct to the Healthypi v4 web-server dashboard where you can view the Heart Rate, SpO2, Respiration and Temperature by connecting the temperature sensor, the SpO2 probe and the 3 electrode cable to the healthypi v4 board.
+
+**4.** If the web page is not loaded using http://healthypi.local, use the IP address of Healthypi v4 that will be shown on the serial monitor while using Soft AP mode. Make sure that the Healthypi v4 is in Webserver mode while checking for the IP address on the serial monitor.
+
+**5.** You can also connect to a private network to view the Heart Rate, spO2, Respiration, Temperature in the webserver mode.
+
+**6.** To connect to a private network, click the Change Wi-Fi Network button on the dashboard, redirect to the web page to enter the Network Credentials, SSID and Password. Click add, redirect to the "Successfully Modified Network Credentials" web page, and the device restarts and automatically connects to the user's chosen network and shows the IP address of the private network on the Serial Monitor.
+
+![network credentials](images/network_credentials.png)
+
+![Network Status](images/network_success.png)
+
+**7.** In the case that the Healthypi v4 does not connect to the private network, the device will restart and enter the Wi-Fi Access Point (AP) mode with a BLUE LED blinking 6 times.Repeat the 3rd or 4th step to re-connect.
 
 ### Updating Firmware
 
@@ -30,14 +45,12 @@ OTA update feature in HealthyPi v4 is a more efficient and effective way to remo
 
 **4.** In order to shift to the STA mode where the user can connect the Healthypi v4 to a private network, repeat the above step and click on the Change WiFi Network button on the dashboard, it redirects to the webpage for entering Network Credentials. The device restarts and automatically connects to the user's desired network and displays the IP address of the private network in the Serial monitor.
 
-![](assets/HealthyPiv4_webserver-19ef69dc.png)
+**5.** On the right hand corner of the web server dashboard, an OTA button is present. On clicking the button, an OTA login page appears for OTA credentials. Enter the username and password as "admin" and "admin" and click on login.
 
-**5.** On the right hand corner of the web server dashboard, an OTA button is present. On clicking the button, an OTA login page appears for OTA credentials.
-
-![](assets/HealthyPiv4_webserver-4caff77f.png)
+![ota login](images/ota_login.png)
 
 **6.** Once logged-in, the user will be able to select the available binary files that can be used for software update of the  device.
 
-![](assets/HealthyPiv4_webserver-5a01409b.png)
+![ota updated](images/ota_updated.png)
 
-**7.** On rebooting the HealthyPi v4, the board functions as per the latest binary file / software.
+**7.** Once the binary file has been changed, Healthypi v4 reboots with both Yellow and Blue LEDs will blink and the board will function as per the new binary file / software.

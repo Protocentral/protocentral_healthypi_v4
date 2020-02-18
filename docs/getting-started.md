@@ -14,9 +14,10 @@ Reliable health monitoring has traditionally required that we tether ourselves t
 
 ### Remote Monitoring in healthcare
 
-HealthyPi v4 gives patients much greater involvement in the management of their own health, while simultaneously providing peace of mind that vital health information(including ECG and heart-rate, heart-rate variability, Respiration based on the impedance pneumograph, Pulse oximetry (SPO2), Body temperature) is been monitored in real-time and with high accuracy.
+HealthyPi v4 gives patients much greater involvement in the management of their own health, while simultaneously providing peace of mind that vital health information(including ECG and heart-rate, heart-rate variability, histogram, Respiration based on the impedance pneumograph, Pulse oximetry (SPO2), Body temperature) is been monitored in real-time and with high accuracy.
 
 #### Global public health:
+
 For regions of the world in which professional health care is relatively scarce – and where the cost of conventional patient monitors can be prohibitive – HealthyPi devices can serve as an important stopgap. With support for standalone use and the addition of Bluetooth Low Energy (BLE), HealthyPi v4 is now more accessible than ever.
 
 ### Open - Space for Development
@@ -36,10 +37,7 @@ Using HealthyPi v4 vital signs monitoring system as source. If you really give i
 
 ### Experience the transition in modes
 
-
-
 Using On-board sliding swith, you can choose the modes for streaming live physiological data. Introducing the two modes in Healthypi v4 default HPi3 mode using the Raspberry Pi as its computing and display platform, the HealthyPi add-on HAT turns the Raspberry Pi into a vital sign monitoring system. Another is the Wearable mode where your device acts as wireless, low power, standalone, battery powered to stream data through ble and web server as wireless remote monitoring system.
-
 
 ### Discovering the best of HealthyPi v4
 

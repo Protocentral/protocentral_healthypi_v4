@@ -6,8 +6,7 @@ weight: 5
 
 ### Programming with Arduino
 
-
-![](assets/HealthyPiv4-arduino-006f78bc.png)
+![Arduino IDE](images/arduino_ide_new.png)
 
 #### Setting up Arduino for ESP32
 
@@ -21,8 +20,6 @@ The Arduino Software (IDE) allows you to write programs and upload them to your 
 **Step 2: Get the HealthyPi v4 COM Port Number**
 
 Next, you will need to connect the HealthyPi v4 board to a system. This is done via a USB connection. When the HealthyPi v4 is connected, the operating system should recognize the board as a generic COM port. The easiest way to do this is to type **Device manager** into Windows Search and select Device Manager when it shows.
-
-
 
 In the Device Manager window, look for a device under Ports (COM & LPT) and chances are the Arduino will be the only device on the list.
 
@@ -85,6 +82,11 @@ void loop()
 }
 ```  
 
-**Step 5: Compiling and Uploading**
+**Step 5: Uploading SPIFFS data folder**
+
+Next, after uploading the code to Healthypi v4 you will need to upload the Spiffs data folder for getting the webpages and storing the SSID and Password. Download [ESP32 File system](https://github.com/me-no-dev/arduino-esp32fs-plugin.git), unzip the folder in Arduino IDE tools folder and  open the Arduino IDE ,navigate to **Tools>ESP32 Sketch Data Upload.
+
+
+**Step 6: Compiling and Uploading**
 
 Compile the code and check for compilation without error and upload the code to HealthyPi v4 and see the output in the mode of your choice.

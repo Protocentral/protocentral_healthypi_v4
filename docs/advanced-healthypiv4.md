@@ -90,6 +90,6 @@ e. Finally, copy the “controlP5 & G4P” folders from HealthyPi/Processing/lib
 
 **4.** Select “Tools” menu and choose “Upload to Pi” option from the list.
 
-![](assets/advanced-healthypiv4-305b4164.png)
+![](images/upload_pi.png)
 
 **5.** If any error occured in uploading the code, check for the internet connection and repeat the process.
