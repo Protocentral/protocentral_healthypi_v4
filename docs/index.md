@@ -3,7 +3,7 @@ menu: Welcome
 weight: 0 # smaller weights rise to the top of the menu
 ---
 
-# For [HealthyPi v3 Click here](http://healthypi3.protocentral.com/)
+### For [HealthyPi v3 Click here](http://healthypi3.protocentral.com/)
 
 ## Welcome to HealthyPi v4
 
