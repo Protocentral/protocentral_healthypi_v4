@@ -28,7 +28,7 @@ After completing the steps shown in the video, open up the terminal window (Menu
 In the terminal window, type the following commands.
 
 ```bash
-curl -sS http://pi.protocentral.com/hpi4.sh | sudo bash
+curl -sS http://pi.protocentral.com/hpi3.sh | sudo bash
 ```
 
 Making the process even more simpler, this command will download and install all the required overlays, configuration and application files to get the HealthyPi v4 launched and running.
@@ -61,5 +61,7 @@ Download the zip file from [Processing.org](https://processing.org/download/?pro
 [Refer for Detailed instruction to Download Processing](http://healthypi4.protocentral.com/advanced-healthypiv4.html)
 
 Simply download the appropriate file for your operating system, unzip the contents and run the executable program contained in it. On desktop operating systems, you will have to choose the correct port name assigned to the HealthyPi by USB. Simply select the port from the dropdown on the top and port should be opened.
+
+*Note: Download Processing v3.5.3 and intall its additional libraries from **sketch-> import library-> add library like G4P, ControlP5. 
 
 *Note: On MacOS, if you see an error saying "app is damaged", please follow the steps given in https://support.apple.com/en-us/HT202491 .This is a known issue with Processing on MacOS.*

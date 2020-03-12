@@ -29,20 +29,18 @@ Now we have determined the COM port of the HealthyPiv4, its time to load the Ard
 
 [Installing ESP32 Platform in Boards Manager](https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md)
 
-You can start by loading the IDE. When it is loaded, navigate to **Tools > Board > Esp32 dev module**.
+You can start by loading the IDE. When it is loaded, navigate to **Tools > Board > Esp32 dev module** and **Partition Scheme -> Minimal SPIFFS (1.9MB App with OTA/190Kb SPIFFS).
 
 Next, you must tell the IDE which COM port the HealthyPi v4 is on. To do this, navigate to **Tools > Port > COMXX**. Obviously, if your HealthyPi v4 is on a different port, select that port instead.
+
+In the Board Manager, install ESP32 version 1.0.4.
 
 **Step 4: Uploading code to HealthyPi v4**
 
 A header file is generally used to define all the functions, variables and constants contained in any function library. Pin configuration can be done based on sensors. Download [Protocentral_HealthyPiv4 firmware](https://github.com/Protocentral/Protocentral_HealthyPiv4) and open it in the Arduino IDE's menu:**File > Open > Protocentral_HealthyPiv4**.
 
-##### * Include the Protocentral_HealthyPiv4 library
+##### * Include the libraries reqquired for HealthyPiv4 included in the source folder.
 
-```c
-#include "Protocentral_HealthyPiv4.h"
-
-```
 ##### * Initializing the functionalities in HealthyPi v4
 ```c
 void setup()
