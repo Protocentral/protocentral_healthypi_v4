@@ -1,9 +1,13 @@
 ---
 menu: HealthyPi with Bluetooth LE
 parent: getting-started.md
-weight: 3
+weight: 1
 ---
 ### HealthyPi with BLE
+
+![wearable mode](images/wearable_mode.jpg)
+
+Building upon its predecessor, HealthyPi v4 brings more flexibility to the user. Powered by the popular ESP32, it opens up wireless and wearable capabilities. Now it's portable and standalone with in-built rechargeable battery. It can still be used as a HAT for Raspberry Pi or as a standalone wearable platform.
 
 HealthyPi v4 is powered by the ESP32 SoC module, which supports pairing with smartphones through BLE. BLE is widely used in wearable devices because its low power requirements allow it to function for a long time without charging. HealthyPi v4 also supports pairing with other IoT devices for use in mesh networks. BLE 4.2 adds improved security capabilities.
 
@@ -14,23 +18,23 @@ Change the Slide switch from PI mode to WL mode on the healthypi v4 board to swi
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-baqh{text-align:center;vertical-align:top}
-.tg .tg-s268{text-align:left}
-.tg .tg-nk0m{font-size:16px;font-family:Tahoma, Geneva, sans-serif !important;;text-align:left;vertical-align:top}
+.tg td{font-family: Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family: Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-ui9f{font-size:16px;font-family:Tahoma, Geneva, sans-serif !important;;border-color: inherit; text-align: center; vertical-align: top}
+.tg .tg-0pky{border-color: inherit; text-align: left; vertical-align: top}
 </style>
 <table class="tg">
-  <tr>
-    <th class="tg-nk0m"><center><span style="font-weight:600">Service Name</span></center></th>
-    <th class="tg-nk0m"><center><span style="font-weight:bold"> Service UUID</span></th>
-    <th class="tg-nk0m"><center><span style="font-weight:bold">Characteristic UUID</span></th>
+<tr>
+  <th class="tg-ui9f"><span style="font-weight: bold">Service Name</span></th>
+  <th class="tg-ui9f"><span style="font-weight: bold">Service UUID</span></th>
+  <th class="tg-ui9f"><span style="font-weight: bold">Characteristic UUID</span></th>
+</tr>
 
-  </tr>
   <tr>
-    <td class="tg-baqh">Heart Rate Service</td>
-    <td class="tg-baqh">0x180D</td>
-    <td class="tg-baqh">0x2A37</td>
+  <td class="tg-baqh">Heart Rate Service</td>
+  <td class="tg-baqh">0x180D</td>
+  <td class="tg-baqh">0x2A37</td>
+
   </tr>
   <tr>
     <td class="tg-baqh">Pulse Oximetry Service</td>
@@ -53,7 +57,7 @@ Change the Slide switch from PI mode to WL mode on the healthypi v4 board to swi
     <td class="tg-baqh">0x1424</td>
   </tr>
   <tr>
-    <td class="tg-baqh">Heart Rate variability Service</td>
+    <td class="tg-baqh">Respiration and Heart Rate variability Service</td>
     <td class="tg-baqh">"cd5c7491-4448-7db8-ae4c-d1da8cba36d0"</td>
     <td class="tg-baqh">"01bfa86f-970f-8d96-d44d-9023c47faddc"</td>
   </tr>
@@ -63,6 +67,8 @@ Change the Slide switch from PI mode to WL mode on the healthypi v4 board to swi
     <td class="tg-baqh">"01bf1525-970f-8d96-d44d-9023c47faddc"</td>
   </tr>
 </table>
+
+
 
 In the heart rate variability service two Characteristics are included, one for heart rate variability and the other for histogram.
 

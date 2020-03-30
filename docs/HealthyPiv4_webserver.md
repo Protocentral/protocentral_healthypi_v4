@@ -1,7 +1,7 @@
 ---
 menu: HealthyPi as Web server
 parent: getting-started.md
-weight: 4
+weight: 2
 ---
 ### HealthyPi as Web server
 

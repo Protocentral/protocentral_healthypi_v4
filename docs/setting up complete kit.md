@@ -1,7 +1,7 @@
 ---
-menu: Setting Up HealthyPi the Complete Kit
+menu: Setting Up HealthyPi v4 Complete Kit
 parent: getting-started.md
-weight: 1
+weight: 0
 ---
 
 ## Setting Up the HealthyPi v4 Complete Kit
@@ -15,7 +15,7 @@ The SmartiPi Touch Display that comes included with the HealthyPi v4 Complete ki
 <iframe src="https://player.vimeo.com/video/383998058" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 
-### Using HealthyPi v4 on Raspberry Pi
+### [Using HealthyPi v4 on Raspberry Pi](https://healthypi.protocentral.com/advanced-healthypiv4.html)
 
 If you have a Raspberry Pi setup already available, just follow the following steps on your Raspberry Pi. You will need a monitor and a keyboard/mouse and the Raspberry Pi should be running Raspbian before proceeding with HealthyPi installation. To find out how to install Raspbian check out the simple tutorial on [Raspberry Pi's official site](https://www.raspberrypi.org/documentation/installation/noobs.md).
 
@@ -58,10 +58,10 @@ MacOS and Linux do not need any drivers to be installed.
 
 Download the zip file from [Processing.org](https://processing.org/download/?processing) containing the executable files from the following links for 32-bit/64-bit Windows. If you do not know if you have a 64-bit or 32-bit computer, try with the 32-bit version.
 
-[Refer for Detailed instruction to Download Processing](http://healthypi4.protocentral.com/advanced-healthypiv4.html)
+[Refer for Detailed instruction to Download Processing](http://healthypi.protocentral.com/advanced-healthypiv4.html)
 
 Simply download the appropriate file for your operating system, unzip the contents and run the executable program contained in it. On desktop operating systems, you will have to choose the correct port name assigned to the HealthyPi by USB. Simply select the port from the dropdown on the top and port should be opened.
 
-*Note: Download Processing v3.5.3 and intall its additional libraries from **sketch-> import library-> add library like G4P, ControlP5. 
+*Note: Download Processing v3.5.3 and intall its additional libraries from **sketch-> import library-> add library like G4P, ControlP5, mqtt.
 
 *Note: On MacOS, if you see an error saying "app is damaged", please follow the steps given in https://support.apple.com/en-us/HT202491 .This is a known issue with Processing on MacOS.*

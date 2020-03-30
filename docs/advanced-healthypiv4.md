@@ -5,9 +5,9 @@ weight: 3
 
 ### Advanced HealthyPi
 
-This section is for those who want to do a manual installation of HealthyPi, those who want to modify with the code and generally play with the hardware.
+This section is for those who want to do a manual installation wwith HealthyPi v4, those who want to modify with the code and generally play with the hardware.
 
-For the simple way to setup HealthyPi on Raspberry Pi,
+For the simple way to setup HealthyPi v4 on Raspberry Pi,
 The following are the steps involved to get Raspberry Pi ready for a wireless remote patient monitor.
 
 #### Step 1 : Install and Update the OS
@@ -39,7 +39,7 @@ dtoverlay=pi3-disable-bt
 ```
 #### Step 3 : Launching the HealthyPi application
 
-**->** open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
+**->** Open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
 
 In the terminal window, type the following commands.
 
@@ -76,7 +76,7 @@ c. Locate the Processing sketchbook directory on your computer. This should have
 ```
 **Note:** This directory appears as **“Processing”** on Windows/Mac, and goes by the name “Sketchbook” on Linux. Create a subdirectory by name “libraries if one doesn’t exist already.
 
-d. From the above mentioned **“protocentral_healthypiv4”** directory Copy/Move the contents of the HealthyPi/Processing/HealthyPi folder to the Processing sketchbook directory which is also mentioned above (Locate the Processing sketchbook)
+d. From the above mentioned **“protocentral_healthypiv4”** directory Copy/Move the contents of the HealthyPi/Processing/HealthyPi folder to the Processing sketchbook directory which is also mentioned above (Locate the Processing sketchbook)https://github.com/Protocentral/Protocentral_ADS1220
 
 e. Finally, copy the “controlP5 & G4P” folders from HealthyPi/Processing/libraries/ and paste them into the libraries directory of your Processing sketchbook.
 

@@ -158,6 +158,10 @@ As you learn and explore our device, you may encounter some hiccups along the wa
       <td class="tq-0pky">- The sensors need to be securely attached to the body.</td>
     </tr>
     <tr>
+      <td class="tq-0pky">* Getting the error, “WebServer.h: No such file or directory error".</td>
+      <td class="tq-0pky">-Install the latest Arduino IDE version from Official Arduino website</td>
+    </tr>
+    <tr>
       <td class="tq-0pky">* Getting the error, “Failed to connect to ESP32: Timed out waiting for packet header".</td>
       <td class="tq-0pky">- Check whether the power switch is turned on.</td>
     </tr>
