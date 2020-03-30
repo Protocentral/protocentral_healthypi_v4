@@ -4,7 +4,7 @@ weight: 0 # smaller weights rise to the top of the menu
 ---
 # Welcome to HealthyPi v4
 
-#### Looking for [HealthyPi v3 documentation, check here:] (http://healthypi3.protocentral.com/)
+#### Looking for HealthyPi v3 documentation ?, [check healthypi3.protocentral.com](http://healthypi3.protocentral.com/)
 
 HealthyPi v4 sets a new standard in open source health solutions with mobility, wireless and wearable capabilities. It enables the continuous real-time monitoring of human physiological data, which provides a snapshot of the user's medical condition within his/her environment and also medical research possibilities. It is comfortable to wear and does not restrict the user's freedom of movement and can also act as a battery powered standalone device.
 
