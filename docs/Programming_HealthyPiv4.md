@@ -4,6 +4,8 @@ parent: getting-started.md
 weight: 3
 ---
 
+## Programming HealthyPi v4
+
 ### Programming with Arduino
 
 ![Arduino IDE](images/arduino_ide_new.png)
@@ -29,7 +31,7 @@ Now we have determined the COM port of the HealthyPiv4, its time to load the Ard
 
 [Installing ESP32 Platform in Boards Manager](https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md)
 
-Ensure that in Arduino IDE, **File -> Preference -> Settings -> show verbose during output -> compilation is enabled**
+Ensure that in Arduino IDE, **File -> Preference -> Settings -> show verbose output during: -> compilation is enabled**
 
 You can start by loading the IDE. When it is loaded, navigate to **Tools > Board > Esp32 dev module** and **Partition Scheme -> Minimal SPIFFS (1.9MB App with OTA/190Kb SPIFFS)**.
 
@@ -37,11 +39,15 @@ Next, you must tell the IDE which COM port the HealthyPi v4 is on. To do this, n
 
 In the Board Manager, **install ESP32 version 1.0.4**.
 
+
+
+**Step 4: Installing Arduino ESP32 Filesystem(SPIFFS)**
+
 An arduino plugin, Arduino ESP32 File system uploader needs to be installed for successful compiling of the Healthypi v4 firmware. [Refer this link](https://github.com/me-no-dev/arduino-esp32fs-plugin).
 
-**Step 4: Uploading code to HealthyPi v4**
+**Step 5: Uploading code to HealthyPi v4**
 
-To enable easy installation of the Healthypi v4 firmware, [download the Protocentral HealthyPiv4 arduino library .zip](https://github.com/Protocentral/Protocentral_HealthyPiv4). Open Arduino IDE -> Sketch -> Include Library -> Add .ZIP library -> select the Healthypi-v4 .zip file. This ensures that the required libraries are libraries are installed.
+To enable easy installation of the Healthypi v4 firmware, [download the Protocentral HealthyPiv4 arduino library .zip](https://github.com/Protocentral/Protocentral_HealthyPiv4). Open Arduino IDE -> Sketch -> Include Library -> Add .ZIP library -> select the Healthypi-v4 .zip file. This ensures that the required libraries are installed.
 
 #### * Excerpts from the code:
 
@@ -84,12 +90,14 @@ void loop()
 }
 ```  
 
-**Step 5: Uploading SPIFFS data folder**
+**Step 6: Uploading SPIFFS data folder**
 
-Next, after uploading the code to Healthypi v4 you will need to upload the Spiffs data folder for getting the webpages and storing the SSID and Password. Download [ESP32 File system](https://github.com/me-no-dev/arduino-esp32fs-plugin.git), unzip the folder in Arduino IDE tools folder and  open the Arduino IDE ,navigate to **Tools>ESP32 Sketch Data Upload**.
+Navigate to **Tools->ESP32 Sketch Data Upload** and it will upload the SPIFFS File.
 
+Note: Ensure that the data folder containing all of the SPIFFS
+file is in the same folder as the ino file.
 
-**Step 6: Compiling and Uploading**
+**Step 7: Compiling and Uploading**
 
 Compile the code and check for compilation without error and upload the code to HealthyPi v4 and see the output in the mode of your choice.
 
