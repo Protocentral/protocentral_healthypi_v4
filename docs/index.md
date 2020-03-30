@@ -2,10 +2,9 @@
 menu: Welcome
 weight: 0 # smaller weights rise to the top of the menu
 ---
+# Welcome to HealthyPi v4
 
-### For [HealthyPi v3 Click here](http://healthypi3.protocentral.com/)
-
-## Welcome to HealthyPi v4
+#### Looking for [HealthyPi v3 documentation, check here:] (http://healthypi3.protocentral.com/)
 
 HealthyPi v4 sets a new standard in open source health solutions with mobility, wireless and wearable capabilities. It enables the continuous real-time monitoring of human physiological data, which provides a snapshot of the user's medical condition within his/her environment and also medical research possibilities. It is comfortable to wear and does not restrict the user's freedom of movement and can also act as a battery powered standalone device.
 
@@ -47,20 +46,14 @@ Pulse oximetry front end: TI AFE4400 pulse oximetry front end with integrated LE
 
 ### Multiple operating modes, no programming required
 
-#### * [Wearable mode](https://healthypi.protocentral.com/HealthyPiv4_with_BLE.html)
+#### [Wearable mode](https://healthypi.protocentral.com/HealthyPiv4_with_BLE.html)
 
 ![Wearable mode](images/wearable_mode.jpg)
 
-The device communicates to android app via BLE. The real time vital signs (heart rate, respiration rate, spo2 and body temperature, histogram, heart rate variability) along with device battery level can be monitored  from the Android mobile application. Additionally, you can also view live streaming of ECG. Added on-board power source (Battery) enhances the device to be used in a complete wearable platform.
+The device communicates to android app via BLE. The real time vital signs (heart rate, respiration rate, spo2 and body temperature, histogram, heart rate variability) along with device battery level can be monitored  from the Android mobile application. Additionally, you can also view live streaming of ECG. Added on-board power source (Battery) enhances the device to be used in a complete wearable platform. This mode also contains the [HealthyPi Webserver](HealthyPiv4_webserver.md).The HealthyPi v4 webserver page displays live monitoring of physiological data. Additionally with added on OTA updates feature, you can easily update the firmware in minutes.
 
-#### * [Standalone webserver mode (IoT)](https://healthypi.protocentral.com/HealthyPiv4_webserver.html)
-
-![Webserver Standalone](images/dashboard_webserver.png)
-
-Unlocking the possibilities of HealthyPi v4 as IOT, data can be displayed on the PC screen using a TCP communication. Connecting your smart devices with the “Healthypi_v4 ” in Wi-Fi Access Point (AP) can stream vital signs through webserver. The HealthyPi v4 webserver page displays live monitoring of physiological data. Additionally with added on OTA updates feature, you can easily update the firmware in minutes.
-
-#### * [Raspberry Pi "HAT" mode (HealthyPi v3 compatible)](https://healthypi.protocentral.com/setting%20up%20complete%20kit.html)
+#### [Raspberry Pi "HAT" mode (HealthyPi v3 compatible)](https://healthypi.protocentral.com/setting%20up%20complete%20kit.html)
 
 ![HPi3 mode](images/Pi3_mode.png)
 
-Using the Raspberry Pi as its computing and display platform, The HealthyPi v4 add-on HAT turns the Raspberry Pi into a vital sign monitoring system.On successful interfacing of GUI with HealthyPi v4, ECG, respiration, SPo2  waveforms and  its values along with temperature can be  streamed live through Raspberry Pi display or Computer monitor depending on the users choice. The user can also record the data for research and analysis.
+Using the Raspberry Pi as its computing and display platform, the HealthyPi v4 add-on HAT turns the Raspberry Pi into a vital sign monitoring system, fully compatible with HealthyPi 3. The included GUI shows ECG, respiration and PPG waveforms and their calculated rate values along with temperature can be  streamed live through Raspberry Pi display or Computer monitor depending on the user's choice. The user can also record the data for research and analysis.
