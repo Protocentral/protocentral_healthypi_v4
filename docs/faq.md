@@ -12,10 +12,10 @@ weight: 4
 .tg .tg-0pky{border-color: inherit; text-align: left; vertical-align: top}
 </style>
 <table class="tg">
-  <tr>
+
     <th class="tg-ui9f"><span style="font-weight: bold">Question</span></th>
     <th class="tg-ui9f"><span style="font-weight: bold">Solution</span></th>
-  </tr>
+  
   <tr>
     <td class="tg-0pky">* Which microcontroller is used?</td>
     <td class="tg-0pky">-ESP32, in WROOM32 module format, with a Dual-core Xtensa 32-bit CPU, 4 MB of on-board flash.</td>
