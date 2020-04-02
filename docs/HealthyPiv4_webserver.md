@@ -1,21 +1,21 @@
 ---
-menu: HealthyPi as Web server
+menu: HealthyPi in Wifi Mode as a Web server
 parent: getting-started.md
 weight: 2
 ---
-### HealthyPi as Web server
+### HealthyPi in Wifi Mode as a Web server
 
 ![](images/dashboard_webserver.png)
 
-Using HealthyPi v4 as web server, you can stream live data over the Internet. With multiple operating modes present on-board, a push-button directs to the web server mode with the default HealthyPi Wi-Fi Access Point (AP). You can connect your smart devices to the “Healthypi ” Wi-Fi network. Point your web browser to the “healthypi.local” site. The Healthypi web server page displays the live vital signs.
+In the Wi-Fi/web server mode, HealthyPi  can stream live data over the Internet through any available WiFi connection. A push-button boots the device to the web server mode with the default HealthyPi Wi-Fi Access Point (AP). You can connect your from you WiFI-enabled device to the “HealthyPi ” Wi-Fi network and point your web browser to the “healthypi.local” site to access the home page of the application. The HealthyPi web server page displays the live calculated values as well as options to update firmware.
 
-#### Starting with Webserver
+#### Starting with Web server
 
-**1.** Click on the on-board push button, to switch from BLE mode or V3 mode to Webserver mode.
+**1.** Push the on-board push button, to switch from BLE mode or V3 mode to Web server mode.
 
-**2.** The board will restart with Yellow LED stays for 2.5Sec and glows from low to high and from high to low as an indication for Webserver mode and then enter Wi-Fi Access Point (AP) mode where the BLUE LED blinks 6 times. WI-FI Access Point means that you can connect to the ESP32 via any PC or smartphone with Wi-Fi capabilities without having to connect to your router.
+**2.** The board will restart with WiFi where the yellow LED stays ON for 2.5 seconds and then cycles ON and OFF as an indication for Web server mode and then enters Wi-Fi Access Point (AP) mode where the BLUE LED blinks 6 times. WI-FI Access Point means that you can connect to the ESP32 via any PC or smartphone with Wi-Fi capabilities without having to connect to your router.
 
-**3.** Connect to your PC or smart device to the Healthypi_v4  wifi network and type http://healthypi.local  in the address bar of your browser, This will re-direct to the Healthypi v4 web-server dashboard where you can view the Heart Rate, SpO2, Respiration and Temperature by connecting the temperature sensor, the SpO2 probe and the 3 electrode cable to the healthypi v4 board.
+**3.** Connect your PC or other Wi-Fi enabled smart device to the "HealthyPi" wifi network and type http://healthypi.local  in the address bar of your browser, This will re-direct to the Healthypi v4 web-server dashboard where you can view the Heart Rate, SpO2, Respiration and Temperature by connecting the temperature sensor, the SpO2 probe and the 3 electrode cable to the healthypi v4 board.
 
 **4.** If the web page is not loaded using http://healthypi.local, use the IP address of Healthypi v4 that will be shown on the serial monitor while using Soft AP mode. Make sure that the Healthypi v4 is in Webserver mode while checking for the IP address on the serial monitor.
 
