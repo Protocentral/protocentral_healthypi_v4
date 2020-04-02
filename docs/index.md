@@ -56,4 +56,4 @@ The device communicates to android app via BLE. The real time vital signs (heart
 
 ![HPi3 mode](images/Pi3_mode.png)
 
-Using the Raspberry Pi as its computing and display platform, the HealthyPi v4 add-on HAT turns the Raspberry Pi into a vital sign monitoring system, fully compatible with HealthyPi 3. The included GUI shows ECG, respiration and PPG waveforms and their calculated rate values along with temperature can be  streamed live through Raspberry Pi display or Computer monitor depending on the user's choice. The user can also record the data for research and analysis.
+Using the Raspberry Pi as its computing and display platform, the HealthyPi v4 add-on HAT turns the Raspberry Pi into a vital sign monitoring system, fully compatible with HealthyPi 3.The included GUI displays ECG, respiration and PPG waveforms and their calculated rate values along with temperature can be  streamed live through Raspberry Pi display or Computer monitor depending on the user's choice. The user can also record the data for research and analysis.
