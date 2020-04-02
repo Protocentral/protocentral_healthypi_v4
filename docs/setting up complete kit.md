@@ -15,53 +15,116 @@ The SmartiPi Touch Display that comes included with the HealthyPi v4 Complete ki
 <iframe src="https://player.vimeo.com/video/383998058" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 
-### [Using HealthyPi v4 on Raspberry Pi](https://healthypi.protocentral.com/advanced-healthypiv4.html)
+### Using HealthyPi v4 on Raspberry Pi
 
-If you have a Raspberry Pi setup already available, just follow the following steps on your Raspberry Pi. You will need a monitor and a keyboard/mouse and the Raspberry Pi should be running Raspbian before proceeding with HealthyPi installation. To find out how to install Raspbian check out the simple tutorial on [Raspberry Pi's official site](https://www.raspberrypi.org/documentation/installation/noobs.md).
+This section is for those who want to do a manual installation with HealthyPi v4, those who want to modify with the code and generally play with the hardware.
 
-The following video shows you how to connect the HealthyPi v4 as **"HAT"** to a Raspberry Pi.
+For the simple way to setup HealthyPi v4 on Raspberry Pi,
+The following are the steps involved to get Raspberry Pi ready for a wireless remote patient monitor. The following video shows you how to connect the HealthyPi v4 as **"HAT"** to a Raspberry Pi.
 
 <iframe src="https://player.vimeo.com/video/383968135" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-After completing the steps shown in the video, open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
+#### Step 1 : Install and Update the OS
+
+**->** Install the [Raspbian Buster with desktop and recommended software](https://www.raspberrypi.org/downloads/raspbian/) OS in Raspberry Pi.The image file can be downloaded from the [Raspberry Pi’s official website.](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+
+**->** Once the installation finishes, update the system with the following command in the Terminal:
+
+```c
+
+sudo apt-get update
+sudo apt-get upgrade
+
+```
+#### Step 2 : Setting it Up
+
+**->** Run the following command for setting up
+
+```c
+
+sudo nano /boot/config.tx
+[Click Enter]
+
+
+```
+**->** Add this line to the end of the file
+```c
+
+dtoverlay=pi3-disable-bt
+[Ctrl+X -> Enter, Y -> Enter]
+
+```
+#### Step 3 : Launching the HealthyPi application
+
+**->** Open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
 
 In the terminal window, type the following commands.
 
 ```bash
-curl -sS http://pi.protocentral.com/hpi3.sh | sudo bash
+
+ curl -sS http://pi.protocentral.com/hpi3.sh | sudo bash
+
 ```
 
 Making the process even more simpler, this command will download and install all the required overlays, configuration and application files to get the HealthyPi v4 launched and running.
 
 After the script reboots your Raspberry Pi, you should be able to see the GUI display the sensor outputs in real-time on the screen.
 
-
 **This completes the install!**
 
 
 ### Getting started with the HealthyPi GUI on Windows, MacOS and Linux
 
-The HealthyPi board now streams the same data on the on-board USB port. This allows you to get the same data that goes to the Raspberry Pi, now on your desktop PC as well.
+The HealthyPi v4 board now streams the same data on the on-board USB port. This allows you to get the same data that goes to the Raspberry Pi, now on your desktop PC as well.
 
 
 *Java 8 is required on all platforms for running the processing-based GUI application. You can download Java for your platform from the following link.*
 
 [https://java.com/en/download/](https://java.com/en/download/)
 
-### Installing drivers (only for Windows)
+#### Installing drivers (only for Windows)
 
 HealthyPi v4 uses the same drivers as an ESP32. Once plugged in to the USB port, the device would be recognized as an "Unknown Device". You can locate the device is the Windows Device Manager and manually install the drivers provided in the "drivers" folder in the Windows Executable ZIP archive provided.
 
 MacOS and Linux do not need any drivers to be installed.
 
-### Processing GUI Installation
+#### Processing GUI Installation
 
-Download the zip file from [Processing.org](https://processing.org/download/?processing) containing the executable files from the following links for 32-bit/64-bit Windows. If you do not know if you have a 64-bit or 32-bit computer, try with the 32-bit version.
+The HealthyPi visualization software  has been developed using the [Processing](https://processing.org/).
+Processing is a Java-based open source framework. The following are the steps to get the visualization software ready for wireless remote patient monitor:
 
-[Refer for Detailed instruction to Download Processing](http://healthypi.protocentral.com/advanced-healthypiv4.html)
+#### Step 1 : Download Processing IDE for your HOST COMPUTER operating system
 
-Simply download the appropriate file for your operating system, unzip the contents and run the executable program contained in it. On desktop operating systems, you will have to choose the correct port name assigned to the HealthyPi by USB. Simply select the port from the dropdown on the top and port should be opened.
+a. Latest Version of the Processing IDE can be downloaded from the following link:
 
-*Note: Download Processing v3.5.3 and intall its additional libraries from **sketch-> import library-> add library like G4P, ControlP5, mqtt.
+[Download Processing](https://processing.org/download/?processing)
 
-*Note: On MacOS, if you see an error saying "app is damaged", please follow the steps given in https://support.apple.com/en-us/HT202491 .This is a known issue with Processing on MacOS.*
+b. Unzip the file once downloaded.
+
+c. [Click for detailed Installation Instruction](https://github.com/processing/processing/wiki/Supported-Platforms)
+
+*Note:Verified with Processing v3.5.3*
+
+#### Step 2 : Getting the Processing code for the HealthyPi GUI
+
+a. [Download the HealthyPi v4 GUI Processing code](https://github.com/Protocentral/protocentral_healthypi_v4/tree/master/gui-software/healthypi4_gui) from Protocentral Healthypi v4 Github repository.
+
+b. Open the Processing and then **File -> Open -> (downloaded path) -> protocentral_healthypi_v4 -> gui-software -> healthypi4_gui -> healthypi4_gui.pde**  opens the HealthyPi v4 processing code.
+
+c. Intall its additional libraries from **sketch-> import library-> add library like G4P, ControlP5, mqtt, Graphica.**
+
+*Note: On MacOS, if you see an error saying "app is damaged", please follow the steps given in [https://support.apple.com/en-us/HT202491](https://support.apple.com/en-us/HT202491) .This is a known issue with Processing on MacOS.*
+
+#### Step 3 : Upload the Processing code from PC to Raspberry Pi
+
+**1.** In Processing IDE, Select “Tools” from the menu and choose, “Add tools”.
+
+**2.** Select **“Upload To Pi”** tool and click Install button which is present in the button right corner as shown in the below image.
+
+**3.** Now, connect your raspberry pi to the internet with the same network as your laptop is connected.
+
+**4.** Select “Tools” menu and choose “Upload to Pi” option from the list.
+
+![](images/upload_pi.png)
+
+**5.** If any error occured in uploading the code, check for the internet connection and repeat the process.

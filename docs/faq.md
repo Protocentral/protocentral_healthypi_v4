@@ -56,10 +56,6 @@ weight: 4
     <td class="tq-0pky">* For how long the data can be recorded?</td>
     <td class="tq-0pky">-Data can be recorded till the battery drains.</td>
   </tr>
-  <tr>
-    <td class="tq-0pky">* What are the specifications of ESP32?</td>
-    <td class-"tq-0pky">-Check ESP32 datasheet</td>
-  </tr>
     <tr>
     <td class="tq-0pky">* Does the board have firmware uploaded? </td>
     <td class="tq-0pky">-Yes, the firmware has been uploaded. The board is ready to use.</td>

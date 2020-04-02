@@ -2,9 +2,11 @@
 menu: Welcome
 weight: 0 # smaller weights rise to the top of the menu
 ---
-# Welcome to HealthyPi v4
 
-#### Looking for HealthyPi v3 documentation ?, [check healthypi3.protocentral.com](http://healthypi3.protocentral.com/)
+## Welcome to HealthyPi v4
+
+### Looking for HealthyPi v3 Documentation ?, [check healthypi3.protocentral.com](http://healthypi3.protocentral.com/)
+
 
 HealthyPi v4 sets a new standard in open source health solutions with mobility, wireless and wearable capabilities. It enables the continuous real-time monitoring of human physiological data, which provides a snapshot of the user's medical condition within his/her environment and also medical research possibilities. It is comfortable to wear and does not restrict the user's freedom of movement and can also act as a battery powered standalone device.
 
@@ -37,9 +39,9 @@ Pulse oximetry front end: TI AFE4400 pulse oximetry front end with integrated LE
 
 ### Ports and interfaces
 
-* **On / Off Switch :** Powering the HealthyPi v4.
-* **USB-CDC :** On-board USB-TO-UART converter.
-* **2x Sparkfun Qwiic :** Compatible I2C ports for interfacing any qwiic based sensors.
+* **On / Off Switch :** Powering the HealthyPi v4
+* **USB-CDC :** On-board USB-TO-UART converter
+* **2x Sparkfun QWIIC:** I2C compatible ports for interfacing any QWIIC based sensors and actuators
 * **Sliding switch :** Transition between two different modes(HPi3 mode and Wearable mode).
 * **On-board 3 LED :** Power indication and Modes indication
 * **Push-button :** Switching between Communication Protocols(BLE and Webserver)
@@ -50,7 +52,7 @@ Pulse oximetry front end: TI AFE4400 pulse oximetry front end with integrated LE
 
 ![Wearable mode](images/wearable_mode.jpg)
 
-The device communicates to android app via BLE. The real time vital signs (heart rate, respiration rate, spo2 and body temperature, histogram, heart rate variability) along with device battery level can be monitored  from the Android mobile application. Additionally, you can also view live streaming of ECG. Added on-board power source (Battery) enhances the device to be used in a complete wearable platform. This mode also contains the [HealthyPi Webserver](HealthyPiv4_webserver.md).The HealthyPi v4 webserver page displays live monitoring of physiological data. Additionally with added on OTA updates feature, you can easily update the firmware in minutes.
+The device communicates to android app via BLE. The real time vital signs (heart rate, respiration rate, spo2 and body temperature, histogram, heart rate variability) along with device battery level can be monitored from the Android mobile application. Additionally, you can also view live streaming of ECG. Added on-board power source (Battery) enhances the device to be used in a complete wearable platform. This mode also contains the [HealthyPi Webserver](https://healthypi.protocentral.com/HealthyPiv4_webserver.html).The HealthyPi v4 webserver page displays live monitoring of physiological data. Additionally with added on OTA updates feature, you can easily update the firmware in minutes.
 
 #### [Raspberry Pi "HAT" mode (HealthyPi v3 compatible)](https://healthypi.protocentral.com/setting%20up%20complete%20kit.html)
 
