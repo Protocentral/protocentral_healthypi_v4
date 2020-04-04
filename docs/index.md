@@ -7,19 +7,19 @@ weight: 0 # smaller weights rise to the top of the menu
 
 **Looking for HealthyPi v3 Documentation?, v3 documentation has moved to** [healthypi3.protocentral.com](http://healthypi3.protocentral.com/)
 
-
-HealthyPi v4 sets a new standard in open source health solutions with mobility, wireless and wearable capabilities. It enables the continuous real-time monitoring of human physiological data, which provides a snapshot of the user's medical condition within his/her environment and also medical research possibilities. It is comfortable to wear and does not restrict the user's freedom of movement and can also act as a battery powered standalone device.
+HealthyPi v4 is a HAT for the Raspberry Pi, as well as a standalone device that can measure human vital signs that are useful in medical diagnosis and treatment. HealthyPi v4 sets a new standard in open source health solutions with mobility, wireless and wearable capabilities. This device presents a snapshot of the user's medical condition within his/her environment and opens up medical research possibilities.
 
 ![HealthyPi Display](images/HealthyPi_Complete.jpg)
 
 HealthyPi v4 measures the following parameters in real-time and with high accuracy:
 
 * Electrocardiogram (ECG) data, heart rate, and heart-rate variability
-* Respiration based on Impedance Pneumography
-* Pulse oximetry (SPo2)
+* Respiration based on impedance pneumography
+* Pulse oximetry (SPO₂)
 * Body temperature
 
 HealthyPi v4 is affordable and accessible and the open source aspect means that it’s easy to expand on.
+
 You can now purchase a HealthyPi v4 from [Crowd Supply](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged)
 
 ### Features
