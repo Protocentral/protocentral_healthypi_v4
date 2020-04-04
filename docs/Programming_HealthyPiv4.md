@@ -3,55 +3,73 @@ menu: Programming HealthyPi v4
 parent: getting-started.md
 weight: 3
 ---
-
 ## Programming HealthyPi v4
 
 ### Programming with Arduino
 
 ![Arduino IDE](images/arduino_ide_new.png)
 
-#### Setting up Arduino for ESP32
+#### Step 1: Download and Install the IDE
 
-**Step 1: Download and Install the IDE**
-
-The Arduino Software (IDE) allows you to write programs and upload them to your HealthyPiv4. Now you require Arduino Desktop IDE. You can download the latest version for Windows, Linux and Mac OS using the below link.
+The Arduino Software (IDE) allows you to write programs and upload them to your HealthyPi v4. You can download the latest version for Windows, Linux and Mac OS using the below link.
 [Download the Arduino IDE](https://www.arduino.cc/en/Main/Software#download)
 
 **Note**: Once you have downloaded, install the IDE and ensure that you enable most (if not all) of the options, including the drivers. Click for installing instructions in [windows](https://www.arduino.cc/en/guide/windows), [linux](https://www.arduino.cc/en/guide/linux), [Mac OS](https://www.arduino.cc/en/guide/macOSX)
 
-**Step 2: Get the HealthyPi v4 COM Port Number**
+#### Step 2: Get the HealthyPi v4 COM Port Number
 
-Next, you will need to connect the HealthyPi v4 board to a system. This is done via a USB connection. When the HealthyPi v4 is connected, the operating system should recognize the board as a generic COM port. The easiest way to do this is to type **Device manager** into Windows Search and select Device Manager when it shows.
+Next, you will need to connect the HealthyPi v4 board to a system. This is done via a USB connection. When the HealthyPi v4 is connected, the operating system should recognize the board as a generic USB COM port. The easiest way to do this is to type **Device manager** into Windows Search and select Device Manager when it shows.
 
-In the Device Manager window, look for a device under Ports (COM & LPT) and chances are the Arduino will be the only device on the list.
+In the Device Manager window, look for a device under Ports (COM & LPT) and chances are the HealthyPi v4 or an Arduino will be the only device on the list.
 
-**Step 3: Configure the IDE**
+#### Step 3: Configure Arduino for ESP32 board support
 
-Now we have determined the COM port of the HealthyPiv4, its time to load the Arduino IDE and configure it to use the same device and port. You have to install the esp32 platform in the Arduino IDE to find an esp32 board in board manager. For installing esp32 platform follow up the link:
+The Arduino IDE does not come with support for ESP32 out of the box. Please follow the following instructions to add ESP32 boards support to the Arduino IDE.
 
 [Installing ESP32 Platform in Boards Manager](https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md)
 
-Ensure that in Arduino IDE, **File -> Preference -> Settings -> show verbose output during: -> compilation is enabled**
+You will also need to select the "ESP32 Dev Module" board using the "Board:" option menu as shown in the figure below:
 
-You can start by loading the IDE. When it is loaded, navigate to **Tools > Board > Esp32 dev module** and **Partition Scheme -> Minimal SPIFFS (1.9MB App with OTA/190Kb SPIFFS)**.
+![Arduino board selection](images/board_selection.jpg)
+
+Also, select the following options for the selected board by
+
+* Partition Scheme -> Minimal SPIFFS (1.9MB App with OTA/190Kb SPIFFS)
 
 Next, you must tell the IDE which COM port the HealthyPi v4 is on. To do this, navigate to **Tools > Port > COMXX**. Obviously, if your HealthyPi v4 is on a different port, select that port instead.
 
-In the Board Manager, **install ESP32 version 1.0.4**.
+#### Step 4: Install the latest HealthyPi v4 Arduino libraries
 
+Download the latest Arduino Library for HealthyPi v4 from the link below.
 
+[Download HealthyPi v4 Arduino Library](https://github.com/Protocentral/protocentral_healthypi4_arduino/archive/master.zip)
 
-**Step 4: Installing Arduino ESP32 Filesystem(SPIFFS)**
+Rename the downloaded file to "healthypiv4.zip" and upload it to the Arduino IDE by going to Sketch -> Include Library -> Add .ZIP library and then select the healthypiv4.zip file. The library should now be installed.
 
-An arduino plugin, Arduino ESP32 File system uploader needs to be installed for successful compiling of the Healthypi v4 firmware. [Refer this link](https://github.com/me-no-dev/arduino-esp32fs-plugin).
+Once installed, restart the Arduino IDE to load these libraries. You can now load the main HealthyPi Arduino sketch as shown below from File -> Examples -> "ProtoCentral HealthyPi v4 Sensor Library" -> examples -> "Healthypiv4_Arduino"
 
-**Step 5: Uploading code to HealthyPi v4**
+ ![Arduino HealthyPi v4 Sketch](images/screen_select_library.jpg)
 
-To enable easy installation of the Healthypi v4 firmware, [download the Protocentral HealthyPiv4 arduino library .zip](https://github.com/Protocentral/Protocentral_HealthyPiv4). Open Arduino IDE -> Sketch -> Include Library -> Add .ZIP library -> select the Healthypi-v4 .zip file. This ensures that the required libraries are installed.
+#### Step 5: Install the Arduino ESP32 Filesystem(SPIFFS)
 
-#### * Excerpts from the code:
+The HealthyPi v4 code requires an Arduino tool plugin called the "ESP32 File system uploader" to upload the SPIFFS filesystem. [Check this site for direction to download and install the ESP32FS plugin](https://github.com/me-no-dev/arduino-esp32fs-plugin).
 
-##### * Initializing the functionalities in HealthyPi v4
+Restart the Arduino IDE for the this tool to show in the Tools menu. Once
+
+Navigate to Tools->ESP32 Sketch Data Upload and it will upload the SPIFFS File.
+
+*Note: Ensure that the data folder containing all of the SPIFFS
+file is in the same folder as the location of the sketch file that is currently open.*
+
+#### Step 6: Uploading code to HealthyPi v4
+
+Compile the code and check for compilation without error and upload the code to HealthyPi v4 and see the output in the mode of your choice.
+
+**You're now all set to modify and/or write your own code for the HealthyPi v4 !!**
+
+### Some Example code:
+
+##### Initializing the functionalities in HealthyPi v4
 ```c
 void setup()
 {
@@ -73,7 +91,7 @@ void setup()
 
  }
 ```
-##### * In the loop function below we read the vitals data from HealthyPi v4 .
+##### In the loop function below we read the vitals data from HealthyPi v4 .
 
 ```c
 void loop()
@@ -89,18 +107,6 @@ void loop()
 
 }
 ```  
-
-**Step 6: Uploading SPIFFS data folder**
-
-Navigate to **Tools->ESP32 Sketch Data Upload** and it will upload the SPIFFS File.
-
-Note: Ensure that the data folder containing all of the SPIFFS
-file is in the same folder as the ino file.
-
-**Step 7: Compiling and Uploading**
-
-Compile the code and check for compilation without error and upload the code to HealthyPi v4 and see the output in the mode of your choice.
-
 ### Programming with ESP IDF
 
 ![ESPidf](images/ESPidf.JPG)
