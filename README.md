@@ -15,6 +15,8 @@ HealthyPi 4 is affordable and accessible and the open source aspect means that i
 
 You can now purchase the [HealthyPi v4 HAT Kit from Crowd Supply](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged)
 
+Get started at [healthypi.protocentral.com](https://healthypi.protocentral.com/)
+
 ### HIGHLIGHTS
 **Microcontroller and wireless connectivity:**  ESP32, in WROOM32 module format, with a Dual-core Xtensa 32-bit CPU, 4 MB of on-board flash, Wi-Fi, and support for BLE
 
