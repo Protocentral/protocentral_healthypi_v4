@@ -14,7 +14,6 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////
 
-import g4p_controls.*;                       // Processing GUI Library to create buttons, dropdown,etc.,
 import processing.serial.*;                  // Serial Library
 import grafica.*;
 
@@ -314,6 +313,7 @@ public void makeGUI()
      } 
      );
      
+     /*
      cp5.addButton("MQTT ON/OFF")
      .setValue(0)
      .setPosition(width-330,10)
@@ -329,6 +329,8 @@ public void makeGUI()
       }
      } 
      );
+     */
+     /*
     
     Group grpMQTTSettings = cp5.addGroup("MQTT Settings")
                 .setBackgroundColor(color(0,0,255))
@@ -396,6 +398,7 @@ public void makeGUI()
               }
              } 
              );
+             
                  
     accordion = cp5.addAccordion("acc")
                  .setPosition(width-555,10)
@@ -403,6 +406,7 @@ public void makeGUI()
                  .setHeight(40)
                        
                  .addItem(grpMQTTSettings);
+                 */
                  
   if(!System.getProperty("os.arch").contains("arm"))
   {     
@@ -432,27 +436,28 @@ public void makeGUI()
       .setText("Heartrate: --- bpm")
       .setPosition(width-550,50)
       .setColorValue(color(255,255,255))
-      .setFont(createFont("Impact",40));
-
+      .setFont(createFont("Verdana",40));
+      
       lblSPO2 = cp5.addTextlabel("lblSPO2")
       .setText("SpO2: --- %")
       .setPosition(width-550,(totalPlotsHeight/3+10))
       .setColorValue(color(255,255,255))
-      .setFont(createFont("Impact",40));
+      .setFont(createFont("Verdana",40));
  
 
       lblRR = cp5.addTextlabel("lblRR")
       .setText("Respiration: --- bpm")
       .setPosition(width-550,(totalPlotsHeight/3+totalPlotsHeight/3+10))
       .setColorValue(color(255,255,255))
-      .setFont(createFont("Impact",40));
+      .setFont(createFont("Verdana",40));
     
       lblTemp = cp5.addTextlabel("lblTemp")
       .setText("Temperature: --- C")
-      .setPosition((width/3)*2,height-60)
+      .setPosition((width-550),height-60)
       .setColorValue(color(255,255,255))
       .setFont(createFont("Verdana",40));
 
+      /*
       lblMQTT = cp5.addTextlabel("lblMQTT")
       .setText("MQTT OFF | ")
       .setPosition(5,height-25)
@@ -464,6 +469,7 @@ public void makeGUI()
       .setPosition(150,height-25)
       .setColorValue(color(255,255,255))
       .setFont(createFont("Verdana",20));
+      */
     
      cp5.addButton("logo")
      .setPosition(10,10)
