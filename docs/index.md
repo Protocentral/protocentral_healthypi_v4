@@ -58,7 +58,7 @@ The device communicates to android app via BLE. The real time vital signs (heart
 
 The HealthyPi Connect mobile App is now available for download from the [Google Play Store](https://play.google.com/store/apps/details?id=com.protocentral.healthypi4) as well as the [Apple App Store](https://apps.apple.com/us/app/healthypi-4/id1504818294)
 
-[![HealthyPi Mobile App](images/app-store.svg)](https://apps.apple.com/us/app/healthypi-4/id1504818294) [![HealthyPi Mobile App](images/google-play.png)](https://apps.apple.com/us/app/healthypi-4/id1504818294) 
+[![HealthyPi Mobile App](images/app-store.svg)](https://apps.apple.com/us/app/healthypi-4/id1504818294) [![HealthyPi Mobile App](images/google-play.png)](https://play.google.com/store/apps/details?id=com.protocentral.healthypi4) 
 
 
 #### [Raspberry Pi "HAT" mode (HealthyPi v3 compatible)](https://healthypi.protocentral.com/setting%20up%20complete%20kit.html)
