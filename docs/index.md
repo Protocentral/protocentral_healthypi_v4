@@ -7,6 +7,8 @@ weight: 0 # smaller weights rise to the top of the menu
 
 **Looking for HealthyPi v3 Documentation?, v3 documentation has moved to** [healthypi3.protocentral.com](http://healthypi3.protocentral.com/)
 
+#### Don't have one? Get yours at [ProtoCentral](https://www.protocentral.com/home/1392-healthypi-v4-hat-kit.html) or on [Crowd Supply](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged)
+
 HealthyPi v4 is a HAT for the Raspberry Pi, as well as a standalone device that can measure human vital signs that are useful in medical diagnosis and treatment. HealthyPi v4 sets a new standard in open source health solutions with mobility, wireless and wearable capabilities. This device presents a snapshot of the user's medical condition within his/her environment and opens up medical research possibilities.
 
 ![HealthyPi Display](images/HealthyPi_Complete.jpg)
@@ -53,6 +55,11 @@ Pulse oximetry front end: TI AFE4400 pulse oximetry front end with integrated LE
 ![Wearable mode](images/wearable_mode.jpg)
 
 The device communicates to android app via BLE. The real time vital signs (heart rate, respiration rate, spo2 and body temperature, histogram, heart rate variability) along with device battery level can be monitored from the Android mobile application. Additionally, you can also view live streaming of ECG. Added on-board power source (Battery) enhances the device to be used in a complete wearable platform. This mode also contains the [HealthyPi Webserver](https://healthypi.protocentral.com/HealthyPiv4_webserver.html).The HealthyPi v4 webserver page displays live monitoring of physiological data. Additionally with added on OTA updates feature, you can easily update the firmware in minutes.
+
+The HealthyPi Connect mobile App is now available for download from the [Google Play Store](https://play.google.com/store/apps/details?id=com.protocentral.healthypi4) as well as the [Apple App Store](https://apps.apple.com/us/app/healthypi-4/id1504818294)
+
+[![HealthyPi Mobile App](images/app-store.svg)](https://apps.apple.com/us/app/healthypi-4/id1504818294) [![HealthyPi Mobile App](images/google-play.png)](https://apps.apple.com/us/app/healthypi-4/id1504818294) 
+
 
 #### [Raspberry Pi "HAT" mode (HealthyPi v3 compatible)](https://healthypi.protocentral.com/setting%20up%20complete%20kit.html)
 

@@ -7,6 +7,8 @@ weight: 1
 
 ![wearable mode](images/wearable_mode.jpg)
 
+[![HealthyPi Mobile App](images/app-store.svg)](https://apps.apple.com/us/app/healthypi-4/id1504818294) [![HealthyPi Mobile App](images/google-play.png)](https://play.google.com/store/apps/details?id=com.protocentral.healthypi4) 
+
 Building upon its predecessor, HealthyPi v4 brings more flexibility to the user. Powered by the popular ESP32, it opens up wireless and wearable capabilities. Now it's portable and standalone with in-built rechargeable battery. It can still be used as a HAT for Raspberry Pi or as a standalone wearable platform.
 
 HealthyPi v4 is powered by the ESP32 SoC module, which supports pairing with smartphones through BLE. BLE is widely used in wearable devices because its low power requirements allow it to function for a long time without charging. HealthyPi v4 also supports pairing with other IoT devices for use in mesh networks. BLE 4.2 adds improved security capabilities.
@@ -78,17 +80,10 @@ In the ECG service, the default plot is ECG and an option is given to switch fro
 
 Monitoring the human physiological data associated with day-to-day activities becomes much simpler with the HealthyPi app, which is available in app stores, for both Android and iOS devices.
 
+[![HealthyPi Mobile App](images/app-store.svg)](https://apps.apple.com/us/app/healthypi-4/id1504818294) [![HealthyPi Mobile App](images/google-play.png)](https://play.google.com/store/apps/details?id=com.protocentral.healthypi4) 
+
 The HealthyPi app is used to communicate directly with HealthyPi v4 hardware, through the same BLE services mentioned above, and can display all vital signs on a single screen.
 
-![Home app](images/Home_app.jpg)  ![dashboard app](images/dash_app.jpg)  
+![HealthyPi Mobile App](images/hpi4-app-screens.jpg)
 
-
-HealthyPi v4 is a powerful tool, and the HealthyPi app opens up new possibilities for using it to monitor vital signs outside of traditional settings. Among other features, it is capable of displaying respiration, Histogram, Heart rate variability and ECG data. A simulation of the latter function is shown below:
-
-![live ecg](images/live_ecg.jpg)
-
-#### Getting HealthyPi app
-
-**1.** Download the HealthyPi v4 application for Android available on Google Play Store.
-
-**2.** Connect the HealthyPi v4 device with mobile application through BLE.
+HealthyPi v4 is a powerful tool, and the HealthyPi app opens up new possibilities for using it to monitor vital signs outside of traditional settings. Among other features, it is capable of displaying respiration, Histogram, Heart rate variability and ECG data.
