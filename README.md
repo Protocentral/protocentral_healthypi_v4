@@ -15,6 +15,8 @@ HealthyPi 4 is affordable and accessible and the open source aspect means that i
 
 You can now purchase the [HealthyPi v4 HAT Kit from Crowd Supply](https://www.crowdsupply.com/protocentral/healthypi-v4-unplugged)
 
+**If you're looking for the HealthyPi 4 Arduino library, it has [moved here](https://github.com/Protocentral/protocentral_healthypi4_arduino)
+
 Get started at [healthypi.protocentral.com](https://healthypi.protocentral.com/)
 
 ## Highlights:
