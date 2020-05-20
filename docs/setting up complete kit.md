@@ -26,11 +26,11 @@ The following are the steps involved to get Raspberry Pi ready for a wireless re
 
 #### Step 1 : Install and Update the OS
 
-**->** Install the [Raspbian Buster with desktop and recommended software](https://www.raspberrypi.org/downloads/raspbian/) OS in Raspberry Pi.The image file can be downloaded from the [Raspberry Pi’s official website.](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+Install [Raspbian Buster with desktop and recommended software](https://www.raspberrypi.org/downloads/raspbian/) from the Raspberry Pi site.The image file can be downloaded from the [Raspberry Pi’s official website.](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 
 #### Step 2 : Launching the HealthyPi application
 
-**->** Open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
+Open up a new terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
 
 In the terminal window, type the following commands.
 
@@ -39,8 +39,6 @@ In the terminal window, type the following commands.
  curl -sS https://healthypi.protocentral.com/install.sh | sudo bash
 
 ```
-
-Making the process even more simpler, this command will download and install all the required overlays, configuration and application files to get the HealthyPi v4 launched and running.
 
 After the script reboots your Raspberry Pi, you should be able to see the GUI display the sensor outputs in real-time on the screen.
 
