@@ -523,11 +523,12 @@ if confirm "Do you wish to continue?"; then
 
 	cd /tmp
 	rm -rf application.linux-armv6hf
+    rm -rf healthypi-rpi.zip
 	rm -rf /opt/healthypi_gui
 
-	curl -LO https://github.com/Protocentral/protocentral_healthypi_v4/releases/download/v0.5/application.linux-armv6hf.zip
+	curl -LO https://github.com/Protocentral/protocentral_healthypi_v4/releases/latest/download/healthypi-rpi.zip
 
-	unzip application.linux-armv6hf.zip
+	unzip healthypi-rpi.zip
 
 	mv application.linux-armv6hf healthypi_gui
 	cp -r healthypi_gui /opt/healthypi_gui
