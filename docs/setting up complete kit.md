@@ -28,33 +28,7 @@ The following are the steps involved to get Raspberry Pi ready for a wireless re
 
 **->** Install the [Raspbian Buster with desktop and recommended software](https://www.raspberrypi.org/downloads/raspbian/) OS in Raspberry Pi.The image file can be downloaded from the [Raspberry Pi’s official website.](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 
-**->** Once the installation finishes, update the system with the following command in the Terminal:
-
-```c
-
-sudo apt-get update
-sudo apt-get upgrade
-
-```
-#### Step 2 : Setting it Up
-
-**->** Run the following command for setting up
-
-```c
-
-sudo nano /boot/config.tx
-[Click Enter]
-
-
-```
-**->** Add this line to the end of the file
-```c
-
-dtoverlay=pi3-disable-bt
-[Ctrl+X -> Enter, Y -> Enter]
-
-```
-#### Step 3 : Launching the HealthyPi application
+#### Step 2 : Launching the HealthyPi application
 
 **->** Open up the terminal window (Menu -> Accessories -> Terminal) on Raspbian running on your Raspberry Pi:
 
@@ -62,7 +36,7 @@ In the terminal window, type the following commands.
 
 ```bash
 
- curl -sS http://pi.protocentral.com/hpi3.sh | sudo bash
+ curl -sS https://healthypi.protocentral.com/install.sh | sudo bash
 
 ```
 
