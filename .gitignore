@@ -2,8 +2,8 @@ docs/images/.DS_Store
 docs/.DS_Store
 docs/images/.DS_Store
 
-gui/application.linux-armv6hf/*
-gui/application.linux32/*
+gui/application.linux-armv6hf
+gui/application.linux32
 gui/application.linux64/*
 gui/application.linux-arm64/*
 
