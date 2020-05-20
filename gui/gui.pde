@@ -243,39 +243,11 @@ public void setup()
   }
   time = 0;
   
-  mqtt_post_start_time=0;
-  mqtt_post_stop_time=5000;
-  
-  
   delay(2000);
   if(System.getProperty("os.arch").contains("arm"))
   {
     startSerial("/dev/ttyAMA0",57600);
   }
-}
-
-void setupMQTT() 
-{
-    mqtt_server = cp5.get(Textfield.class,"MQTT Server Name").getText();
-    mqtt_username = cp5.get(Textfield.class,"MQTT username").getText();
-    mqtt_password = cp5.get(Textfield.class,"MQTT password").getText();
-      
-    client = new MQTTClient(this);
-    String mqtt_connect_string = "mqtt://"+ mqtt_username +":"+mqtt_password+"@"+mqtt_server;
-    println(mqtt_connect_string);
-    try 
-    {
-      client.connect(mqtt_connect_string);
-      lblMQTTStatus.setText("Connected to:"+mqtt_server);
-    } catch (Exception e)
-    {
-        lblMQTTStatus.setText("Failed to connect");
-    }
-}
-
-void messageReceived(String topic, byte[] payload) 
-{
-  println("MQTT message recd: " + topic + " - " + new String(payload));
 }
 
 public void makeGUI()
@@ -306,107 +278,14 @@ public void makeGUI()
       public void controlEvent(CallbackEvent event) {
         if (event.getAction() == ControlP5.ACTION_RELEASED) 
         {
-          RecordData();
+          //RecordData();
           //cp5.remove(event.getController().getName());
         }
       }
      } 
      );
      
-     /*
-     cp5.addButton("MQTT ON/OFF")
-     .setValue(0)
-     .setPosition(width-330,10)
-     .setSize(100,40)
-     .setColorBackground(color(255,0,0))
-     .setFont(createFont("Impact",15))
-     .addCallback(new CallbackListener() {
-      public void controlEvent(CallbackEvent event) {
-        if (event.getAction() == ControlP5.ACTION_RELEASED) 
-        {
-            MQTT_ONOFF();
-        }
-      }
-     } 
-     );
-     */
-     /*
-    
-    Group grpMQTTSettings = cp5.addGroup("MQTT Settings")
-                .setBackgroundColor(color(0,0,255))
-                //.setSize(200,100)
-                .setBarHeight(40)
-                //.setSize(200,40)
-                .setFont(createFont("Impact",15))
-                .setBackgroundHeight(300)
-
-                ;
-        
-          cp5.addTextfield("MQTT Server Name")
-           .setPosition(10,5)
-           .setSize(200,40)
-           //.setFont(font)
-           .setFont(createFont("Arial",15))
-           .setFocus(true)
-           .setColor(color(255,255,255))
-           .setText(default_mqtt_server)
-           .moveTo(grpMQTTSettings);
-           
-          cp5.addTextfield("MQTT username")
-           .setPosition(10,70)
-           .setSize(200,40)
-           //.setFont(font)
-           .setFont(createFont("Impact",15))
-           .setFocus(true)
-           .setColor(color(255,255,255))
-           .setText(default_mqtt_username)
-           .moveTo(grpMQTTSettings);
-           
-          cp5.addTextfield("MQTT password")
-           .setPosition(10,140)
-           .setSize(200,40)
-           //.setFont(font)
-           .setFont(createFont("Impact",15))
-           .setFocus(true)
-           .setColor(color(255,255,255))
-           .setText(default_mqtt_password)
-           .moveTo(grpMQTTSettings); 
-           
-         cp5.addTextfield("Feedname")
-           .setPosition(10,210)
-           .setSize(200,40)
-           //.setFont(font)
-           .setFont(createFont("Impact",15))
-           .setFocus(true)
-           .setColor(color(255,255,255))
-           .moveTo(grpMQTTSettings); 
-           
-           cp5.addButton("Save")
-             .setValue(0)
-             .setPosition(110,255)
-             .setSize(100,40)
-             .setFont(createFont("Impact",15))
-             .moveTo(grpMQTTSettings) 
-             .addCallback(new CallbackListener() {
-              public void controlEvent(CallbackEvent event) {
-                if (event.getAction() == ControlP5.ACTION_RELEASED) 
-                {
-                  accordion.close();
-                  //CloseApp();
-                  //cp5.remove(event.getController().getName());
-                }
-              }
-             } 
-             );
-             
-                 
-    accordion = cp5.addAccordion("acc")
-                 .setPosition(width-555,10)
-                 .setWidth(220)
-                 .setHeight(40)
-                       
-                 .addItem(grpMQTTSettings);
-                 */
+     
                  
   if(!System.getProperty("os.arch").contains("arm"))
   {     
@@ -457,20 +336,6 @@ public void makeGUI()
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
 
-      /*
-      lblMQTT = cp5.addTextlabel("lblMQTT")
-      .setText("MQTT OFF | ")
-      .setPosition(5,height-25)
-      .setColorValue(color(255,255,255))
-      .setFont(createFont("Verdana",20));
-      
-      lblMQTTStatus = cp5.addTextlabel("lblMQTTStatus")
-      .setText("Connected to: none")
-      .setPosition(150,height-25)
-      .setColorValue(color(255,255,255))
-      .setFont(createFont("Verdana",20));
-      */
-    
      cp5.addButton("logo")
      .setPosition(10,10)
      .setImages(loadImage("protocentral.png"), loadImage("protocentral.png"), loadImage("protocentral.png"))
@@ -489,24 +354,7 @@ public void makeGUI()
         
         lblRR.setPosition(width-200,(totalPlotsHeight/3+totalPlotsHeight/3+10+heightHeader))
         .setFont(createFont("verdana",20));
-        
-        lblMQTT.setPosition(5,height-25);
-        lblMQTTStatus.setPosition(150,height-25);
-    }
-}
-
-void MQTT_ONOFF()
-{
-    if(false==mqtt_on)
-    {
-        mqtt_on=true;
-        lblMQTT.setText("MQTT ON");
-        setupMQTT();
-    }
-    else
-    {
-        mqtt_on=false;
-        lblMQTT.setText("MQTT OFF");
+       
     }
 }
 
