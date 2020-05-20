@@ -246,7 +246,7 @@ public void setup()
   delay(2000);
   if(System.getProperty("os.arch").contains("arm"))
   {
-    startSerial("/dev/ttyAMA0",57600);
+    startSerial("/dev/ttyAMA0",115200);
   }
 }
 
