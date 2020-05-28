@@ -8,3 +8,4 @@ gui/application.linux64/*
 gui/application.linux-arm64/*
 
 *.jar
+gui/healthypi-rpi.zip

@@ -278,12 +278,20 @@ public void makeGUI()
       public void controlEvent(CallbackEvent event) {
         if (event.getAction() == ControlP5.ACTION_RELEASED) 
         {
-          //RecordData();
-          //cp5.remove(event.getController().getName());
+          RecordData();
+          cp5.remove(event.getController().getName());
         }
       }
      } 
      );
+     
+       // create a toggle and change the default look to a (on/off) switch look
+    cp5.addToggle("recordToggle")
+     .setPosition(40,250)
+     .setSize(50,20)
+     .setValue(true)
+     //.setMode(ControlP5.SWITCH)
+     ;
      
      
                  
@@ -420,30 +428,75 @@ public void CloseApp()
 
 public void RecordData()
 {
-    try
-  {
-    jFileChooser = new JFileChooser();
-    jFileChooser.setSelectedFile(new File("log.csv"));
-    jFileChooser.showSaveDialog(null);
-    String filePath = jFileChooser.getSelectedFile()+"";
-
-    if ((filePath.equals("log.txt"))||(filePath.equals("null")))
+  String storagePath="/Users/";
+  if(logging==false)
     {
-    } else
-    {    
-      logging = true;
-      date = new Date();
-      output = new FileWriter(jFileChooser.getSelectedFile(), true);
-      bufferedWriter = new BufferedWriter(output);
-      bufferedWriter.write(date.toString()+"");
-      bufferedWriter.newLine();
-      bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
-      bufferedWriter.newLine();
-    }
-  }
-  catch(Exception e)
-  {
-    println("File Not Found");
+      if(System.getProperty("os.arch").contains("arm"))
+      {
+        storagePath="/media/pi/";
+        File[] usbFiles = listFiles(storagePath);
+        print(str(usbFiles.length));
+        if(usbFiles.length<0)
+          {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
+          }
+          else
+          {
+            try
+            {
+              //USB storage present
+              jFileChooser = new JFileChooser();
+              long currentTime=System.currentTimeMillis();
+              String filename = currentTime + ".csv";
+              jFileChooser.setSelectedFile(new File(filename));
+              jFileChooser.showSaveDialog(null);
+              String filePath = jFileChooser.getSelectedFile()+"";
+              
+              logging = true;
+              date = new Date();
+              output = new FileWriter(jFileChooser.getSelectedFile(), true);
+              bufferedWriter = new BufferedWriter(output);
+              bufferedWriter.write(date.toString()+"");
+              bufferedWriter.newLine();
+              bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
+              bufferedWriter.newLine();
+            }
+            catch(Exception e)
+            {
+              println("File Not Found");
+            }
+        
+          }
+          
+      } else {
+        //Not Raspberry Pi
+    
+        try
+        {
+          jFileChooser = new JFileChooser();
+          long currentTime=System.currentTimeMillis();
+          String filename = currentTime + ".csv";
+          jFileChooser.setSelectedFile(new File(filename));
+          jFileChooser.showSaveDialog(null);
+          String filePath = jFileChooser.getSelectedFile()+"";
+          
+          logging = true;
+          date = new Date();
+          output = new FileWriter(jFileChooser.getSelectedFile(), true);
+          bufferedWriter = new BufferedWriter(output);
+          bufferedWriter.write(date.toString()+"");
+          bufferedWriter.newLine();
+          bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
+          bufferedWriter.newLine();
+          
+        }
+        catch(Exception e)
+        {
+          println("File Not Found");
+        }
+        
+      }  
   }
 }
 void startSerial(String startPortName, int baud)
