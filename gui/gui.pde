@@ -35,10 +35,7 @@ import java.text.SimpleDateFormat;
 // General Java Package
 import java.math.*;
 import controlP5.*;
-import mqtt.*;
-import org.eclipse.paho.client.mqttv3.MqttException;
 
-MQTTClient client;
 ControlP5 cp5;
 
 String default_mqtt_server = "io.adafruit.com";
@@ -269,6 +266,7 @@ public void makeGUI()
      } 
      );
   
+  /*
    cp5.addButton("Record")
      .setValue(0)
      .setPosition(width-225,10)
@@ -278,20 +276,29 @@ public void makeGUI()
       public void controlEvent(CallbackEvent event) {
         if (event.getAction() == ControlP5.ACTION_RELEASED) 
         {
-          RecordData();
-          cp5.remove(event.getController().getName());
+          //RecordData();
+          //cp5.remove(event.getController().getName());
         }
       }
      } 
      );
+     */
      
        // create a toggle and change the default look to a (on/off) switch look
-    cp5.addToggle("recordToggle")
-     .setPosition(40,250)
-     .setSize(50,20)
+    cp5.addToggle("Record Data")
+     .setPosition(width-225,10)
+     .setSize(100,40)
      .setValue(true)
-     //.setMode(ControlP5.SWITCH)
-     ;
+     .setMode(ControlP5.SWITCH)
+     .addCallback(new CallbackListener() {
+      public void controlEvent(CallbackEvent event) {
+        if (event.getAction() == ControlP5.ACTION_RELEASED) 
+        {
+          RecordData();
+          //cp5.remove(event.getController().getName());
+        }
+      }
+     });
      
      
                  
@@ -374,18 +381,17 @@ public void draw()
   GPointsArray pointsECG = new GPointsArray(nPoints1);
   GPointsArray pointsResp = new GPointsArray(nPoints1);
 
-  if (startPlot)                             // If the condition is true, then the plotting is done
+  if (startPlot)                             
   {
     for(int i=0; i<nPoints1;i++)
     {    
       pointsECG.add(i,ecgdata[i]);
       pointsPPG.add(i,spo2data[i]); 
-      pointsResp.add(i,respdata[i]);  
+      pointsResp.add(i,respdata[i]);
+      
     }
   } 
-  else                                     // Default value is set
-  {
-  }
+  
 
   plotECG.setPoints(pointsECG);
   plotPPG.setPoints(pointsPPG);
@@ -459,7 +465,8 @@ public void RecordData()
               bufferedWriter = new BufferedWriter(output);
               bufferedWriter.write(date.toString()+"");
               bufferedWriter.newLine();
-              bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
+              //bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
+              bufferedWriter.write("ECG,PPG,Respiration, Temperature");
               bufferedWriter.newLine();
             }
             catch(Exception e)
@@ -704,33 +711,13 @@ void ecsProcessData(char rxch)
           time = 0;
         }       
 
-        // If record button is clicked, then logging is done
-
-        if(mqtt_on==true)
-        {
-          if(millis()-mqtt_post_stop_time >= mqtt_post_start_time)
-          {
-            mqtt_hr=global_HeartRate;
-            mqtt_rr=global_RespirationRate;
-            mqtt_temp=global_temp;
-            mqtt_spo2=global_spo2;
-            
-            thread("publishMQTT");
-            mqtt_post_start_time=millis();
-          }
-          else
-          {
-            //mqtt_post_start_time
-          }
-        }
-        
         if (logging == true)
         {
           try 
           {
-            date = new Date();
-            dateFormat = new SimpleDateFormat("HH:mm:ss");
-            bufferedWriter.write(dateFormat.format(date)+","+ecg+","+spo2+","+resp);
+            //date = new Date();
+            //dateFormat = new SimpleDateFormat("HH:mm:ss");
+            bufferedWriter.write(ecg+","+spo2_red+","+resp+","+Temp_Value);
             bufferedWriter.newLine();
           }
           catch(IOException e) 
@@ -739,8 +726,9 @@ void ecsProcessData(char rxch)
             e.printStackTrace();
           }
         }
-        ecs_rx_state=CESState_Init;
-      } else
+          ecs_rx_state=CESState_Init;
+      } 
+      else
       {
         ecs_rx_state=CESState_Init;
       }
@@ -752,13 +740,6 @@ void ecsProcessData(char rxch)
   }
 }
 
-void publishMQTT()
-{
-   client.publish(mqtt_username+"/feeds/healthypi.heartrate", ""+mqtt_hr);
-   client.publish(mqtt_username+"/feeds/healthypi.respiration", ""+mqtt_rr);
-   client.publish(mqtt_username+"/feeds/healthypi.spo2", ""+mqtt_spo2);
-   client.publish(mqtt_username+"/feeds/healthypi.temperature", ""+mqtt_temp);       
-}
 
 /*********************************************** Recursive Function To Reverse The data *********************************************************/
 
