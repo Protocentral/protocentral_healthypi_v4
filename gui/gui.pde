@@ -477,7 +477,7 @@ public void RecordData()
         File[] usbFiles = listFiles(storagePath);
         print(str(usbFiles.length));
         print(usbFiles[0]);
-        if(usbFiles.length<0)
+        if(usbFiles.length<=0)
           {
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
