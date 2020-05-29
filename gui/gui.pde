@@ -479,15 +479,18 @@ public void RecordData()
         print(usbFiles[0]);
         if(usbFiles.length<=0)
           {
+            
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
           }
           else
           {
+            storagePath=usbFiles[0].getPath();
+
             try
             {
               //USB storage present
-              jFileChooser = new JFileChooser();
+              jFileChooser = new JFileChooser(storagePath);
               long currentTime=System.currentTimeMillis();
               String filename = currentTime + ".csv";
               jFileChooser.setSelectedFile(new File(filename));
