@@ -486,9 +486,10 @@ public void RecordData()
           else
           {
             storagePath=usbFiles[0].getPath();
-
+            
             try
             {
+              port.stop();
               //USB storage present
               jFileChooser = new JFileChooser(storagePath);
               long currentTime=System.currentTimeMillis();
@@ -506,6 +507,7 @@ public void RecordData()
               //bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
               bufferedWriter.write("ECG,PPG,Respiration, Temperature");
               bufferedWriter.newLine();
+              startSerial("/dev/ttyAMA0",115200);
             }
             catch(Exception e)
             {
