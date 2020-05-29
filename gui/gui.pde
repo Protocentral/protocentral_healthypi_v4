@@ -51,6 +51,8 @@ Textlabel lblTemp;
 Textlabel lblMQTT;
 Textlabel lblMQTTStatus;
 
+Toggle tglRecord;
+
 /************** Packet Validation  **********************/
 private static final int CESState_Init = 0;
 private static final int CESState_SOF1_Found = 1;
@@ -285,8 +287,9 @@ public void makeGUI()
      */
      
        // create a toggle and change the default look to a (on/off) switch look
-    cp5.addToggle("Record Data")
+    tglRecord = cp5.addToggle("Record Data")
      .setPosition(width-225,10)
+     .setCaptionLabel("Record Data")
      .setSize(100,40)
      .setValue(true)
      .setMode(ControlP5.SWITCH)
@@ -294,7 +297,16 @@ public void makeGUI()
       public void controlEvent(CallbackEvent event) {
         if (event.getAction() == ControlP5.ACTION_RELEASED) 
         {
-          RecordData();
+          if(tglRecord.getState()==false)
+          {
+            print("Recording started");
+            RecordData();
+          }
+          else
+          {
+            print("Toggle false");
+            StopRecord();
+          }
           //cp5.remove(event.getController().getName());
         }
       }
@@ -432,6 +444,28 @@ public void CloseApp()
   }
 }
 
+public void StopRecord()
+{
+  //Stop logging
+  //if(logging==true)
+  //{
+    logging=false;
+  
+  //Close file
+  try
+  {
+    bufferedWriter.close();
+    output.close();
+    
+    println("Closed all files");
+  }
+  catch(Exception e)
+  {
+    println("File Not Found");
+  }
+  //}
+}
+
 public void RecordData()
 {
   String storagePath="/Users/";
@@ -442,6 +476,7 @@ public void RecordData()
         storagePath="/media/pi/";
         File[] usbFiles = listFiles(storagePath);
         print(str(usbFiles.length));
+        print(usbFiles[0]);
         if(usbFiles.length<0)
           {
             JFrame f = new JFrame();
