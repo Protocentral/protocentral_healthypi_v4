@@ -1,9 +1,13 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 //
-//   Raspberry Pi/ Desktop GUI for controlling the HealthyPi HAT v3
+//   Raspberry Pi/ Desktop GUI for controlling the HealthyPi HAT v4
 //
 //   Copyright (c) 2016 ProtoCentral
-//   
+
+//   Dependant libraries:
+//     * ControlP5
+//     * Grafica
+//
 //   This software is licensed under the MIT License(http://opensource.org/licenses/MIT). 
 //   
 //   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
@@ -38,11 +42,6 @@ import controlP5.*;
 
 ControlP5 cp5;
 
-String default_mqtt_server = "io.adafruit.com";
-String default_mqtt_username = "akw";
-String default_mqtt_password = "4746bf5b83de4d5db4e4c03ad8b304cd";
-int mqtt_post_interval=5000; //millisecond
-
 Textlabel lblHR;
 Textlabel lblSPO2;
 Textlabel lblRR;
@@ -52,6 +51,9 @@ Textlabel lblMQTT;
 Textlabel lblMQTTStatus;
 
 Toggle tglRecord;
+
+Accordion accordion;
+PImage pcLogo;
 
 /************** Packet Validation  **********************/
 private static final int CESState_Init = 0;
@@ -155,22 +157,6 @@ boolean ECG_leadOff,spo2_leadOff;
 boolean ShowWarning = true;
 boolean ShowWarningSpo2=true;
 
-boolean mqtt_on=false;
-int mqtt_post_start_time=0;
-int mqtt_post_stop_time=0;
-
-int mqtt_hr=0;
-int mqtt_rr=0;
-int mqtt_spo2=0;
-float mqtt_temp=0;
-
-Accordion accordion;
-
-String mqtt_server;
-String mqtt_username;
-String mqtt_password;
-
-PImage pcLogo;
 public void setup() 
 {
   println(System.getProperty("os.name"));
@@ -231,9 +217,6 @@ public void setup()
   plotECG.setPoints(pointsECG);
   plotPPG.setPoints(pointsPPG);
   plotResp.setPoints(pointsPPG);
-
-
-  /*******  Initializing zero for buffer ****************/
 
   for (int i=0; i<pSize; i++) 
   {
@@ -300,22 +283,17 @@ public void makeGUI()
         }
       }
      });
-     
-          /*ButtonBar b = cp5.addButtonBar("bar")
-     .setPosition(0, 0)
-     .setSize(width, 50)
-     .addItems(split("","tglRecord"))
-     ;
-     */
-     
                  
   if(!System.getProperty("os.arch").contains("arm"))
   {     
       cp5.addScrollableList("Select Serial port")
          .setPosition(300, 5)
          .setSize(200, 100)
+         .setColorBackground(color(255,255,255))
+         .setColorLabel(color(0))
          .setFont(createFont("verdana",12))
          .setBarHeight(40)
+         .close()
          .setItemHeight(40)
          .addItems(port.list())
          .setType(ScrollableList.DROPDOWN) // currently supported DROPDOWN and LIST
@@ -331,8 +309,7 @@ public void makeGUI()
          } 
        );     
     }
-  
-
+ 
        lblHR = cp5.addTextlabel("lblHR")
       .setText("Heartrate: --- bpm")
       .setPosition(width-550,50)
@@ -345,7 +322,6 @@ public void makeGUI()
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
  
-
       lblRR = cp5.addTextlabel("lblRR")
       .setText("Respiration: --- bpm")
       .setPosition(width-550,(totalPlotsHeight/3+totalPlotsHeight/3+10))
@@ -357,12 +333,6 @@ public void makeGUI()
       .setPosition(width-550,height-60)
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
-
-     /*cp5.addButton("logo")
-     .setPosition(10,10)
-     .setImages(loadImage("protocentral.jpg"))
-     .updateSize();
-     */
           
     if(height<=480) //condition for Raspberry Pi 7" display
     {  
@@ -403,7 +373,6 @@ public void draw()
     }
   } 
   
-
   plotECG.setPoints(pointsECG);
   plotPPG.setPoints(pointsPPG);
   plotResp.setPoints(pointsResp);
