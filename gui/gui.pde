@@ -476,7 +476,7 @@ public void RecordData()
         storagePath="/media/pi/";
         File[] usbFiles = listFiles(storagePath);
         print(str(usbFiles.length));
-        print(usbFiles[0]);
+        //print(usbFiles[0]);
         if(usbFiles.length<=0)
           {
             
