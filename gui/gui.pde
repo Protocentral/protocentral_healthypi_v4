@@ -170,6 +170,7 @@ String mqtt_server;
 String mqtt_username;
 String mqtt_password;
 
+PImage pcLogo;
 public void setup() 
 {
   println(System.getProperty("os.name"));
@@ -179,14 +180,16 @@ public void setup()
   GPointsArray pointsECG = new GPointsArray(nPoints1);
   GPointsArray pointsResp = new GPointsArray(nPoints1);
 
-  //size(800, 480, JAVA2D);
-  fullScreen();
+  size(800, 480, JAVA2D);
+  //fullScreen();
    
   // ch
   heightHeader=100;
   println("Height:"+height);
 
   totalPlotsHeight=height-heightHeader;
+  
+  pcLogo = loadImage("protocentral.jpg");
   
   makeGUI();
   
@@ -252,11 +255,14 @@ public void setup()
 public void makeGUI()
 {  
    cp5 = new ControlP5(this);
+   
    cp5.addButton("Close")
      .setValue(0)
-     .setPosition(width-110,10)
+     .setColorBackground(color(255,255,255))
+     .setColorLabel(color(0))
+     .setPosition(width-110,5)
      .setSize(100,40)
-     
+     .setFont(createFont("verdana",16))
      .addCallback(new CallbackListener() {
       public void controlEvent(CallbackEvent event) {
         if (event.getAction() == ControlP5.ACTION_RELEASED) 
@@ -267,31 +273,14 @@ public void makeGUI()
       }
      } 
      );
-  
-  /*
-   cp5.addButton("Record")
-     .setValue(0)
-     .setPosition(width-225,10)
-     .setSize(100,40)
-     //s.setFont(createFont("Impact",15))
-     .addCallback(new CallbackListener() {
-      public void controlEvent(CallbackEvent event) {
-        if (event.getAction() == ControlP5.ACTION_RELEASED) 
-        {
-          //RecordData();
-          //cp5.remove(event.getController().getName());
-        }
-      }
-     } 
-     );
-     */
-     
-       // create a toggle and change the default look to a (on/off) switch look
+
     tglRecord = cp5.addToggle("Record Data")
-     .setPosition(width-225,10)
+     .setPosition(width-225,5)
      .setCaptionLabel("Record Data")
      .setSize(100,40)
      .setValue(true)
+     .setColorBackground(color(255,255,255))
+     .setColorLabel(color(0))
      .setMode(ControlP5.SWITCH)
      .addCallback(new CallbackListener() {
       public void controlEvent(CallbackEvent event) {
@@ -312,15 +301,21 @@ public void makeGUI()
       }
      });
      
+          /*ButtonBar b = cp5.addButtonBar("bar")
+     .setPosition(0, 0)
+     .setSize(width, 50)
+     .addItems(split("","tglRecord"))
+     ;
+     */
      
                  
   if(!System.getProperty("os.arch").contains("arm"))
   {     
       cp5.addScrollableList("Select Serial port")
          .setPosition(300, 5)
-         .setSize(300, 100)
-         .setFont(createFont("verdana",15))
-         .setBarHeight(50)
+         .setSize(200, 100)
+         .setFont(createFont("verdana",12))
+         .setBarHeight(40)
          .setItemHeight(40)
          .addItems(port.list())
          .setType(ScrollableList.DROPDOWN) // currently supported DROPDOWN and LIST
@@ -358,15 +353,16 @@ public void makeGUI()
       .setFont(createFont("verdana",40));
     
       lblTemp = cp5.addTextlabel("lblTemp")
-      .setText("Temperature: --- C")
-      .setPosition((width-550),height-60)
+      .setText("Body Temp: --- C")
+      .setPosition(width-550,height-60)
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
 
-     cp5.addButton("logo")
+     /*cp5.addButton("logo")
      .setPosition(10,10)
-     .setImages(loadImage("protocentral.png"), loadImage("protocentral.png"), loadImage("protocentral.png"))
+     .setImages(loadImage("protocentral.jpg"))
      .updateSize();
+     */
           
     if(height<=480) //condition for Raspberry Pi 7" display
     {  
@@ -388,6 +384,9 @@ public void makeGUI()
 public void draw() 
 {
   background(0);
+  fill(19,88,113);
+  rect(0, 0, width, 55);
+  image(pcLogo, 10, 10);
 
   GPointsArray pointsPPG = new GPointsArray(nPoints1);
   GPointsArray pointsECG = new GPointsArray(nPoints1);
@@ -479,7 +478,6 @@ public void RecordData()
         //print(usbFiles[0]);
         if(usbFiles.length<=0)
           {
-            
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
           }
