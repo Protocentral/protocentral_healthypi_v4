@@ -157,6 +157,8 @@ boolean ECG_leadOff,spo2_leadOff;
 boolean ShowWarning = true;
 boolean ShowWarningSpo2=true;
 
+String globalPortName="";
+
 public void setup() 
 {
   println(System.getProperty("os.name"));
@@ -288,9 +290,11 @@ public void makeGUI()
   {     
       cp5.addScrollableList("Select Serial port")
          .setPosition(300, 5)
-         .setSize(200, 100)
+         .setSize(150, 100)
          .setColorBackground(color(255,255,255))
          .setColorLabel(color(0))
+         .setColorValueLabel(color(0))
+         //.setColorForeground(color(0))
          .setFont(createFont("verdana",12))
          .setBarHeight(40)
          .close()
@@ -303,11 +307,31 @@ public void makeGUI()
             {
               if (event.getAction() == ControlP5.ACTION_RELEASED) 
               {
-                startSerial(event.getController().getLabel(),115200);
+                globalPortName=event.getController().getLabel();
+                //startSerial(event.getController().getLabel(),115200);
               }
             }
          } 
-       );     
+       );    
+       
+       cp5.addButton("Open")
+         .setValue(0)
+         .setColorBackground(color(255,255,255))
+         .setColorLabel(color(0))
+         .setPosition(400,5)
+         .setSize(100,40)
+         .setFont(createFont("verdana",16))
+         .addCallback(new CallbackListener() {
+          public void controlEvent(CallbackEvent event) {
+            if (event.getAction() == ControlP5.ACTION_RELEASED) 
+            {
+              if(globalPortName!=null && globalPortName!="") startSerial(globalPortName,115200);
+              //CloseApp();
+              //cp5.remove(event.getController().getName());
+            }
+          }
+         } 
+       );
     }
  
        lblHR = cp5.addTextlabel("lblHR")
