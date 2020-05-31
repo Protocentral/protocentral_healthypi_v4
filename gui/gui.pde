@@ -168,8 +168,8 @@ public void setup()
     GPointsArray pointsECG = new GPointsArray(nPoints1);
     GPointsArray pointsResp = new GPointsArray(nPoints1);
   
-    size(800, 480, JAVA2D);
-    //fullScreen();
+    //size(800, 480, JAVA2D);
+    fullScreen();
      
     heightHeader=100;
     println("Height:"+height);
