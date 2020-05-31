@@ -1,9 +1,13 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 //
-//   Raspberry Pi/ Desktop GUI for controlling the HealthyPi HAT v3
+//   Raspberry Pi/ Desktop GUI for controlling the HealthyPi HAT v4
 //
 //   Copyright (c) 2016 ProtoCentral
-//   
+
+//   Dependant libraries:
+//     * ControlP5
+//     * Grafica
+//
 //   This software is licensed under the MIT License(http://opensource.org/licenses/MIT). 
 //   
 //   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
@@ -38,11 +42,6 @@ import controlP5.*;
 
 ControlP5 cp5;
 
-String default_mqtt_server = "io.adafruit.com";
-String default_mqtt_username = "akw";
-String default_mqtt_password = "4746bf5b83de4d5db4e4c03ad8b304cd";
-int mqtt_post_interval=5000; //millisecond
-
 Textlabel lblHR;
 Textlabel lblSPO2;
 Textlabel lblRR;
@@ -50,6 +49,11 @@ Textlabel lblBP;
 Textlabel lblTemp;
 Textlabel lblMQTT;
 Textlabel lblMQTTStatus;
+
+Toggle tglRecord;
+
+Accordion accordion;
+PImage pcLogo;
 
 /************** Packet Validation  **********************/
 private static final int CESState_Init = 0;
@@ -153,179 +157,185 @@ boolean ECG_leadOff,spo2_leadOff;
 boolean ShowWarning = true;
 boolean ShowWarningSpo2=true;
 
-boolean mqtt_on=false;
-int mqtt_post_start_time=0;
-int mqtt_post_stop_time=0;
-
-int mqtt_hr=0;
-int mqtt_rr=0;
-int mqtt_spo2=0;
-float mqtt_temp=0;
-
-Accordion accordion;
-
-String mqtt_server;
-String mqtt_username;
-String mqtt_password;
+String globalPortName="";
 
 public void setup() 
 {
-  println(System.getProperty("os.name"));
-  println(System.getProperty("os.arch"));
+    println(System.getProperty("os.name"));
+    println(System.getProperty("os.arch"));
+    
+    GPointsArray pointsPPG = new GPointsArray(nPoints1);
+    GPointsArray pointsECG = new GPointsArray(nPoints1);
+    GPointsArray pointsResp = new GPointsArray(nPoints1);
   
-  GPointsArray pointsPPG = new GPointsArray(nPoints1);
-  GPointsArray pointsECG = new GPointsArray(nPoints1);
-  GPointsArray pointsResp = new GPointsArray(nPoints1);
-
-  //size(800, 480, JAVA2D);
-  fullScreen();
-   
-  // ch
-  heightHeader=100;
-  println("Height:"+height);
-
-  totalPlotsHeight=height-heightHeader;
+    size(800, 480, JAVA2D);
+    //fullScreen();
+     
+    heightHeader=100;
+    println("Height:"+height);
+    totalPlotsHeight=height-heightHeader;
+    
+    pcLogo = loadImage("protocentral.jpg");
+    
+    makeGUI();
+    
+    plotECG = new GPlot(this);
+    plotECG.setPos(0,50);
+    plotECG.setDim(width, (totalPlotsHeight/3)-10);
+    plotECG.setBgColor(0);
+    plotECG.setBoxBgColor(0);
+    plotECG.setLineColor(color(0, 255, 0));
+    plotECG.setLineWidth(3);
+    plotECG.setMar(0,0,0,0);
+    
+    plotPPG = new GPlot(this);
+    plotPPG.setPos(0,(totalPlotsHeight/3+60));
+    plotPPG.setDim(width, (totalPlotsHeight/3)-10);
+    plotPPG.setBgColor(0);
+    plotPPG.setBoxBgColor(0);
+    plotPPG.setLineColor(color(255, 255, 0));
+    plotPPG.setLineWidth(3);
+    plotPPG.setMar(0,0,0,0);
   
-  makeGUI();
+    plotResp = new GPlot(this);
+    plotResp.setPos(0,(totalPlotsHeight/3+totalPlotsHeight/3+70));
+    plotResp.setDim(width, (totalPlotsHeight/3)-10);
+    plotResp.setBgColor(0);
+    plotResp.setBoxBgColor(0);
+    plotResp.setLineColor(color(0,0,255));
+    plotResp.setLineWidth(3);
+    plotResp.setMar(0,0,0,0);
   
+    for (int i = 0; i < nPoints1; i++) 
+    {
+      pointsPPG.add(i,0);
+      pointsECG.add(i,0);
+      pointsResp.add(i,0); 
+    }
   
-  plotECG = new GPlot(this);
-  plotECG.setPos(0,50);
-  plotECG.setDim(width, (totalPlotsHeight/3)-10);
-  plotECG.setBgColor(0);
-  plotECG.setBoxBgColor(0);
-  plotECG.setLineColor(color(0, 255, 0));
-  plotECG.setLineWidth(3);
-  plotECG.setMar(0,0,0,0);
+    plotECG.setPoints(pointsECG);
+    plotPPG.setPoints(pointsPPG);
+    plotResp.setPoints(pointsPPG);
   
-  plotPPG = new GPlot(this);
-  plotPPG.setPos(0,(totalPlotsHeight/3+60));
-  plotPPG.setDim(width, (totalPlotsHeight/3)-10);
-  plotPPG.setBgColor(0);
-  plotPPG.setBoxBgColor(0);
-  plotPPG.setLineColor(color(255, 255, 0));
-  plotPPG.setLineWidth(3);
-  plotPPG.setMar(0,0,0,0);
+    for (int i=0; i<pSize; i++) 
+    {
+      time = time + 1;
+      xdata[i]=time;
+      ecgdata[i] = 0;
+      respdata[i] = 0;
+      ppgArray[i] = 0;
+    }
+    time = 0;
+    
+    delay(2000);
+    if(System.getProperty("os.arch").contains("arm"))
+    {
+      startSerial("/dev/ttyAMA0",115200);
+    }
+}
 
-  plotResp = new GPlot(this);
-  plotResp.setPos(0,(totalPlotsHeight/3+totalPlotsHeight/3+70));
-  plotResp.setDim(width, (totalPlotsHeight/3)-10);
-  plotResp.setBgColor(0);
-  plotResp.setBoxBgColor(0);
-  plotResp.setLineColor(color(0,0,255));
-  plotResp.setLineWidth(3);
-  plotResp.setMar(0,0,0,0);
-
-  for (int i = 0; i < nPoints1; i++) 
-  {
-    pointsPPG.add(i,0);
-    pointsECG.add(i,0);
-    pointsResp.add(i,0); 
-  }
-
-  plotECG.setPoints(pointsECG);
-  plotPPG.setPoints(pointsPPG);
-  plotResp.setPoints(pointsPPG);
-
-
-  /*******  Initializing zero for buffer ****************/
-
-  for (int i=0; i<pSize; i++) 
-  {
-    time = time + 1;
-    xdata[i]=time;
-    ecgdata[i] = 0;
-    respdata[i] = 0;
-    ppgArray[i] = 0;
-  }
-  time = 0;
+public void draw() 
+{
+    background(0);
+    fill(19,88,113);
+    rect(0, 0, width, 55);
+    image(pcLogo, 10, 10);
   
-  delay(2000);
-  if(System.getProperty("os.arch").contains("arm"))
-  {
-    startSerial("/dev/ttyAMA0",115200);
-  }
+    GPointsArray pointsPPG = new GPointsArray(nPoints1);
+    GPointsArray pointsECG = new GPointsArray(nPoints1);
+    GPointsArray pointsResp = new GPointsArray(nPoints1);
+  
+    if (startPlot)                             
+    {
+      for(int i=0; i<nPoints1;i++)
+      {    
+        pointsECG.add(i,ecgdata[i]);
+        pointsPPG.add(i,spo2data[i]); 
+        pointsResp.add(i,respdata[i]);
+        
+      }
+    } 
+    
+    plotECG.setPoints(pointsECG);
+    plotPPG.setPoints(pointsPPG);
+    plotResp.setPoints(pointsResp);
+    
+    plotECG.beginDraw();
+    plotECG.drawBackground();
+    plotECG.drawLines();
+    plotECG.endDraw();
+    
+    plotPPG.beginDraw();
+    plotPPG.drawBackground();
+    plotPPG.drawLines();
+    plotPPG.endDraw();
+  
+    plotResp.beginDraw();
+    plotResp.drawBackground();
+    plotResp.drawLines();
+    plotResp.endDraw();
 }
 
 public void makeGUI()
 {  
    cp5 = new ControlP5(this);
-   cp5.addButton("Close")
-     .setValue(0)
-     .setPosition(width-110,10)
-     .setSize(100,40)
-     
-     .addCallback(new CallbackListener() {
-      public void controlEvent(CallbackEvent event) {
-        if (event.getAction() == ControlP5.ACTION_RELEASED) 
-        {
-          CloseApp();
-          //cp5.remove(event.getController().getName());
-        }
-      }
-     } 
-     );
-  
-  /*
-   cp5.addButton("Record")
-     .setValue(0)
-     .setPosition(width-225,10)
-     .setSize(100,40)
-     //s.setFont(createFont("Impact",15))
-     .addCallback(new CallbackListener() {
-      public void controlEvent(CallbackEvent event) {
-        if (event.getAction() == ControlP5.ACTION_RELEASED) 
-        {
-          //RecordData();
-          //cp5.remove(event.getController().getName());
-        }
-      }
-     } 
-     );
-     */
-     
-       // create a toggle and change the default look to a (on/off) switch look
-    cp5.addToggle("Record Data")
-     .setPosition(width-225,10)
-     .setSize(100,40)
-     .setValue(true)
-     .setMode(ControlP5.SWITCH)
-     .addCallback(new CallbackListener() {
-      public void controlEvent(CallbackEvent event) {
-        if (event.getAction() == ControlP5.ACTION_RELEASED) 
-        {
-          RecordData();
-          //cp5.remove(event.getController().getName());
-        }
-      }
-     });
-     
-     
-                 
-  if(!System.getProperty("os.arch").contains("arm"))
-  {     
-      cp5.addScrollableList("Select Serial port")
-         .setPosition(300, 5)
-         .setSize(300, 100)
-         .setFont(createFont("verdana",15))
-         .setBarHeight(50)
-         .setItemHeight(40)
-         .addItems(port.list())
-         .setType(ScrollableList.DROPDOWN) // currently supported DROPDOWN and LIST
-         .addCallback(new CallbackListener() 
-         {
-            public void controlEvent(CallbackEvent event) 
-            {
-              if (event.getAction() == ControlP5.ACTION_RELEASED) 
-              {
-                startSerial(event.getController().getLabel(),115200);
-              }
-            }
-         } 
-       );     
-    }
-  
+   
+   cp5.addButton("Exit")
+     //setValue(0)
+     .setColorBackground(color(255,255,255))
+     .setColorLabel(color(0))
+     .setPosition(width-110,5)
+     .setSize(90,40)
+     .setFont(createFont("verdana",16));
 
+    tglRecord = cp5.addToggle("record")
+     .setPosition(width-225,5)
+     //.setLabel("Record Data")
+     .setLabelVisible(true)
+     .setSize(90,20)
+     .setFont(createFont("verdana",10))
+     .setValue(false)
+     .setColorBackground(color(255,255,255))
+     .setColorLabel(color(255,255,255))
+     .setMode(ControlP5.SWITCH);
+                 
+      if(!System.getProperty("os.arch").contains("arm"))
+      {     
+          cp5.addScrollableList("Select Serial port")
+             .setPosition(300, 5)
+             .setSize(150, 100)
+             .setColorBackground(color(255,255,255))
+             .setColorLabel(color(0))
+             .setColorValueLabel(color(0))
+             //.setColorForeground(color(0))
+             .setFont(createFont("verdana",12))
+             .setBarHeight(40)
+             .close()
+             .setItemHeight(40)
+             .addItems(port.list())
+             .setType(ScrollableList.DROPDOWN) // currently supported DROPDOWN and LIST
+             .addCallback(new CallbackListener() 
+             {
+                public void controlEvent(CallbackEvent event) 
+                {
+                  if (event.getAction() == ControlP5.ACTION_RELEASED) 
+                  {
+                    globalPortName=event.getController().getLabel();
+                    //startSerial(event.getController().getLabel(),115200);
+                  }
+                }
+             } 
+           );    
+           
+           cp5.addButton("Open")
+             .setValue(0)
+             .setColorBackground(color(255,255,255))
+             .setColorLabel(color(0))           
+             .setPosition(470,5)
+             .setSize(80,40)
+             .setFont(createFont("verdana",16));
+        }
+ 
        lblHR = cp5.addTextlabel("lblHR")
       .setText("Heartrate: --- bpm")
       .setPosition(width-550,50)
@@ -338,7 +348,6 @@ public void makeGUI()
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
  
-
       lblRR = cp5.addTextlabel("lblRR")
       .setText("Respiration: --- bpm")
       .setPosition(width-550,(totalPlotsHeight/3+totalPlotsHeight/3+10))
@@ -346,15 +355,10 @@ public void makeGUI()
       .setFont(createFont("verdana",40));
     
       lblTemp = cp5.addTextlabel("lblTemp")
-      .setText("Temperature: --- C")
-      .setPosition((width-550),height-60)
+      .setText("Body Temp: --- C")
+      .setPosition(width-550,height-60)
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
-
-     cp5.addButton("logo")
-     .setPosition(10,10)
-     .setImages(loadImage("protocentral.png"), loadImage("protocentral.png"), loadImage("protocentral.png"))
-     .updateSize();
           
     if(height<=480) //condition for Raspberry Pi 7" display
     {  
@@ -373,47 +377,21 @@ public void makeGUI()
     }
 }
 
-public void draw() 
-{
-  background(0);
-
-  GPointsArray pointsPPG = new GPointsArray(nPoints1);
-  GPointsArray pointsECG = new GPointsArray(nPoints1);
-  GPointsArray pointsResp = new GPointsArray(nPoints1);
-
-  if (startPlot)                             
-  {
-    for(int i=0; i<nPoints1;i++)
-    {    
-      pointsECG.add(i,ecgdata[i]);
-      pointsPPG.add(i,spo2data[i]); 
-      pointsResp.add(i,respdata[i]);
-      
+void record(boolean theFlag) {
+  if(theFlag==true) {
+   print("Recording started");
+   RecordData();
+  } else {
+    if(logging==true)
+    {
+     print("Stop record");
+     StopRecord();
     }
-  } 
-  
-
-  plotECG.setPoints(pointsECG);
-  plotPPG.setPoints(pointsPPG);
-  plotResp.setPoints(pointsResp);
-  
-  plotECG.beginDraw();
-  plotECG.drawBackground();
-  plotECG.drawLines();
-  plotECG.endDraw();
-  
-  plotPPG.beginDraw();
-  plotPPG.drawBackground();
-  plotPPG.drawLines();
-  plotPPG.endDraw();
-
-  plotResp.beginDraw();
-  plotResp.drawBackground();
-  plotResp.drawLines();
-  plotResp.endDraw();
+  }
+  //println("a toggle event.");
 }
 
-public void CloseApp() 
+public void Exit() 
 {
   int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Close The Application?");
   if (dialogResult == JOptionPane.YES_OPTION) {
@@ -432,42 +410,79 @@ public void CloseApp()
   }
 }
 
+public void Open()
+{
+  if(globalPortName!=null && globalPortName!="") startSerial(globalPortName,115200);
+}
+
+public void StopRecord()
+{
+  //Stop logging
+  //if(logging==true)
+  //{
+    logging=false;
+  
+  //Close file
+  try
+  {
+    bufferedWriter.close();
+    output.close();
+    
+    println("Closed all files");
+  }
+  catch(Exception e)
+  {
+    println("File Not Found");
+  }
+  //}
+}
+
+String globalSelectedPath;
+
 public void RecordData()
 {
-  String storagePath="/Users/";
-  if(logging==false)
+    String storagePath;
+  
+    if(logging==false)
     {
+      //Check if Raspberry Pi
       if(System.getProperty("os.arch").contains("arm"))
       {
         storagePath="/media/pi/";
         File[] usbFiles = listFiles(storagePath);
         print(str(usbFiles.length));
-        if(usbFiles.length<0)
+        //print(usbFiles[0]);
+        if(usbFiles.length<=0)
           {
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
           }
           else
           {
+            storagePath=usbFiles[0].getPath();
+            
             try
             {
+              //port.stop();
               //USB storage present
-              jFileChooser = new JFileChooser();
+              //jFileChooser = new JFileChooser(storagePath);
               long currentTime=System.currentTimeMillis();
               String filename = currentTime + ".csv";
-              jFileChooser.setSelectedFile(new File(filename));
-              jFileChooser.showSaveDialog(null);
-              String filePath = jFileChooser.getSelectedFile()+"";
+              //jFileChooser.setSelectedFile(new File(filename));
+              //jFileChooser.showSaveDialog(null);
+              //String filePath = jFileChooser.getSelectedFile()+"";
               
               logging = true;
               date = new Date();
-              output = new FileWriter(jFileChooser.getSelectedFile(), true);
+              //output = new FileWriter(jFileChooser.getSelectedFile(), true);
+              output = new FileWriter(storagePath+"/"+filename, true);
               bufferedWriter = new BufferedWriter(output);
               bufferedWriter.write(date.toString()+"");
               bufferedWriter.newLine();
               //bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
               bufferedWriter.write("ECG,PPG,Respiration, Temperature");
               bufferedWriter.newLine();
+              //startSerial("/dev/ttyAMA0",115200);
             }
             catch(Exception e)
             {
@@ -476,36 +491,52 @@ public void RecordData()
         
           }
           
-      } else {
+      } else 
+      {
         //Not Raspberry Pi
-    
         try
         {
-          jFileChooser = new JFileChooser();
-          long currentTime=System.currentTimeMillis();
-          String filename = currentTime + ".csv";
-          jFileChooser.setSelectedFile(new File(filename));
-          jFileChooser.showSaveDialog(null);
-          String filePath = jFileChooser.getSelectedFile()+"";
-          
-          logging = true;
-          date = new Date();
-          output = new FileWriter(jFileChooser.getSelectedFile(), true);
-          bufferedWriter = new BufferedWriter(output);
-          bufferedWriter.write(date.toString()+"");
-          bufferedWriter.newLine();
-          bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
-          bufferedWriter.newLine();
-          
+          selectFolder("Select a folder to save log files", "folderSelected");
         }
         catch(Exception e)
         {
           println("File Not Found");
         }
-        
+      
       }  
+    }
+}
+
+void folderSelected(File selection) {
+  if (selection == null) {
+    println("Window was closed or the user hit cancel.");
+  } else {
+    try
+    {
+      globalSelectedPath= selection.getAbsolutePath();
+      println("User selected " + selection.getAbsolutePath());
+      
+      long currentTime=System.currentTimeMillis();
+      String filename = currentTime + ".csv";
+            
+      port.stop();
+      logging = true;
+      date = new Date();
+      output = new FileWriter(globalSelectedPath+"/"+filename, true);
+      bufferedWriter = new BufferedWriter(output);
+      bufferedWriter.write(date.toString()+"");
+      bufferedWriter.newLine();
+      bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
+      bufferedWriter.newLine();
+      Open();
+    }
+    catch(Exception e)
+    {
+      println("File Not Found");
+    }
   }
 }
+
 void startSerial(String startPortName, int baud)
 {
   try
@@ -517,8 +548,8 @@ void startSerial(String startPortName, int baud)
   catch(Exception e)
   {
 
-    showMessageDialog(null, "Port is busy", "Alert", ERROR_MESSAGE);
-    System.exit (0);
+    showMessageDialog(null, "Port is invalid or busy", "Alert", ERROR_MESSAGE);
+    //System.exit (0);
   }
 }
 
