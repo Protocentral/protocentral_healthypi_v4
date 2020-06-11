@@ -501,10 +501,12 @@ public void RecordData()
               //output = new FileWriter(jFileChooser.getSelectedFile(), true);
               output = new FileWriter(storagePath+"/"+filename, true);
               bufferedWriter = new BufferedWriter(output);
-              bufferedWriter.write(date.toString()+"");
+              bufferedWriter.write("Log started at: " + date.toString()+"");
               bufferedWriter.newLine();
               //bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
-              bufferedWriter.write("ECG,PPG,Respiration, Temperature");
+              bufferedWriter.write("Sampling rate for all signals: 125 Hz");
+              bufferedWriter.newLine();
+              bufferedWriter.write("Format: ECG, PPG, Respiration, Temperature, Heartrate, SpO2, Respiration Rate");
               bufferedWriter.newLine();
               startSerial("/dev/ttyAMA0",115200);
             }
@@ -544,14 +546,18 @@ void folderSelected(File selection) {
       String filename = currentTime + ".csv";
             
       port.stop();
+      
       logging = true;
       date = new Date();
       output = new FileWriter(globalSelectedPath+"/"+filename, true);
       bufferedWriter = new BufferedWriter(output);
-      bufferedWriter.write(date.toString()+"");
+      bufferedWriter.write("Log started at: " + date.toString()+"");
       bufferedWriter.newLine();
-      bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
+      bufferedWriter.write("Sampling rate for all signals: 125 Hz");
       bufferedWriter.newLine();
+      bufferedWriter.write("Format: ECG, PPG, Respiration, Temperature, Heartrate, SpO2, Respiration Rate");
+      bufferedWriter.newLine();
+      
       Open();
     }
     catch(Exception e)
@@ -772,7 +778,7 @@ void ecsProcessData(char rxch)
           {
             //date = new Date();
             //dateFormat = new SimpleDateFormat("HH:mm:ss");
-            bufferedWriter.write(ecg+","+spo2_red+","+resp+","+Temp_Value);
+            bufferedWriter.write(ecg+","+spo2_red+","+resp+","+Temp_Value+","+global_HeartRate+","+global_spo2+","+global_RespirationRate);
             bufferedWriter.newLine();
           }
           catch(IOException e) 
