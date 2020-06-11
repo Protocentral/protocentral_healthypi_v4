@@ -232,6 +232,8 @@ public void setup()
     {
       startSerial("/dev/ttyAMA0",115200);
     }
+    
+    checkForExternalStorage();
 }
 
 public void draw() 
@@ -439,6 +441,28 @@ public void StopRecord()
 
 String globalSelectedPath;
 
+public void checkForExternalStorage()
+{
+  String storagePath;
+
+    //Check if Raspberry Pi
+    if(System.getProperty("os.arch").contains("arm"))
+    {
+      storagePath="/media/pi/";
+      File[] usbFiles = listFiles(storagePath);
+      print(str(usbFiles.length));
+      //print(usbFiles[0]);
+      if(usbFiles.length<=0)
+        {
+          JFrame f = new JFrame();
+          JOptionPane.showMessageDialog(f,"No storage device found! Not recording data","No device",JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+          RecordData();
+        }   
+    }    
+}
 public void RecordData()
 {
     String storagePath;
