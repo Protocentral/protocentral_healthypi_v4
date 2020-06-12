@@ -49,6 +49,7 @@ Textlabel lblBP;
 Textlabel lblTemp;
 Textlabel lblMQTT;
 Textlabel lblMQTTStatus;
+Textlabel lblRecordStatus;
 
 Toggle tglRecord;
 
@@ -159,6 +160,8 @@ boolean ShowWarningSpo2=true;
 
 String globalPortName="";
 
+String strRecordStatus="Not Recording";
+
 public void setup() 
 {
     println(System.getProperty("os.name"));
@@ -168,8 +171,8 @@ public void setup()
     GPointsArray pointsECG = new GPointsArray(nPoints1);
     GPointsArray pointsResp = new GPointsArray(nPoints1);
   
-    size(800, 480, JAVA2D);
-    //fullScreen();
+    //size(800, 480, JAVA2D);
+    fullScreen();
      
     heightHeader=100;
     println("Height:"+height);
@@ -232,6 +235,8 @@ public void setup()
     {
       startSerial("/dev/ttyAMA0",115200);
     }
+    
+    checkForExternalStorage();
 }
 
 public void draw() 
@@ -359,6 +364,12 @@ public void makeGUI()
       .setPosition(width-550,height-60)
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
+      
+     lblRecordStatus = cp5.addTextlabel("lblRecordStatus")
+      .setText("Record status: " + strRecordStatus)
+      .setPosition(10,height-25)
+      .setColorValue(color(255,255,255))
+      .setFont(createFont("verdana",14));
           
     if(height<=480) //condition for Raspberry Pi 7" display
     {  
@@ -439,6 +450,32 @@ public void StopRecord()
 
 String globalSelectedPath;
 
+public void checkForExternalStorage()
+{
+  String storagePath;
+
+    //Check if Raspberry Pi
+    if(!System.getProperty("os.arch").contains("arm"))
+    {
+      storagePath="/media/pi/";
+      File[] usbFiles = listFiles(storagePath);
+      //print(str(usbFiles.length));
+      //print(usbFiles[0]);
+      if(usbFiles!=null)
+      {
+      if(usbFiles.length<=0)
+        {
+          //JFrame f = new JFrame();
+          //JOptionPane.showMessageDialog(f,"No storage device found! Not recording data","No device",JOptionPane.WARNING_MESSAGE);
+          strRecordStatus="No storage device found. Not recording data";
+        }
+        else
+        {
+          RecordData();
+        }   
+      }
+    }    
+}
 public void RecordData()
 {
     String storagePath;
@@ -454,8 +491,9 @@ public void RecordData()
         //print(usbFiles[0]);
         if(usbFiles.length<=0)
           {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
+            //JFrame f = new JFrame();
+            //JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
+            strRecordStatus="No storage device found. Not recording data";
           }
           else
           {
@@ -463,7 +501,7 @@ public void RecordData()
             
             try
             {
-              //port.stop();
+              port.stop();
               //USB storage present
               //jFileChooser = new JFileChooser(storagePath);
               long currentTime=System.currentTimeMillis();
@@ -476,13 +514,16 @@ public void RecordData()
               date = new Date();
               //output = new FileWriter(jFileChooser.getSelectedFile(), true);
               output = new FileWriter(storagePath+"/"+filename, true);
+              strRecordStatus="Recording to "+filename;
               bufferedWriter = new BufferedWriter(output);
-              bufferedWriter.write(date.toString()+"");
+              bufferedWriter.write("Log started at: " + date.toString()+"");
               bufferedWriter.newLine();
               //bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
-              bufferedWriter.write("ECG,PPG,Respiration, Temperature");
+              bufferedWriter.write("Sampling rate for all signals: 125 Hz");
               bufferedWriter.newLine();
-              //startSerial("/dev/ttyAMA0",115200);
+              bufferedWriter.write("Format: ECG, PPG, Respiration, Temperature, Heartrate, SpO2, Respiration Rate");
+              bufferedWriter.newLine();
+              startSerial("/dev/ttyAMA0",115200);
             }
             catch(Exception e)
             {
@@ -520,14 +561,19 @@ void folderSelected(File selection) {
       String filename = currentTime + ".csv";
             
       port.stop();
+      
       logging = true;
       date = new Date();
       output = new FileWriter(globalSelectedPath+"/"+filename, true);
+      strRecordStatus="Recording to "+ globalSelectedPath + "/" + filename;
       bufferedWriter = new BufferedWriter(output);
-      bufferedWriter.write(date.toString()+"");
+      bufferedWriter.write("Log started at: " + date.toString()+"");
       bufferedWriter.newLine();
-      bufferedWriter.write("TimeStamp,ECG,SpO2,Respiration");
+      bufferedWriter.write("Sampling rate for all signals: 125 Hz");
       bufferedWriter.newLine();
+      bufferedWriter.write("Format: ECG, PPG, Respiration, Temperature, Heartrate, SpO2, Respiration Rate");
+      bufferedWriter.newLine();
+      
       Open();
     }
     catch(Exception e)
@@ -748,7 +794,7 @@ void ecsProcessData(char rxch)
           {
             //date = new Date();
             //dateFormat = new SimpleDateFormat("HH:mm:ss");
-            bufferedWriter.write(ecg+","+spo2_red+","+resp+","+Temp_Value);
+            bufferedWriter.write(ecg+","+spo2_red+","+resp+","+Temp_Value+","+global_HeartRate+","+global_spo2+","+global_RespirationRate);
             bufferedWriter.newLine();
           }
           catch(IOException e) 
