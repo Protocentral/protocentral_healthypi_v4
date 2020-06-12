@@ -1,10 +1,10 @@
 healthypi_loc="https://github.com/Protocentral/protocentral_healthypi_v4/releases/latest/download/healthypi-rpi.zip"
 
-curl -LO "$healthypi_loc" -O "upgrade/healthypi.zip"
-
 mkdir upgrade
-sudo rm -r --force *
+curl -LO "$healthypi_loc" 
+mv healthypi-rpi.zip upgrade/healthypi.zip
 
+sudo rm -r --force *
 
 rm -r upgrade/HealthyPi ||:
 rm -r upgrade/application.linux-armv6hf ||:
