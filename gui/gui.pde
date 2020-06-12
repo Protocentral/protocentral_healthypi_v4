@@ -432,6 +432,7 @@ public void StopRecord()
   //if(logging==true)
   //{
     logging=false;
+    strRecordStatus = "Stopped Recording";
   
   //Close file
   try
@@ -455,7 +456,7 @@ public void checkForExternalStorage()
   String storagePath;
 
     //Check if Raspberry Pi
-    if(!System.getProperty("os.arch").contains("arm"))
+    if(System.getProperty("os.arch").contains("arm"))
     {
       storagePath="/media/pi/";
       File[] usbFiles = listFiles(storagePath);
@@ -465,8 +466,6 @@ public void checkForExternalStorage()
       {
       if(usbFiles.length<=0)
         {
-          //JFrame f = new JFrame();
-          //JOptionPane.showMessageDialog(f,"No storage device found! Not recording data","No device",JOptionPane.WARNING_MESSAGE);
           strRecordStatus="No storage device found. Not recording data";
         }
         else
