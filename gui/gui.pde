@@ -49,6 +49,7 @@ Textlabel lblBP;
 Textlabel lblTemp;
 Textlabel lblMQTT;
 Textlabel lblMQTTStatus;
+Textlabel lblRecordStatus;
 
 Toggle tglRecord;
 
@@ -158,6 +159,8 @@ boolean ShowWarning = true;
 boolean ShowWarningSpo2=true;
 
 String globalPortName="";
+
+String strRecordStatus="Not Recording";
 
 public void setup() 
 {
@@ -361,6 +364,12 @@ public void makeGUI()
       .setPosition(width-550,height-60)
       .setColorValue(color(255,255,255))
       .setFont(createFont("verdana",40));
+      
+     lblRecordStatus = cp5.addTextlabel("lblRecordStatus")
+      .setText("Record status: " + strRecordStatus)
+      .setPosition(10,height-25)
+      .setColorValue(color(255,255,255))
+      .setFont(createFont("verdana",14));
           
     if(height<=480) //condition for Raspberry Pi 7" display
     {  
@@ -446,21 +455,25 @@ public void checkForExternalStorage()
   String storagePath;
 
     //Check if Raspberry Pi
-    if(System.getProperty("os.arch").contains("arm"))
+    if(!System.getProperty("os.arch").contains("arm"))
     {
       storagePath="/media/pi/";
       File[] usbFiles = listFiles(storagePath);
-      print(str(usbFiles.length));
+      //print(str(usbFiles.length));
       //print(usbFiles[0]);
+      if(usbFiles!=null)
+      {
       if(usbFiles.length<=0)
         {
-          JFrame f = new JFrame();
-          JOptionPane.showMessageDialog(f,"No storage device found! Not recording data","No device",JOptionPane.WARNING_MESSAGE);
+          //JFrame f = new JFrame();
+          //JOptionPane.showMessageDialog(f,"No storage device found! Not recording data","No device",JOptionPane.WARNING_MESSAGE);
+          strRecordStatus="No storage device found. Not recording data";
         }
         else
         {
           RecordData();
         }   
+      }
     }    
 }
 public void RecordData()
@@ -478,8 +491,9 @@ public void RecordData()
         //print(usbFiles[0]);
         if(usbFiles.length<=0)
           {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
+            //JFrame f = new JFrame();
+            //JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
+            strRecordStatus="No storage device found. Not recording data";
           }
           else
           {
@@ -500,6 +514,7 @@ public void RecordData()
               date = new Date();
               //output = new FileWriter(jFileChooser.getSelectedFile(), true);
               output = new FileWriter(storagePath+"/"+filename, true);
+              strRecordStatus="Recording to "+filename;
               bufferedWriter = new BufferedWriter(output);
               bufferedWriter.write("Log started at: " + date.toString()+"");
               bufferedWriter.newLine();
@@ -550,6 +565,7 @@ void folderSelected(File selection) {
       logging = true;
       date = new Date();
       output = new FileWriter(globalSelectedPath+"/"+filename, true);
+      strRecordStatus="Recording to "+ globalSelectedPath + "/" + filename;
       bufferedWriter = new BufferedWriter(output);
       bufferedWriter.write("Log started at: " + date.toString()+"");
       bufferedWriter.newLine();
