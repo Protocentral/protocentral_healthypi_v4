@@ -524,23 +524,23 @@ if confirm "Do you wish to continue?"; then
 	cd /tmp
 	rm -rf application.linux-armv6hf
     rm -rf healthypi-rpi.zip
-	rm -rf /opt/healthypi_gui
+	rm -rf /opt/HealthyPi
 
 	curl -LO https://github.com/Protocentral/protocentral_healthypi_v4/releases/latest/download/healthypi-rpi.zip
 
 	unzip healthypi-rpi.zip
 
-	mv application.linux-armv6hf healthypi_gui
-	cp -r healthypi_gui /opt/healthypi_gui
-	rm -rf application.linux-armv6hf.zip healthypi_gui
+	mv application.linux-armv6hf HealthyPi
+	cp -r HealthyPi /opt/HealthyPi
+	rm -rf application.linux-armv6hf.zip HealthyPi
 
 # Auto-start HealthyPi on boot
 
 	grep HealthyPI /etc/xdg/lxsession/LXDE-pi/autostart >/dev/null
 	if [ $? -eq 1 ]; then
 		# Insert eyes.py into rc.local before final 'exit 0'
-    sed -i -e "\/opt\/healthypi_gui\/gui/d" /etc/xdg/lxsession/LXDE-pi/autostart
-		echo '@/opt/healthypi_gui/gui &' >> /etc/xdg/lxsession/LXDE-pi/autostart
+    sed -i -e "\/opt\/HealthyPi\/gui/d" /etc/xdg/lxsession/LXDE-pi/autostart
+		echo '@/opt/HealthyPi/gui' >> /etc/xdg/lxsession/LXDE-pi/autostart
 	#sed -i "$a \/opt\/healthypi_gui\/HealthyPI\&\\nexit 0/g" ~.config/lxsession/LXDE-pi/autostart >/dev/null
 	fi
 
