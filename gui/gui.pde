@@ -234,9 +234,10 @@ public void setup()
     if(System.getProperty("os.arch").contains("arm"))
     {
       startSerial("/dev/ttyAMA0",115200);
+      checkForExternalStorage();
     }
     
-    checkForExternalStorage();
+    
 }
 
 public void draw() 
@@ -388,6 +389,8 @@ public void makeGUI()
     }
 }
 
+
+
 void record(boolean theFlag) {
   if(theFlag==true) {
    print("Recording started");
@@ -432,7 +435,7 @@ public void StopRecord()
   //if(logging==true)
   //{
     logging=false;
-    strRecordStatus = "Stopped Recording";
+     setRecordStatus("Stopped Recording");
   
   //Close file
   try
@@ -444,20 +447,23 @@ public void StopRecord()
   }
   catch(Exception e)
   {
-    println("File Not Found");
+    println(e);
   }
   //}
 }
 
 String globalSelectedPath;
 
+public void setRecordStatus(String RecordStatus)
+{
+    lblRecordStatus.setText("Status: "+ RecordStatus);
+}
+
 public void checkForExternalStorage()
 {
   String storagePath;
 
-    //Check if Raspberry Pi
-    if(System.getProperty("os.arch").contains("arm"))
-    {
+    
       storagePath="/media/pi/";
       File[] usbFiles = listFiles(storagePath);
       //print(str(usbFiles.length));
@@ -466,14 +472,18 @@ public void checkForExternalStorage()
       {
       if(usbFiles.length<=0)
         {
-          strRecordStatus="No storage device found. Not recording data";
+          setRecordStatus("No storage device found. Not recording data");
+          
         }
         else
         {
           RecordData();
         }   
       }
-    }    
+      else {
+        setRecordStatus("No storage device found. Not recording data");
+      }
+        
 }
 public void RecordData()
 {
@@ -492,7 +502,7 @@ public void RecordData()
           {
             //JFrame f = new JFrame();
             //JOptionPane.showMessageDialog(f,"No storage device found!","No device",JOptionPane.WARNING_MESSAGE);
-            strRecordStatus="No storage device found. Not recording data";
+            setRecordStatus("No storage device found. Not recording data");
           }
           else
           {
@@ -500,7 +510,8 @@ public void RecordData()
             
             try
             {
-              port.stop();
+              if(port!=null)
+                port.stop();
               //USB storage present
               //jFileChooser = new JFileChooser(storagePath);
               long currentTime=System.currentTimeMillis();
@@ -513,7 +524,7 @@ public void RecordData()
               date = new Date();
               //output = new FileWriter(jFileChooser.getSelectedFile(), true);
               output = new FileWriter(storagePath+"/"+filename, true);
-              strRecordStatus="Recording to "+filename;
+              setRecordStatus("Recording to "+filename);
               bufferedWriter = new BufferedWriter(output);
               bufferedWriter.write("Log started at: " + date.toString()+"");
               bufferedWriter.newLine();
@@ -526,7 +537,7 @@ public void RecordData()
             }
             catch(Exception e)
             {
-              println("File Not Found");
+              println(e);
             }
         
           }
@@ -540,7 +551,7 @@ public void RecordData()
         }
         catch(Exception e)
         {
-          println("File Not Found");
+          println(e);
         }
       
       }  
@@ -558,13 +569,14 @@ void folderSelected(File selection) {
       
       long currentTime=System.currentTimeMillis();
       String filename = currentTime + ".csv";
-            
-      port.stop();
+      
+      if(port!=null)
+        port.stop();
       
       logging = true;
       date = new Date();
       output = new FileWriter(globalSelectedPath+"/"+filename, true);
-      strRecordStatus="Recording to "+ globalSelectedPath + "/" + filename;
+      setRecordStatus("Recording to "+ globalSelectedPath + "/" + filename);
       bufferedWriter = new BufferedWriter(output);
       bufferedWriter.write("Log started at: " + date.toString()+"");
       bufferedWriter.newLine();
@@ -577,7 +589,7 @@ void folderSelected(File selection) {
     }
     catch(Exception e)
     {
-      println("File Not Found");
+      println(e);
     }
   }
 }
