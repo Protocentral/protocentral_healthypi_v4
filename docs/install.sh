@@ -540,7 +540,8 @@ if confirm "Do you wish to continue?"; then
 	if [ $? -eq 1 ]; then
 		# Insert eyes.py into rc.local before final 'exit 0'
     sed -i -e "\/opt\/HealthyPi\/gui/d" /etc/xdg/lxsession/LXDE-pi/autostart
-		echo '@/opt/HealthyPi/gui' >> /etc/xdg/lxsession/LXDE-pi/autostart
+    sed -i -e "\/opt\/healthypi_gui\/gui/d" /etc/xdg/lxsession/LXDE-pi/autostart
+	echo 'sudo @/opt/HealthyPi/gui' >> /etc/xdg/lxsession/LXDE-pi/autostart
 	#sed -i "$a \/opt\/healthypi_gui\/HealthyPI\&\\nexit 0/g" ~.config/lxsession/LXDE-pi/autostart >/dev/null
 	fi
 
