@@ -43,7 +43,7 @@ import controlP5.*;
 ControlP5 cp5;
 ControlP5 cp5Welcome;
 ControlP5 cp5SpotCheck;
-ControlP5 cp5SpotCheckRecordScreen;
+ControlP5 cp5SpotCheckRecordBar;
 
 PFont h1; //large Montserrat
 PFont h2; //large/medium Montserrat
@@ -198,13 +198,16 @@ public void setup()
     cp5Welcome = new ControlP5(this);
     cp5SpotCheck = new ControlP5(this);     
     cp5 = new ControlP5(this);
+    cp5SpotCheckRecordBar = new ControlP5(this);
     
     makeWelcomeScreen();
     makeSpotCheckScreen();
     makeGUI();
+    makeSpotCheckRecordBar();
     
     cp5.hide();
     cp5SpotCheck.hide();
+    cp5SpotCheckRecordBar.hide();
     
     plotECG = new GPlot(this);
     plotECG.setPos(0,50);
@@ -454,7 +457,7 @@ public void Continuous()
 public void SpotCheck()
 {
    cp5Welcome.hide();
- cp5SpotCheck.show();
+   cp5SpotCheck.show();
 
 }
 
@@ -498,45 +501,24 @@ public void makeSpotCheckScreen()
 
 public void makeSpotCheckRecordBar()
 {  
-  cp5SpotCheckRecordScreen.addTextlabel("lblSpotCheck")
+  cp5SpotCheckRecordBar.addTextlabel("lblSpotCheckBar")
   .setText("Spot Check Mode")
-  .setPosition((width/2)-175,(totalPlotsHeight/3))
+  .setPosition(25, heightHeader-25)
   .setColorValue(color(255,255,255))
-  .setFont(h1);
+  .setFont(h3);
   
-  cp5SpotCheck.addTextlabel("lblSpotCheckEnter")
+  /*cp5SpotCheckRecordBar.addTextlabel("lblSpotCheckEnter")
   .setText("Please enter patient information and click Start")
   .setPosition((width/2)-200,(totalPlotsHeight/3)+50)
   .setColorValue(color(255,255,255))
   .setFont(h3);
-  
-  cp5SpotCheck.addTextfield("Patient Name")
-   .setPosition(width/2-100,(height/2))
-   .setSize(200,40)
-   .setFont(h2)
-   .setFocus(true)
-   .setColor(color(255,0,0))
-   ;
-  cp5SpotCheck.addTextfield("Patient Age")
-   .setPosition(width/2-100,(height/2)+75)
-   .setSize(200,40)
-   .setFont(h2)
-   .setFocus(true)
-   .setColor(color(255,0,0))
-   ;
-   
-   cp5SpotCheck.addButton("Start")
-   //setValue(0)
-   .setColorBackground(color(255,255,255))
-   .setColorLabel(color(0))
-   .setPosition(width/2-110,(height/2)+150)
-   .setSize(200,40)
-   .setFont(h3);   
+  */
 }
 
 public void Start()
 {
   cp5SpotCheck.hide();
+  cp5SpotCheckRecordBar.show();
   cp5.show();
 }
 
