@@ -41,6 +41,15 @@ import java.math.*;
 import controlP5.*;
 
 ControlP5 cp5;
+ControlP5 cp5Welcome;
+ControlP5 cp5SpotCheck;
+ControlP5 cp5SpotCheckRecordScreen;
+
+PFont h1; //large Montserrat
+PFont h2; //large/medium Montserrat
+PFont h3; //medium Montserrat
+PFont h4; //small/medium Montserrat
+PFont h5; //small Montserrat
 
 Textlabel lblHR;
 Textlabel lblSPO2;
@@ -167,6 +176,12 @@ public void setup()
     println(System.getProperty("os.name"));
     println(System.getProperty("os.arch"));
     
+    h1 = createFont("fonts/Montserrat-Regular.otf", 40);
+    h2 = createFont("fonts/Montserrat-Regular.otf", 18);
+    h3 = createFont("fonts/Montserrat-Regular.otf", 16);
+    h4 = createFont("fonts/Montserrat-Regular.otf", 14);
+    h5 = createFont("fonts/Montserrat-Regular.otf", 12);
+    
     GPointsArray pointsPPG = new GPointsArray(nPoints1);
     GPointsArray pointsECG = new GPointsArray(nPoints1);
     GPointsArray pointsResp = new GPointsArray(nPoints1);
@@ -180,7 +195,16 @@ public void setup()
     
     pcLogo = loadImage("protocentral.jpg");
     
+    cp5Welcome = new ControlP5(this);
+    cp5SpotCheck = new ControlP5(this);     
+    cp5 = new ControlP5(this);
+    
+    makeWelcomeScreen();
+    makeSpotCheckScreen();
     makeGUI();
+    
+    cp5.hide();
+    cp5SpotCheck.hide();
     
     plotECG = new GPlot(this);
     plotECG.setPos(0,50);
@@ -284,7 +308,6 @@ public void draw()
 
 public void makeGUI()
 {  
-   cp5 = new ControlP5(this);
    
    cp5.addButton("Exit")
      //setValue(0)
@@ -389,6 +412,133 @@ public void makeGUI()
     }
 }
 
+public void makeWelcomeScreen()
+{  
+  cp5Welcome.addTextlabel("lblWelcome")
+  .setText("Welcome to HealthyPi !")
+  .setPosition((width/2)-220,(totalPlotsHeight/3))
+  .setColorValue(color(255,255,255))
+  .setFont(h1);
+  
+  cp5Welcome.addTextlabel("lblChoose")
+  .setText("Please choose an operation mode to continue")
+  .setPosition((width/2)-170,(totalPlotsHeight/3)+50)
+  .setColorValue(color(255,255,255))
+  .setFont(h3);
+  
+   cp5Welcome.addButton("Continuous")
+   //setValue(0)
+   .setColorBackground(color(255,255,255))
+   .setColorLabel(color(0))
+   .setPosition(width/2-110,(height/2))
+   .setSize(200,40)
+   .setFont(h2);
+   
+   cp5Welcome.addButton("SpotCheck")
+   //setValue(0)
+   .setColorBackground(color(255,255,255))
+   .setColorLabel(color(0))
+   .setPosition(width/2-110,(height/2)+50)
+   .setSize(200,40)
+   .setFont(createFont("verdana",16));
+}
+
+
+
+public void Continuous()
+{
+ cp5Welcome.hide();
+ cp5.show();
+}
+
+public void SpotCheck()
+{
+   cp5Welcome.hide();
+ cp5SpotCheck.show();
+
+}
+
+public void makeSpotCheckScreen()
+{  
+  cp5SpotCheck.addTextlabel("lblSpotCheck")
+  .setText("Spot Check Mode")
+  .setPosition((width/2)-175,(totalPlotsHeight/3))
+  .setColorValue(color(255,255,255))
+  .setFont(h1);
+  
+  cp5SpotCheck.addTextlabel("lblSpotCheckEnter")
+  .setText("Please enter patient information and click Start")
+  .setPosition((width/2)-200,(totalPlotsHeight/3)+50)
+  .setColorValue(color(255,255,255))
+  .setFont(h3);
+  
+  cp5SpotCheck.addTextfield("Patient Name")
+   .setPosition(width/2-100,(height/2))
+   .setSize(200,40)
+   .setFont(h2)
+   .setFocus(true)
+   .setColor(color(255,0,0))
+   ;
+  cp5SpotCheck.addTextfield("Patient Age")
+   .setPosition(width/2-100,(height/2)+75)
+   .setSize(200,40)
+   .setFont(h2)
+   .setFocus(true)
+   .setColor(color(255,0,0))
+   ;
+   
+   cp5SpotCheck.addButton("Start")
+   //setValue(0)
+   .setColorBackground(color(255,255,255))
+   .setColorLabel(color(0))
+   .setPosition(width/2-110,(height/2)+150)
+   .setSize(200,40)
+   .setFont(h3);   
+}
+
+public void makeSpotCheckRecordBar()
+{  
+  cp5SpotCheckRecordScreen.addTextlabel("lblSpotCheck")
+  .setText("Spot Check Mode")
+  .setPosition((width/2)-175,(totalPlotsHeight/3))
+  .setColorValue(color(255,255,255))
+  .setFont(h1);
+  
+  cp5SpotCheck.addTextlabel("lblSpotCheckEnter")
+  .setText("Please enter patient information and click Start")
+  .setPosition((width/2)-200,(totalPlotsHeight/3)+50)
+  .setColorValue(color(255,255,255))
+  .setFont(h3);
+  
+  cp5SpotCheck.addTextfield("Patient Name")
+   .setPosition(width/2-100,(height/2))
+   .setSize(200,40)
+   .setFont(h2)
+   .setFocus(true)
+   .setColor(color(255,0,0))
+   ;
+  cp5SpotCheck.addTextfield("Patient Age")
+   .setPosition(width/2-100,(height/2)+75)
+   .setSize(200,40)
+   .setFont(h2)
+   .setFocus(true)
+   .setColor(color(255,0,0))
+   ;
+   
+   cp5SpotCheck.addButton("Start")
+   //setValue(0)
+   .setColorBackground(color(255,255,255))
+   .setColorLabel(color(0))
+   .setPosition(width/2-110,(height/2)+150)
+   .setSize(200,40)
+   .setFont(h3);   
+}
+
+public void Start()
+{
+  cp5SpotCheck.hide();
+  cp5.show();
+}
 
 
 void record(boolean theFlag) {

@@ -1,3 +1,33 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import processing.serial.*; 
+import grafica.*; 
+import java.awt.*; 
+import javax.swing.*; 
+import static javax.swing.JOptionPane.*; 
+import javax.swing.JFileChooser; 
+import java.io.FileWriter; 
+import java.io.BufferedWriter; 
+import java.util.*; 
+import java.text.DateFormat; 
+import java.text.SimpleDateFormat; 
+import java.math.*; 
+import controlP5.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class guidualmode extends PApplet {
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Raspberry Pi/ Desktop GUI for controlling the HealthyPi HAT v4
@@ -18,27 +48,27 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////
 
-import processing.serial.*;                  // Serial Library
-import grafica.*;
+                  // Serial Library
+
 
 // Java Swing Package For prompting message
-import java.awt.*;
-import javax.swing.*;
-import static javax.swing.JOptionPane.*;
+
+
+
 
 // File Packages to record the data into a text file
-import javax.swing.JFileChooser;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
+
+
+
 
 // Date Format
-import java.util.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
+
+
 
 // General Java Package
-import java.math.*;
-import controlP5.*;
+
+
 
 ControlP5 cp5;
 
@@ -171,7 +201,7 @@ public void setup()
     GPointsArray pointsECG = new GPointsArray(nPoints1);
     GPointsArray pointsResp = new GPointsArray(nPoints1);
   
-    size(800, 480, JAVA2D);
+    
     //fullScreen();
      
     heightHeader=100;
@@ -389,9 +419,114 @@ public void makeGUI()
     }
 }
 
+public void makeWelcomeScreen()
+{  
+   cp5 = new ControlP5(this);
+   
+   cp5.addButton("Exit")
+     //setValue(0)
+     .setColorBackground(color(255,255,255))
+     .setColorLabel(color(0))
+     .setPosition(width-110,5)
+     .setSize(90,40)
+     .setFont(createFont("verdana",16));
 
+    tglRecord = cp5.addToggle("record")
+     .setPosition(width-225,5)
+     //.setLabel("Record Data")
+     .setLabelVisible(true)
+     .setSize(90,20)
+     .setFont(createFont("verdana",10))
+     .setValue(false)
+     .setColorBackground(color(255,255,255))
+     .setColorLabel(color(255,255,255))
+     .setMode(ControlP5.SWITCH);
+                 
+      if(!System.getProperty("os.arch").contains("arm"))
+      {     
+          cp5.addScrollableList("Select Serial port")
+             .setPosition(300, 5)
+             .setSize(150, 100)
+             .setColorBackground(color(255,255,255))
+             .setColorLabel(color(0))
+             .setColorValueLabel(color(0))
+             //.setColorForeground(color(0))
+             .setFont(createFont("verdana",12))
+             .setBarHeight(40)
+             .close()
+             .setItemHeight(40)
+             .addItems(port.list())
+             .setType(ScrollableList.DROPDOWN) // currently supported DROPDOWN and LIST
+             .addCallback(new CallbackListener() 
+             {
+                public void controlEvent(CallbackEvent event) 
+                {
+                  if (event.getAction() == ControlP5.ACTION_RELEASED) 
+                  {
+                    globalPortName=event.getController().getLabel();
+                    //startSerial(event.getController().getLabel(),115200);
+                  }
+                }
+             } 
+           );    
+           
+           cp5.addButton("Open")
+             .setValue(0)
+             .setColorBackground(color(255,255,255))
+             .setColorLabel(color(0))           
+             .setPosition(470,5)
+             .setSize(80,40)
+             .setFont(createFont("verdana",16));
+        }
+ 
+       lblHR = cp5.addTextlabel("lblHR")
+      .setText("Heartrate: --- bpm")
+      .setPosition(width-550,50)
+      .setColorValue(color(255,255,255))
+      .setFont(createFont("verdana",40));
+      
+      cp5.addTextlabel("lblSPO2")
+      .setText("SpO2: --- %")
+      .setPosition(width-550,(totalPlotsHeight/3+10))
+      .setColorValue(color(255,255,255))
+      .setFont(createFont("verdana",40));
+ 
+      lblRR = cp5.addTextlabel("lblRR")
+      .setText("Respiration: --- bpm")
+      .setPosition(width-550,(totalPlotsHeight/3+totalPlotsHeight/3+10))
+      .setColorValue(color(255,255,255))
+      .setFont(createFont("verdana",40));
+    
+      lblTemp = cp5.addTextlabel("lblTemp")
+      .setText("Body Temp: --- C")
+      .setPosition(width-550,height-60)
+      .setColorValue(color(255,255,255))
+      .setFont(createFont("verdana",40));
+      
+     lblRecordStatus = cp5.addTextlabel("lblRecordStatus")
+      .setText("Record status: " + strRecordStatus)
+      .setPosition(10,height-25)
+      .setColorValue(color(255,255,255))
+      .setFont(createFont("verdana",14));
+          
+    if(height<=480) //condition for Raspberry Pi 7" display
+    {  
+        lblHR.setFont(createFont("verdana",20));
+        lblHR.setPosition(width-200,5+heightHeader);      
+        
+        lblSPO2.setFont(createFont("verdana",20));
+        lblSPO2.setPosition(width-200,(totalPlotsHeight/3+heightHeader));
+      
+        lblTemp.setPosition((width/3)*2,height-25)
+        .setFont(createFont("verdana",20));
+        
+        lblRR.setPosition(width-200,(totalPlotsHeight/3+totalPlotsHeight/3+10+heightHeader))
+        .setFont(createFont("verdana",20));
+       
+    }
+}
 
-void record(boolean theFlag) {
+public void record(boolean theFlag) {
   if(theFlag==true) {
    print("Recording started");
    RecordData();
@@ -558,7 +693,7 @@ public void RecordData()
     }
 }
 
-void folderSelected(File selection) {
+public void folderSelected(File selection) {
   if (selection == null) {
     println("Window was closed or the user hit cancel.");
   } else {
@@ -594,7 +729,7 @@ void folderSelected(File selection) {
   }
 }
 
-void startSerial(String startPortName, int baud)
+public void startSerial(String startPortName, int baud)
 {
   try
   {
@@ -610,13 +745,13 @@ void startSerial(String startPortName, int baud)
   }
 }
 
-void serialEvent (Serial blePort) 
+public void serialEvent (Serial blePort) 
 {
   inString = blePort.readChar();
   ecsProcessData(inString);
 }
 
-void ecsProcessData(char rxch)
+public void ecsProcessData(char rxch)
 {
   switch(ecs_rx_state)
   {
@@ -840,7 +975,7 @@ public int reversePacket(char DataRcvPacket[], int n)
 }
 
 /*************** Function to Calculate Average *********************/
-double averageValue(float dataArray[])
+public double averageValue(float dataArray[])
 {
 
   float total = 0;
@@ -849,4 +984,14 @@ double averageValue(float dataArray[])
     total = total + dataArray[i];
   }
   return total/dataArray.length;
+}
+  public void settings() {  size(800, 480, JAVA2D); }
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "guidualmode" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }
