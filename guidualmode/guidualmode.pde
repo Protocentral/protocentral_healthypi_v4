@@ -171,6 +171,9 @@ String globalPortName="";
 
 String strRecordStatus="Not Recording";
 
+String globalPatientName = "";
+String globalPatientAge = "";
+
 public void setup() 
 {
     println(System.getProperty("os.name"));
@@ -477,6 +480,7 @@ public void makeSpotCheckScreen()
   
   cp5SpotCheck.addTextfield("Patient Name")
    .setPosition(width/2-100,(height/2))
+   
    .setSize(200,40)
    .setFont(h2)
    .setFocus(true)
@@ -501,9 +505,17 @@ public void makeSpotCheckScreen()
 
 public void makeSpotCheckRecordBar()
 {  
+      cp5SpotCheckRecordBar = new ControlP5(this);
+
+  
   cp5SpotCheckRecordBar.addTextlabel("lblSpotCheckBar")
   .setText("Spot Check Mode")
-  .setPosition(25, heightHeader-25)
+  .setPosition(25, heightHeader-35)
+  .setColorValue(color(255,255,255))
+  .setFont(h3);
+  cp5SpotCheckRecordBar.addTextlabel("lblPatientName")
+  .setText("Patient: " + globalPatientName + " | Age: " +globalPatientAge )
+  .setPosition(25, heightHeader-15)
   .setColorValue(color(255,255,255))
   .setFont(h3);
   
@@ -518,10 +530,22 @@ public void makeSpotCheckRecordBar()
 public void Start()
 {
   cp5SpotCheck.hide();
-  cp5SpotCheckRecordBar.show();
+  
   cp5.show();
-}
+  
 
+  
+  globalPatientName = cp5SpotCheck.get(Textfield.class,"Patient Name").getText();
+  println("Patient Name: " +cp5SpotCheck.get(Textfield.class,"Patient Name").getText() );
+  
+  globalPatientAge = cp5SpotCheck.get(Textfield.class,"Patient Age").getText();
+  println("Patient Name: " +cp5SpotCheck.get(Textfield.class,"Patient Age").getText() );
+  
+    makeSpotCheckRecordBar();
+    
+    cp5SpotCheckRecordBar.show();
+  
+}
 
 void record(boolean theFlag) {
   if(theFlag==true) {
