@@ -233,7 +233,12 @@ public void setup()
     delay(2000);
     if(System.getProperty("os.arch").contains("arm"))
     {
-      startSerial("/dev/serial0",115200);
+      globalPortName = "/dev/serial0";
+      File f = new File(globalPortName);
+      if (!f.exists()) {
+        globalPortName = "/dev/ttyAMA0";
+      }
+      startSerial(globalPortName,115200);
       checkForExternalStorage();
     }
     
@@ -533,7 +538,7 @@ public void RecordData()
               bufferedWriter.newLine();
               bufferedWriter.write("Format: ECG, PPG, Respiration, Temperature, Heartrate, SpO2, Respiration Rate");
               bufferedWriter.newLine();
-              startSerial("/dev/serial0",115200);
+              startSerial(globalPortName,115200);
             }
             catch(Exception e)
             {
